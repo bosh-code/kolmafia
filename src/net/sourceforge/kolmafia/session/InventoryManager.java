@@ -8,6 +8,7 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +23,7 @@ import net.sourceforge.kolmafia.KoLmafia;
 import net.sourceforge.kolmafia.KoLmafiaASH;
 import net.sourceforge.kolmafia.KoLmafiaCLI;
 import net.sourceforge.kolmafia.ModifierType;
+import net.sourceforge.kolmafia.Modifiers;
 import net.sourceforge.kolmafia.RequestLogger;
 import net.sourceforge.kolmafia.RequestThread;
 import net.sourceforge.kolmafia.SpecialOutfit.Checkpoint;
@@ -30,7 +32,7 @@ import net.sourceforge.kolmafia.equipment.SlotSet;
 import net.sourceforge.kolmafia.listener.ItemListenerRegistry;
 import net.sourceforge.kolmafia.listener.PreferenceListenerRegistry;
 import net.sourceforge.kolmafia.modifiers.Lookup;
-import net.sourceforge.kolmafia.modifiers.MultiStringModifier;
+import net.sourceforge.kolmafia.modifiers.StringModifier;
 import net.sourceforge.kolmafia.objectpool.Concoction;
 import net.sourceforge.kolmafia.objectpool.ConcoctionPool;
 import net.sourceforge.kolmafia.objectpool.EffectPool;
@@ -1717,7 +1719,10 @@ public abstract class InventoryManager {
     checkCrimboTrainingManual();
     checkRing();
     checkFuturistic();
+
+    checkExperimentalEffectG9();
     checkZootomistMods();
+    checkHeartstoneAttunement();
   }
 
   public static void checkNoHat() {
@@ -1887,6 +1892,10 @@ public abstract class InventoryManager {
     checkItem(ItemPool.FUTURISTIC_COLLAR, "_futuristicCollarModifier");
   }
 
+  public static void checkExperimentalEffectG9() {
+    checkEffectDescription(EffectPool.EXPERIMENTAL_EFFECT_G9);
+  }
+
   public static void checkZootomistMods() {
     if (!KoLCharacter.inZootomist()) {
       // don't bother checking
@@ -1895,6 +1904,13 @@ public abstract class InventoryManager {
     checkEffectDescription(EffectPool.GRAFTED);
     checkEffectDescription(EffectPool.MILK_OF_FAMILIAR_KINDNESS);
     checkEffectDescription(EffectPool.MILK_OF_FAMILIAR_CRUELTY);
+  }
+
+  public static void checkHeartstoneAttunement() {
+    if (!KoLConstants.activeEffects.contains(EffectPool.get(EffectPool.HEARTSTONE_ATTUNEMENT))) {
+      return;
+    }
+    checkEffectDescription(EffectPool.HEARTSTONE_ATTUNEMENT);
   }
 
   private static void checkItem(int id, String preference) {
@@ -1955,21 +1971,33 @@ public abstract class InventoryManager {
   }
 
   public static void checkSkillGrantingEquipment(final Integer itemId) {
-    ModifierDatabase.getInventorySkillProviders().stream()
-        .filter(l -> l.getType() == ModifierType.ITEM)
-        .map(Lookup::getIntKey)
-        .filter(i -> itemId == null || i.equals(itemId))
-        .filter(id -> KoLCharacter.hasEquipped(id) || InventoryManager.hasItem(id))
-        .flatMap(
-            id -> {
-              var mods = ModifierDatabase.getItemModifiers(id);
-              if (mods == null) return Stream.empty();
-              return Stream.concat(
-                  mods.getStrings(MultiStringModifier.CONDITIONAL_SKILL_INVENTORY).stream()
-                      .map(s -> Map.entry(true, s)),
-                  mods.getStrings(MultiStringModifier.CONDITIONAL_SKILL_EQUIPPED).stream()
-                      .map(s -> Map.entry(false, s)));
-            })
+    var skills =
+        ModifierDatabase.getInventorySkillProviders().stream()
+            .filter(l -> l.getType() == ModifierType.ITEM)
+            .map(Lookup::getIntKey)
+            .filter(i -> itemId == null || i.equals(itemId))
+            .filter(id -> KoLCharacter.hasEquipped(id) || InventoryManager.hasItem(id))
+            .flatMap(
+                id -> {
+                  var mods = ModifierDatabase.getItemModifiers(id);
+                  return conditionalSkillsFromMods(mods);
+                });
+
+    if ((itemId == null || ItemPool.THE_ETERNITY_CODPIECE == itemId)
+        && InventoryManager.equippedOrInInventory(ItemPool.THE_ETERNITY_CODPIECE)) {
+      var codpieceSkills =
+          SlotSet.CODPIECE_SLOTS.stream()
+              .map(EquipmentManager::getEquipment)
+              .map(AdventureResult::getItemId)
+              .flatMap(
+                  id -> {
+                    var mods = ModifierDatabase.getModifiers(ModifierType.ETERNITY_CODPIECE, id);
+                    return conditionalSkillsFromMods(mods);
+                  });
+      skills = Stream.concat(skills, codpieceSkills);
+    }
+
+    skills
         .map(e -> Map.entry(e.getKey(), SkillDatabase.getSkillId(e.getValue())))
         .filter(
             e ->
@@ -1978,6 +2006,15 @@ public abstract class InventoryManager {
                         .contains(SkillDatabase.SkillTag.NONCOMBAT))
         .map(Map.Entry::getValue)
         .forEach(KoLCharacter::addAvailableSkill);
+  }
+
+  private static Stream<Entry<Boolean, String>> conditionalSkillsFromMods(Modifiers mods) {
+    if (mods == null) return Stream.empty();
+    return Stream.concat(
+        mods.getStrings(StringModifier.CONDITIONAL_SKILL_INVENTORY).stream()
+            .map(s -> Map.entry(true, s)),
+        mods.getStrings(StringModifier.CONDITIONAL_SKILL_EQUIPPED).stream()
+            .map(s -> Map.entry(false, s)));
   }
 
   public static void checkRing() {
@@ -2083,10 +2120,12 @@ public abstract class InventoryManager {
           CARD,
           FOLDER,
           BOOTSKIN,
-          BOOTSPUR -> true;
-        // combat
-      case NONE -> ItemDatabase.getAttribute(
-          itemId, EnumSet.of(Attribute.COMBAT, Attribute.COMBAT_REUSABLE));
+          BOOTSPUR ->
+          true;
+      // combat
+      case NONE ->
+          ItemDatabase.getAttribute(
+              itemId, EnumSet.of(Attribute.COMBAT, Attribute.COMBAT_REUSABLE));
       default -> false;
     };
   }
@@ -2116,7 +2155,8 @@ public abstract class InventoryManager {
           ItemPool.MERKIN_DRAGNET,
           ItemPool.MERKIN_SWITCHBLADE,
           ItemPool.SEA_CHAPS,
-          ItemPool.UNBLEMISHED_PEARL -> false;
+          ItemPool.UNBLEMISHED_PEARL ->
+          false;
       default -> true;
     };
   }

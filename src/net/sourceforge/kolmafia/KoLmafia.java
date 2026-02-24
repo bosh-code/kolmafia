@@ -86,6 +86,7 @@ import net.sourceforge.kolmafia.request.UseItemRequest;
 import net.sourceforge.kolmafia.request.WildfireCampRequest;
 import net.sourceforge.kolmafia.request.coinmaster.BountyHunterHunterRequest;
 import net.sourceforge.kolmafia.request.coinmaster.HermitRequest;
+import net.sourceforge.kolmafia.request.coinmaster.SkeletonOfCrimboPastRequest;
 import net.sourceforge.kolmafia.request.coinmaster.shop.SeptEmberCenserRequest;
 import net.sourceforge.kolmafia.request.concoction.CreateItemRequest;
 import net.sourceforge.kolmafia.session.BanishManager;
@@ -833,18 +834,23 @@ public abstract class KoLmafia {
 
     // If the path allows, retrieve campground data to see if the user has box
     // servants or a bookshelf
-    if (!KoLCharacter.getLimitMode().limitCampground()
-        && !KoLCharacter.isEd()
-        && !KoLCharacter.inNuclearAutumn()
-        && !KoLCharacter.inRobocore()
-        && !KoLCharacter.inWereProfessor()) {
+    if (CampgroundRequest.haveCampground()) {
       KoLmafia.updateDisplay("Retrieving campground data...");
       if (!KoLCharacter.isVampyre()) {
         RequestThread.postRequest(new CampgroundRequest("inspectdwelling"));
       }
       RequestThread.postRequest(new CampgroundRequest("inspectkitchen"));
-      RequestThread.postRequest(new CampgroundRequest("workshed"));
       KoLCharacter.checkTelescope();
+    }
+
+    if (KoLCharacter.inSmallcore()) {
+      KoLmafia.updateDisplay("Retrieving campground data...");
+      RequestThread.postRequest(new CampgroundRequest("inspectkitchen"));
+      RequestThread.postRequest(new CampgroundRequest("terminal"));
+    }
+
+    if (CampgroundRequest.haveWorkshed()) {
+      RequestThread.postRequest(new CampgroundRequest("workshed"));
     }
 
     // Retrieve current Cafe menus if we haven't done so today
@@ -886,10 +892,8 @@ public abstract class KoLmafia {
     ResultProcessor.updateEntauntauned();
     ResultProcessor.updateSavageBeast();
     CargoCultistShortsRequest.loadPockets();
-    if (SeptEmberCenserRequest.accessible() == null
-        && !Preferences.getBoolean("_septEmberBalanceChecked")) {
-      RequestThread.postRequest(SeptEmberCenserRequest.getRequest());
-    }
+    SeptEmberCenserRequest.checkBalance();
+    SkeletonOfCrimboPastRequest.checkSpecial();
 
     // This needs to be checked once, to set the property.
     // Once it is set, no further requests will be issued.

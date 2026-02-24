@@ -24,6 +24,7 @@ import net.sourceforge.kolmafia.persistence.FactDatabase;
 import net.sourceforge.kolmafia.persistence.MonsterDatabase.Element;
 import net.sourceforge.kolmafia.persistence.MonsterDatabase.Phylum;
 import net.sourceforge.kolmafia.persistence.MonsterDrop;
+import net.sourceforge.kolmafia.persistence.ShrunkenHeadDatabase;
 import net.sourceforge.kolmafia.preferences.Preferences;
 import net.sourceforge.kolmafia.request.StandardRequest;
 import net.sourceforge.kolmafia.session.EncounterManager.EncounterType;
@@ -76,7 +77,13 @@ public class MonsterData extends AdventureResult {
     FREE("FREE"),
     NOWANDER("NOWANDER"),
     // Subtypes
+    BUGBEAR("BUGBEAR"),
     GHOST("GHOST"),
+    SKELETON("SKELETON"),
+    VAMPIRE("VAMPIRE"),
+    WEREWOLF("WEREWOLF"),
+    ZOMBIE("ZOMBIE"),
+    SEAL("SEAL"),
     SNAKE("SNAKE"),
     DRIPPY("DRIPPY"),
     // Specialized
@@ -275,9 +282,16 @@ public class MonsterData extends AdventureResult {
               SUPERLIKELY,
               FREE,
               NOWANDER,
+              BUGBEAR,
               GHOST,
+              SKELETON,
+              VAMPIRE,
+              WEREWOLF,
+              ZOMBIE,
+              SEAL,
               SNAKE,
-              DRIPPY -> attributeMap.put(attribute, true);
+              DRIPPY ->
+              attributeMap.put(attribute, true);
         }
       } catch (Exception e) {
         // This should not happen.  Therefore, print
@@ -405,7 +419,13 @@ public class MonsterData extends AdventureResult {
     saveValueAttribute(Attribute.PHYLUM, attributeMap, buf);
 
     // Subtypes
+    saveKeywordAttribute(Attribute.BUGBEAR, attributeMap, buf);
     saveKeywordAttribute(Attribute.GHOST, attributeMap, buf);
+    saveKeywordAttribute(Attribute.SKELETON, attributeMap, buf);
+    saveKeywordAttribute(Attribute.VAMPIRE, attributeMap, buf);
+    saveKeywordAttribute(Attribute.WEREWOLF, attributeMap, buf);
+    saveKeywordAttribute(Attribute.ZOMBIE, attributeMap, buf);
+    saveKeywordAttribute(Attribute.SEAL, attributeMap, buf);
     saveKeywordAttribute(Attribute.SNAKE, attributeMap, buf);
     saveKeywordAttribute(Attribute.DRIPPY, attributeMap, buf);
 
@@ -585,8 +605,26 @@ public class MonsterData extends AdventureResult {
 
   private Set<String> attributeMapToSubtypes(final Map<Attribute, Object> attributeMap) {
     Set<String> subTypes = new HashSet<>();
+    if (attributeMap.containsKey(Attribute.BUGBEAR)) {
+      subTypes.add("bugbear");
+    }
     if (attributeMap.containsKey(Attribute.GHOST)) {
       subTypes.add("ghost");
+    }
+    if (attributeMap.containsKey(Attribute.SKELETON)) {
+      subTypes.add("skeleton");
+    }
+    if (attributeMap.containsKey(Attribute.VAMPIRE)) {
+      subTypes.add("vampire");
+    }
+    if (attributeMap.containsKey(Attribute.WEREWOLF)) {
+      subTypes.add("werewolf");
+    }
+    if (attributeMap.containsKey(Attribute.ZOMBIE)) {
+      subTypes.add("zombie");
+    }
+    if (attributeMap.containsKey(Attribute.SEAL)) {
+      subTypes.add("seal");
     }
     if (attributeMap.containsKey(Attribute.SNAKE)) {
       subTypes.add("snake");
@@ -1161,14 +1199,14 @@ public class MonsterData extends AdventureResult {
           // Cold Aura
         }
 
-          // Nuclear Autumn
+        // Nuclear Autumn
         case "mutant" -> {
           monster.health = monster.getRawHP() * 6 / 5;
           monster.attack = monster.getRawAttack() * 6 / 5;
           monster.defense = monster.getRawDefense() * 6 / 5;
         }
 
-          // Masks
+        // Masks
         case "Mr. mask", "Bonerdagon mask" -> {
           if (this.scale == null) {
             monster.health = monster.getRawHP() * 2;
@@ -1203,7 +1241,7 @@ public class MonsterData extends AdventureResult {
           }
         }
 
-          // Fall of the Dinosaurs
+        // Fall of the Dinosaurs
         case "archelon" -> {
           // Reflects spells
         }
@@ -1229,7 +1267,7 @@ public class MonsterData extends AdventureResult {
           // Runs away if lose initiative, lots of +item when killed
         }
 
-          // Hat Trick
+        // Hat Trick
         case "terrycloth turban" -> monster.health = monster.getRawHP() * 5 / 4;
         case "jockey's hat" -> {
           // faster: unknown, probably init
@@ -1706,9 +1744,8 @@ public class MonsterData extends AdventureResult {
     var forceFree =
         switch (this.name) {
           case "X-32-F Combat Training Snowman" -> Preferences.getInteger("_snojoFreeFights") < 10;
-          case "biker", "\"plain\" girl", "jock", "party girl", "burnout" -> Preferences.getInteger(
-                  "_neverendingPartyFreeTurns")
-              < 10;
+          case "biker", "\"plain\" girl", "jock", "party girl", "burnout" ->
+              Preferences.getInteger("_neverendingPartyFreeTurns") < 10;
           default -> false;
         };
 
@@ -1925,6 +1962,29 @@ public class MonsterData extends AdventureResult {
     String fact = this.getFact();
     if (fact != null) {
       buffer.append(fact);
+    }
+    return;
+  }
+
+  public String getShrunkenHeadZombie(boolean requireEquipped) {
+    if (this.isNoCopy()) {
+      // uncopyable monsters can't be reanimated
+      return null;
+    }
+    if (!Preferences.getBoolean("hasShrunkenHead")) {
+      return null;
+    }
+    if (requireEquipped && !KoLCharacter.hasEquipped(ItemPool.SHRUNKEN_HEAD)) {
+      return null;
+    }
+    var z = ShrunkenHeadDatabase.shrunkenHeadZombie(this.id, KoLCharacter.getPath().id);
+    return "<br />Shrunken Head Zombie: " + z.toString();
+  }
+
+  public void appendShrunkenHeadZombie(StringBuilder buffer, boolean requireEquipped) {
+    String zombie = this.getShrunkenHeadZombie(requireEquipped);
+    if (zombie != null) {
+      buffer.append(zombie);
     }
     return;
   }

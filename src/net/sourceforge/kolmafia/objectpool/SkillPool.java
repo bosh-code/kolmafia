@@ -133,6 +133,7 @@ public class SkillPool {
   public static final int HOLIDAY_MULTITASKING = 240;
   public static final int OVERCLOCK10 = 243;
   public static final int GENERATE_IRONY = 245;
+  public static final int ONLY_DOGS_LOVE_A_DRUNKEN_SAILOR = 251;
 
   public static final int SEAL_CLUBBING_FRENZY = 1000;
   public static final int THRUST_SMACK = 1003;
@@ -309,6 +310,15 @@ public class SkillPool {
   public static final int PLAY_A_FLUTE_SOLO = 7078;
   public static final int OPEN_THE_BAG_O_TRICKS = 7081;
   public static final int APPRIVOISEZ_LA_TORTUE = 7083;
+  public static final int BALL_BUST = 7085;
+  public static final int BALL_SWEAT = 7086;
+  public static final int BALL_SACK = 7087;
+  public static final int NET_GAIN = 7088;
+  public static final int NET_LOSS = 7089;
+  public static final int NET_NEUTRALITY = 7090;
+  public static final int BLADE_SLING = 7091;
+  public static final int BLADE_ROLLER = 7092;
+  public static final int BLADE_RUNNER = 7093;
   public static final int STATIC_SHOCK__RED_AND_GREEN_SWEATER = 7094;
   public static final int STINKEYE = 7095;
   public static final int BASHING_SLAM_SMASH = 7096;
@@ -355,6 +365,7 @@ public class SkillPool {
   public static final int FIRE_ROCKET = 7164;
   public static final int GREAT_SLASH = 7165;
   public static final int GET_A_GOOD_WHIFF = 7166;
+  public static final int BLINDING_FLASH = 7167;
   public static final int WINK = 7168;
   public static final int TALK_ABOUT_POLITICS = 7169;
   public static final int POCKET_CRUMBS = 7170;
@@ -548,6 +559,7 @@ public class SkillPool {
   public static final int SIP_SOME_SWEAT = 7420;
   public static final int SWEAT_SIP = 7421;
   public static final int LAUNCH_SPIKOLODON_SPIKES = 7424;
+  public static final int ENGAGE_ULTRA_ATTRACTIVE_PARKA_MODE = 7425;
   public static final int CERAMIC_PUNCH = 7426;
   public static final int CERAMIC_BASH = 7427;
   public static final int CERAMIC_GRATE = 7428;
@@ -655,8 +667,30 @@ public class SkillPool {
   public static final int RIGHT_KICK = 7560;
   public static final int PUNCH_OUT_YOUR_FOE = 7561;
   public static final int CREATE_AN_AFTERIMAGE = 7562;
+  public static final int BERET_BLAST = 7563;
+  public static final int BERET_BOAST = 7564;
   public static final int TRY_TO_REMEMBER = 7567;
   public static final int SEADENT_LIGHTNING = 7568;
+  public static final int BCZ__BLOOD_GEYSER = 7571;
+  public static final int BCZ__REFRACTED_GAZE = 7572;
+  public static final int BCZ__SWEAT_BULLETS = 7573;
+  public static final int BCZ__BLOOD_BATH = 7574;
+  public static final int BCZ__DIAL_IT_UP_TO_11 = 7575;
+  public static final int BCZ__SWEAT_EQUITY = 7576;
+  public static final int BCZ__CREATE_BLOOD_THINNER = 7577;
+  public static final int BCZ__PREPARE_SPINAL_TAPAS = 7578;
+  public static final int BCZ__CRAFT_A_PHEROMONE_COCKTAIL = 7579;
+  public static final int MARK_YOUR_TERRITORY = 7580;
+  public static final int CLUB_EM_ACROSS_THE_BATTLEFIELD = 7582;
+  public static final int CLUB_EM_INTO_NEXT_WEEK = 7583;
+  public static final int CLUB_EM_BACK_IN_TIME = 7584;
+  public static final int STEAL_HEART = 7585;
+  public static final int HEARTSTONE_KILL = 7586;
+  public static final int HEARTSTONE_BANISH = 7587;
+  public static final int HEARTSTONE_STUN = 7588;
+  public static final int HEARTSTONE_LUCK = 7589;
+  public static final int HEARTSTONE_PALS = 7590;
+  public static final int HEARTSTONE_BUFF = 7591;
 
   public static final int GOOD_SINGING_VOICE = 11016;
   public static final int BANISHING_SHOUT = 11020;
@@ -892,6 +926,8 @@ public class SkillPool {
   public static final int VENOMOUS_RIFF = 30015;
   public static final int DRUM_ROLL = 30016;
   public static final int MOTIF = 30021;
+  public static final int MEAT_CUTE = 33013;
+  public static final int CHICKEN_FINGERS = 33032;
 
   private SkillPool() {}
 }

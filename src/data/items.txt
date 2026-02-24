@@ -17,8 +17,9 @@
 #	single, solo,
 #	curse, bounty, package
 #	candy, candy1, candy2, chocolate
-#	fancy, paste, smith, cook. mix
+#	fancy, paste, smith, cook, mix
 #	matchable
+#	perishable
 #
 #	Access flags:
 #	q - quest
@@ -11927,7 +11928,7 @@
 11899	wet paperback	793289806	wetpaperback.gif	potion	t,d	11
 11900	wet shower radio	360902606	wetpaperradio.gif	accessory	q	0
 11901	wet shower stamp	834166843	wetpaperstamp.gif	usable	t	0
-11902
+11902	big birthday bloon	424747677	bdayballoon.gif	offhand		0
 11903	jawwetter	169174157	wetpaperball.gif	potion	t,d	5
 11904	Unpeeled Peridot of Peril	147004779	peridot_box.gif	usable	t	0	Unpeeled Peridots of Peril
 11905	Peridot of Peril	519151496	peridot.gif	accessory, curse		0	Peridots of Peril
@@ -11985,7 +11986,7 @@
 11957	the gun	720217934	happiness.gif	weapon	q	0
 11958	fancy old wine	590385263	wine.gif	drink	t,d	500	bottles of fancy old wine
 11959
-11960	really, really nice swimming trunks	689309757	nicetrunks.gif	pants	q	0
+11960	really, really nice swimming trunks	689309757	nicetrunks.gif	pants	q	0	pairs of really, really nice swimming trunks
 11961	sand penny	692682835	sandpenny.gif	none	q	0	sand pennies
 11962	undersea surveying goggles	351851283	surveygoggles.gif	hat	q	0	pairs of undersea surveying goggles
 11963	Ocean-Touched Rum	224796689	emberbottle.gif	drink	t	0	bottles of Ocean-Touched Rum
@@ -12003,3 +12004,209 @@
 11975	Monodent of the Sea	727681647	dent1.gif	weapon		0	Multi-tined Spears of the Sea
 11976	unblemished pearl	116285599	nicepearl.gif	none	t,d	11037
 11977	dentadent	523165547	toothspear.gif	weapon	t,d	1
+11978
+11979
+11980
+11981
+11982
+11983
+11984
+11985
+11986	lab-grown blood cubic zirconia	907192093	cbz_box.gif	usable	t	0
+11987	blood cubic zirconia	484759947	cbz.gif	accessory		0
+11988
+11989
+11990
+11991
+11992
+11993
+11994
+11995
+11996
+11997
+11998
+11999
+12000
+12001
+12002
+12003
+12004
+12005
+12006
+12007
+12008
+12009
+12010
+12011
+12012
+12013
+12014
+12015
+12016
+12017
+12018
+12019
+12020
+12021
+12022
+12023
+12024
+12025
+12026
+12027
+12028
+12029
+12030
+12031
+12032
+12033
+12034
+12035
+12036
+12037
+12038
+12039
+12040
+12041
+12042
+12043
+12044	blood thinner	295771919	cbz_vial.gif	spleen, usable	t,d	25	vials of blood thinner
+12045	pheromone cocktail	796820375	cbz_booze.gif	drink	t,d	25
+12046	spinal tapas	283199142	cbz_tapasplate.gif	food	t,d	25	plates of spinal tapas
+12047	shrunken head in a duffel bag	237386044	headbag.gif	usable	t	0	shrunken heads in duffel bags
+12048	shrunken head	895261260	shrunkenhead.gif	offhand		0
+12049	stocking full of bones	400945094	bonestocking.gif	grow	t	0	stockings full of bones
+12050	small peppermint-flavored sugar walking crook	331776652	candycane.gif	familiar	t,d	75
+12051	knucklebone	693029493	knucklebone2.gif	none		0
+12052	Smoking Pope	636925864	smokingpope.gif	drink	t,d	25
+12053	prize turkey	691007693	prizeturkey.gif	food	t,d	25
+12054	medicinal gruel	965873114	soupbowl.gif	spleen, usable	t,d	25	bowls of medicinal gruel
+12055	full-sized pumpkin pie	119123875	pecanpie.gif	food	t,d	25
+12056	vodka cranberry sauce	294119932	nachocan.gif	drink	t,d	25	cans of vodka cranberry sauce
+12057	yammed candy	662308374	yamcandy.gif	potion	t,d	25	yammed candies
+12058	treasure chestnut	542394681	chestnut.gif	food	t,d	11
+12059	mulled butter rum	206500230	mulledrum.gif	drink	t,d	11	cups of mulled butter rum
+12060	cinnamon doubloon	711461021	cinnacoin.gif	potion, usable	t,d	11
+12061	tiny plastic left skeleton arm	242792400	tpc25larm.gif	accessory	t	0
+12062	tiny plastic left skeleton leg	864836935	tpc25leg.gif	accessory	t	0
+12063	tiny plastic right skeleton arm	614426579	tpc25rarm.gif	accessory	t	0
+12064	tiny plastic right skeleton leg	472689693	tpc25reg.gif	accessory	t	0
+12065	tiny plastic skeleton pelvis	463690423	tpc25butt.gif	accessory	t	0	tiny plastic skeleton pelvi
+12066	discreetly-wrapped Eternity Codpiece	323763723	eternitycodbox.gif	usable	t	0
+12067	The Eternity Codpiece	313152180	eternitycod.gif	accessory		0
+12068	angelbone kilt	117499768	abonekilt.gif	pants		0
+12069	angelbone totem	878053706	abonetotem.gif	weapon		0
+12070	angelbone chopsticks	772683923	abonechopsticks.gif	accessory		0	pairs of angelbone chopsticks
+12071	angelbone mantle	190969423	abonemantle.gif	container		0
+12072	angelbone dice	179374516	abonedice.gif	accessory		0	sets of angelbone dice
+12073	angelbone halo	945612369	abonehalo.gif	hat		0
+12074	angelbone fragments	982280688	abonebits.gif	spleen, usable		0	piles of angelbone fragments
+12075	biblically accurate gumdrops	256315867	abonecandy.gif	potion	t,d	15	handfuls of biblically accurate gumdrops
+12076	devilbone helmet	133557227	dbonehelm.gif	hat		0
+12077	devilbone greaves	670583672	dbonepants.gif	pants		0	pairs of devilbone greaves
+12078	devilbone shinguards	741836596	dboneshins.gif	accessory		0	pairs of devilbone shinguards
+12079	devilbone corset	480217987	dbonecorset.gif	shirt		0
+12080	devilbone flute	196343443	dboneflute.gif	weapon		0
+12081	devilbone rosary	973060638	dbonerosary.gif	accessory		0	devilbone rosaries
+12082	devilbone chunks	866251215	dbonebits.gif	spleen, usable		0	piles of devilbone chunks
+12083	Gehenna tattoo	454030160	dbonetattoo.gif	potion	t,d	15
+12084
+12085
+12086
+12087
+12088
+12089
+12090
+12091
+12092
+12093
+12094
+12095
+12096
+12097
+12098
+12099
+12100
+12101
+12102
+12103
+12104
+12105
+12106
+12107
+12108
+12109
+12110
+12111
+12112
+12113
+12114
+12115
+12116	burnt incisor	503478323	c25tro1.gif	none		0
+12117	burnt phalange	902668920	c25trob2.gif	none		0
+12118	burnt radius	774034777	c25trub4.gif	none		0	burnt radii
+12119	burnt rib	198797379	c25tronk3.gif	none		0
+12120	burnt skull	796508560	c25tranq5.gif	none		0
+12121	Crymbocurrency	939831959	crypto.gif	none		0	Crymbocurrency
+12122	extra-thick Crimbo sweater	377151348	c25sweater.gif	shirt	t	0
+12123	The Encyclopedia of Holiday Funerary Rites	669691654	book4.gif	usable	t	0	copies of The Encyclopedia of Holiday Funerary Rit
+12124	Steve Abrams' Holiday Sampler Beer	150977618	holidaybeer.gif	drink	t,d	25	bottles of Steve Abrams' Holiday Sampler Beer
+12125	crate of prize-winning rum	824419496	crate.gif	usable	t	0	crates of prize-winning rum
+12126	bottle of prize-winning rum	431517630	prizerumbottle.gif	drink	t,d	25	bottles of prize-winning rum
+12127	Santa-Slayer medal	625460805	ssmedal.gif	accessory		0
+12128	Skull of Claus	134749599	santaskull.gif	none		0	Skulls of Claus
+12129	boiling bone marrow	153427849	c25goo1.gif	potion	t,d	22	globs of boiling bone marrow
+12130	boiling cerebrospinal fluid	233745225	c25goo2.gif	potion	t,d	22	globs of boiling cerebrospinal fluid
+12131	boiling synovial fluid	618141245	c25goo3.gif	potion	t,d	22	globs of boiling synovial fluid
+12132	smoldering vertebra	437643856	vertebraring.gif	accessory	t	0	smoldering vertebrae
+12133	seal-clubbing club loot box	175163561	leg_club_box.gif	usable	t	0	seal-clubbing club loot boxes
+12134	legendary seal-clubbing club	226823809	leg_club.gif	weapon		0
+12135	smoldering bone dust	407867545	smolderdust.gif	none	t,d	15	piles of smoldering bone dust
+12136	volatile bone bomb	613792951	bonebomb.gif	none, combat	t,d	111
+12137	hot boning knife	593295785	hotboningknife.gif	weapon	t	0	hot boning knives
+12138	flaming fistbone	521112927	flamefist.gif	offhand	t	0
+12139	burnt bone belt	876239904	bonebelt2.gif	accessory	t	0
+12140	scorched skull trophy	607107330	skulltrophy.gif	offhand	t	0	scorched skull trophies
+12141	wing bone	379107449	wingbone.gif	food	t,d	42
+12142	weak skeleton venom	845778217	venomcocktail.gif	drink	t,d	40	cups of weak skeleton venom
+12143	baked bone meal	588339257	bakedbonemeal.gif	spleen, usable	t,d	99	handfuls of baked bone meal
+12144	tiny plastic skeleton rib cage	420030820	tpc25chest.gif	accessory	t	0
+12145	tiny plastic skeleton skull	398658711	tpc25head.gif	accessory	t	0
+12146	tiny plastic skeleton Crimbo hat	158147284	tpc25hat.gif	accessory	t	0
+12147	assembled tiny plastic Santa skeleton	207578207	santaskel.gif	grow		0
+12148	miniature sleigh	443417904	minisleigh.gif	familiar	t,d	75
+12149	undertakers' forceps	345457303	forceps.gif	weapon	t	0	pairs of undertakers' forceps
+12150	bone-polishing rag	118717041	bonerag.gif	offhand	t	0
+12151	scorched skeleton mask	771021400	sskelmask.gif	hat	t	0
+12152	scorched skeleton shirt	385403056	sskelshirt.gif	shirt	t	0
+12153	scorched skeleton pants	461712890	sskelpants.gif	pants	t	0	pairs of scorched skeleton pants
+12154	messenger parrot egg	125833643	jarl_egg.gif	none, usable, curse	t,d	50
+12155	buryable chest	472888474	buryablechest.gif	usable	t,d	100
+12156	Shanty: Let's Beat Up This Drunken Sailor	363038603	book3.gif	usable	t	0	Shanties: Let's Beat Up This Drunken Sailor
+12157	Shanty: Let's Beat Up This Drunken Sailor (used)	375418743	book3.gif	usable		0	Shanties: Let's Beat Up This Drunken Sailor (used)
+12158	Shanty: I'm Smarter Than a Drunken Sailor	216960066	book3.gif	usable	t	0	Shanties: I'm Smarter Than a Drunken Sailor
+12159	Shanty: I'm Smarter Than a Drunken Sailor (used)	170222668	book3.gif	usable		0	Shanties: I'm Smarter Than a Drunken Sailor (used)
+12160	Shanty: Look At That Drunken Sailor Dance	842142519	book3.gif	usable	t	0	Shanties: Look At That Drunken Sailor Dance
+12161	Shanty: Look At That Drunken Sailor Dance (used)	735801035	book3.gif	usable		0	Shanties: Look At That Drunken Sailor Dance (used)
+12162	Shanty: Who's Going to Pay This Drunken Sailor?	112805285	book3.gif	usable	t	0	Shanties: Shanty: Who's Going to Pay This Drunken 
+12163	Shanty: Who's Going to Pay This Drunken Sailor? (used)	546484497	book3.gif	usable		0	Shanties: Who's Going to Pay This Drunken Sailor? (used)
+12164	Shanty: Only Dogs Love a Drunken Sailor	111305891	book3.gif	usable	t	0	Shanties: Only Dogs Love Drunken Sailors
+12165	Shanty: Only Dogs Love a Drunken Sailor (used)	760508477	book3.gif	usable		0	Shanties: Only Dogs Love Drunken Sailors (used)
+12166	Crymbocurrency tattoo	804475271	cryptotat.gif	usable	t	0
+12167	fireproof bonesaw	816245231	fireproofsaw.gif	weapon	t,d	100
+12168	vermiculite shield	886101819	vermicshield.gif	offhand	t,d	100
+12169	cursed ship's lantern	317886719	cursedlantern.gif	offhand	t,d	100
+12170	heat-resistant harpoon pistol	515543041	harpoonpistol.gif	weapon	t,d	100
+12171	traditional gingerloaf	952863249	gingerloaf.gif	food	t,d	35	traditional gingerloaves
+12172	Scotch and eggnog	391232132	coffeecup.gif	drink	t,d	37	cups of Scotch and eggnog
+12173	counterskeleton elixir	696432516	skullpotion.gif	potion, usable	t,d	69
+12174	&quot;salvaged&quot; wine	396890642	salvagewine.gif	drink	t	0	bottles of &quot;salvaged&quot; wine
+12175	The Encyclopedia of Holiday Funerary Rites (used)	707499135	book4.gif	usable		0	used copies of The Encyclopedia of Holiday Funerar
+12176	crate of prize-winning cheese	738719260	crate.gif	usable	t	0	crates of prize-winning cheese
+12177	wedge of prize-winning cheese	357068703	yamcheese.gif	food	t,d	25	wedges of prize-winning cheese
+12178	gummi fingerbone	781996967	c25trob2.gif	potion, usable	t,d	15
+12179	glimmering golden crystal	723176160	abuelacrystal.gif	accessory		0
+12180	boxed Heartstone	395789145	heartstonebox.gif	usable	t	0
+12181	Heartstone	641176960	heartgem.gif	accessory		0
+12182	Thwaitgold meat bee statuette	224458473	thwaitmeatbee.gif	none		0
+12183	loose Meats	805027757	loosemeats.gif	multiple		0	piles of loose Meats

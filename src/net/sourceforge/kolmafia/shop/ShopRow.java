@@ -45,6 +45,10 @@ public class ShopRow implements Comparable<ShopRow> {
     return this.costs;
   }
 
+  public void setCosts(AdventureResult[] costs) {
+    this.costs = costs;
+  }
+
   public boolean isMeatPurchase() {
     return costs.length == 1 && costs[0].isMeat();
   }
@@ -76,7 +80,9 @@ public class ShopRow implements Comparable<ShopRow> {
       if (cost.isMeat()) {
         price = NPCPurchaseRequest.currentDiscountedPrice(price);
       }
-      max = Math.min(max, available / price);
+      if (price > 0) {
+        max = Math.min(max, available / price);
+      }
     }
 
     return max;
@@ -93,6 +99,9 @@ public class ShopRow implements Comparable<ShopRow> {
     buf.append("(");
     for (AdventureResult cost : costs) {
       long price = cost.getCount() * count;
+      if (price == 0l) {
+        continue;
+      }
       if (cost.isMeat()) {
         price = NPCPurchaseRequest.currentDiscountedPrice(price);
       }
@@ -104,7 +113,11 @@ public class ShopRow implements Comparable<ShopRow> {
       buf.append(cost.getPluralName(price));
     }
     buf.append(")");
-    return buf.toString();
+    var str = buf.toString();
+    if (str.equals("()")) {
+      return "";
+    }
+    return str;
   }
 
   /* The Armory and Leggery: Meat

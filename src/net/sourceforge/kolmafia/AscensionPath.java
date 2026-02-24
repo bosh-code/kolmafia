@@ -85,6 +85,18 @@ public class AscensionPath {
     HAT_TRICK("Hat Trick", 54, false, "hat_bycocket", "a"),
     UNDER_THE_SEA(
         "11,037 Leagues Under the Sea", 55, false, "fishy5", "an", "seaPoints", 11, false),
+    ADVENTURER_MEATS_WORLD(
+        "Adventurer Meats World",
+        56,
+        true,
+        "meat",
+        "an",
+        "adventurerMeatsWorldPoints",
+        37,
+        false,
+        0,
+        0,
+        0),
     // A "sign" rather than a "path" for some reason
     BAD_MOON("Bad Moon", 999, false, "badmoon", null),
     ;
@@ -195,7 +207,8 @@ public class AscensionPath {
             AVATAR_OF_SNEAKY_PETE,
             ACTUALLY_ED_THE_UNDYING,
             LICENSE_TO_ADVENTURE,
-            DARK_GYFFTE -> false;
+            DARK_GYFFTE ->
+            false;
         default -> true;
       };
     }

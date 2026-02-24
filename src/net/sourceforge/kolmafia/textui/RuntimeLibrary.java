@@ -54,6 +54,7 @@ import net.sourceforge.kolmafia.KoLConstants.CraftingRequirements;
 import net.sourceforge.kolmafia.KoLConstants.CraftingType;
 import net.sourceforge.kolmafia.KoLConstants.MafiaState;
 import net.sourceforge.kolmafia.KoLConstants.Stat;
+import net.sourceforge.kolmafia.KoLConstants.filterType;
 import net.sourceforge.kolmafia.KoLmafia;
 import net.sourceforge.kolmafia.KoLmafiaASH;
 import net.sourceforge.kolmafia.KoLmafiaCLI;
@@ -78,6 +79,8 @@ import net.sourceforge.kolmafia.combat.Macrofier;
 import net.sourceforge.kolmafia.combat.MonsterStatusTracker;
 import net.sourceforge.kolmafia.equipment.Slot;
 import net.sourceforge.kolmafia.maximizer.Boost;
+import net.sourceforge.kolmafia.maximizer.EquipScope;
+import net.sourceforge.kolmafia.maximizer.Evaluator;
 import net.sourceforge.kolmafia.maximizer.Maximizer;
 import net.sourceforge.kolmafia.maximizer.PriceLevel;
 import net.sourceforge.kolmafia.modifiers.BooleanModifier;
@@ -85,7 +88,6 @@ import net.sourceforge.kolmafia.modifiers.DoubleModifier;
 import net.sourceforge.kolmafia.modifiers.Modifier;
 import net.sourceforge.kolmafia.modifiers.ModifierList.ModifierValue;
 import net.sourceforge.kolmafia.modifiers.ModifierValueType;
-import net.sourceforge.kolmafia.modifiers.MultiStringModifier;
 import net.sourceforge.kolmafia.modifiers.StringModifier;
 import net.sourceforge.kolmafia.moods.Mood;
 import net.sourceforge.kolmafia.moods.MoodManager;
@@ -134,17 +136,54 @@ import net.sourceforge.kolmafia.persistence.PocketDatabase.PoemPocket;
 import net.sourceforge.kolmafia.persistence.PocketDatabase.ScrapPocket;
 import net.sourceforge.kolmafia.persistence.PocketDatabase.StatsPocket;
 import net.sourceforge.kolmafia.persistence.PocketDatabase.TwoResultPocket;
+import net.sourceforge.kolmafia.persistence.ShrunkenHeadDatabase;
 import net.sourceforge.kolmafia.persistence.SkillDatabase;
 import net.sourceforge.kolmafia.persistence.WardrobeOMaticDatabase;
 import net.sourceforge.kolmafia.persistence.WardrobeOMaticDatabase.FuturisticClothing;
 import net.sourceforge.kolmafia.preferences.Preferences;
-import net.sourceforge.kolmafia.request.*;
+import net.sourceforge.kolmafia.request.AlliedRadioRequest;
+import net.sourceforge.kolmafia.request.ApiRequest;
+import net.sourceforge.kolmafia.request.AutoSellRequest;
+import net.sourceforge.kolmafia.request.CampgroundRequest;
 import net.sourceforge.kolmafia.request.CampgroundRequest.CropType;
+import net.sourceforge.kolmafia.request.CargoCultistShortsRequest;
+import net.sourceforge.kolmafia.request.ChezSnooteeRequest;
+import net.sourceforge.kolmafia.request.ClanLoungeRequest;
+import net.sourceforge.kolmafia.request.ClanStashRequest;
 import net.sourceforge.kolmafia.request.ClanStashRequest.ClanStashRequestType;
+import net.sourceforge.kolmafia.request.ClosetRequest;
 import net.sourceforge.kolmafia.request.ClosetRequest.ClosetRequestType;
+import net.sourceforge.kolmafia.request.CraftRequest;
+import net.sourceforge.kolmafia.request.CurseRequest;
+import net.sourceforge.kolmafia.request.DeckOfEveryCardRequest;
 import net.sourceforge.kolmafia.request.DeckOfEveryCardRequest.EveryCard;
+import net.sourceforge.kolmafia.request.DisplayCaseRequest;
+import net.sourceforge.kolmafia.request.DrinkItemRequest;
+import net.sourceforge.kolmafia.request.EatItemRequest;
+import net.sourceforge.kolmafia.request.EquipmentRequest;
+import net.sourceforge.kolmafia.request.FamiliarRequest;
+import net.sourceforge.kolmafia.request.FightRequest;
+import net.sourceforge.kolmafia.request.FloristRequest;
 import net.sourceforge.kolmafia.request.FloristRequest.Florist;
+import net.sourceforge.kolmafia.request.GenericRequest;
+import net.sourceforge.kolmafia.request.InternalChatRequest;
+import net.sourceforge.kolmafia.request.MallPurchaseRequest;
+import net.sourceforge.kolmafia.request.MallSearchRequest;
+import net.sourceforge.kolmafia.request.ManageStoreRequest;
+import net.sourceforge.kolmafia.request.MicroBreweryRequest;
+import net.sourceforge.kolmafia.request.MonkeyPawRequest;
+import net.sourceforge.kolmafia.request.PurchaseRequest;
+import net.sourceforge.kolmafia.request.QuestLogRequest;
+import net.sourceforge.kolmafia.request.RelayRequest;
+import net.sourceforge.kolmafia.request.StandardRequest;
+import net.sourceforge.kolmafia.request.StorageRequest;
 import net.sourceforge.kolmafia.request.StorageRequest.StorageRequestType;
+import net.sourceforge.kolmafia.request.SweetSynthesisRequest;
+import net.sourceforge.kolmafia.request.TrendyRequest;
+import net.sourceforge.kolmafia.request.UneffectRequest;
+import net.sourceforge.kolmafia.request.UseItemRequest;
+import net.sourceforge.kolmafia.request.UseSkillRequest;
+import net.sourceforge.kolmafia.request.ZapRequest;
 import net.sourceforge.kolmafia.request.coinmaster.CoinMasterRequest;
 import net.sourceforge.kolmafia.request.concoction.CreateItemRequest;
 import net.sourceforge.kolmafia.scripts.git.GitManager;
@@ -239,7 +278,21 @@ public abstract class RuntimeLibrary {
             DataTypes.FLOAT_TYPE,
             DataTypes.EFFECT_TYPE,
             DataTypes.ITEM_TYPE,
-            DataTypes.SKILL_TYPE
+            DataTypes.SKILL_TYPE,
+          });
+
+  private static final RecordType maximizerResultFull =
+      new RecordType(
+          "{string display; string command; float score; effect effect; item item; skill skill; string afterdisplay;}",
+          new String[] {"display", "command", "score", "effect", "item", "skill", "afterdisplay"},
+          new Type[] {
+            DataTypes.STRING_TYPE,
+            DataTypes.STRING_TYPE,
+            DataTypes.FLOAT_TYPE,
+            DataTypes.EFFECT_TYPE,
+            DataTypes.ITEM_TYPE,
+            DataTypes.SKILL_TYPE,
+            DataTypes.STRING_TYPE
           });
 
   private static final RecordType svnInfoRec =
@@ -635,6 +688,10 @@ public abstract class RuntimeLibrary {
     functions.add(new LibraryFunction("to_effect", DataTypes.EFFECT_TYPE, params));
     params = List.of(namedParam("skill", DataTypes.SKILL_TYPE));
     functions.add(new LibraryFunction("to_effect", DataTypes.EFFECT_TYPE, params));
+
+    params = List.of(namedParam("skill", DataTypes.SKILL_TYPE));
+    functions.add(
+        new LibraryFunction("to_effects", new AggregateType(DataTypes.EFFECT_TYPE, 0), params));
 
     params = List.of(namedParam("name", DataTypes.STRICT_STRING_TYPE));
     functions.add(new LibraryFunction("to_familiar", DataTypes.FAMILIAR_TYPE, params));
@@ -1334,6 +1391,9 @@ public abstract class RuntimeLibrary {
 
     params = List.of();
     functions.add(new LibraryFunction("get_free_pulls", DataTypes.ITEM_TO_INT_TYPE, params));
+
+    params = List.of();
+    functions.add(new LibraryFunction("get_no_pulls", DataTypes.ITEM_TO_INT_TYPE, params));
 
     params = List.of();
     functions.add(new LibraryFunction("get_shop", DataTypes.ITEM_TO_INT_TYPE, params));
@@ -2501,6 +2561,7 @@ public abstract class RuntimeLibrary {
     functions.add(new LibraryFunction("modifier_eval", DataTypes.FLOAT_TYPE, params));
 
     Type maximizerResultArray = new AggregateType(maximizerResult, 0);
+    Type maximizerResultFullArray = new AggregateType(maximizerResultFull, 0);
 
     params =
         List.of(
@@ -2524,6 +2585,18 @@ public abstract class RuntimeLibrary {
             namedParam("isSpeculateOnlyValue", DataTypes.BOOLEAN_TYPE),
             namedParam("showEquipment", DataTypes.BOOLEAN_TYPE));
     functions.add(new LibraryFunction("maximize", maximizerResultArray, params));
+
+    params =
+        List.of(
+            namedParam("maximizerStringValue", DataTypes.STRING_TYPE),
+            namedParam("maxPriceValue", DataTypes.INT_TYPE),
+            namedParam("priceLevelValue", DataTypes.INT_TYPE),
+            namedParam("equipScope", DataTypes.INT_TYPE),
+            namedParam("filters", DataTypes.STRING_TYPE));
+    functions.add(new LibraryFunction("maximize", maximizerResultFullArray, params));
+
+    params = List.of(namedParam("evaluationString", DataTypes.STRING_TYPE));
+    functions.add(new LibraryFunction("current_maximizer_score", DataTypes.FLOAT_TYPE, params));
 
     params = List.of(namedParam("expr", DataTypes.STRING_TYPE));
     functions.add(new LibraryFunction("monster_eval", DataTypes.FLOAT_TYPE, params));
@@ -3102,6 +3175,47 @@ public abstract class RuntimeLibrary {
             namedParam("thrall", DataTypes.THRALL_TYPE),
             namedParam("modifier", DataTypes.MODIFIER_TYPE));
     functions.add(new LibraryFunction("numeric_modifier", DataTypes.FLOAT_TYPE, params));
+
+    params = List.of(namedParam("modifier", DataTypes.STRING_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params = List.of(namedParam("modifier", DataTypes.MODIFIER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("type", DataTypes.STRING_TYPE),
+            namedParam("modifier", DataTypes.STRING_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("type", DataTypes.STRING_TYPE),
+            namedParam("modifier", DataTypes.MODIFIER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("item", DataTypes.ITEM_TYPE), namedParam("modifier", DataTypes.STRING_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("item", DataTypes.ITEM_TYPE),
+            namedParam("modifier", DataTypes.MODIFIER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
 
     params = List.of(namedParam("modifier", DataTypes.STRING_TYPE));
     functions.add(new LibraryFunction("boolean_modifier", DataTypes.BOOLEAN_TYPE, params));
@@ -3852,6 +3966,34 @@ public abstract class RuntimeLibrary {
             "futuristic_wardrobe",
             new AggregateType(DataTypes.INT_TYPE, DataTypes.MODIFIER_TYPE),
             params));
+
+    params = List.of(namedParam("monster", DataTypes.MONSTER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "shrunken_head_zombie", new AggregateType(DataTypes.STRING_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("monster", DataTypes.MONSTER_TYPE), namedParam("path", DataTypes.PATH_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "shrunken_head_zombie", new AggregateType(DataTypes.STRING_TYPE, 0), params));
+
+    params = List.of();
+    functions.add(new LibraryFunction("heartstone_middle_letter", DataTypes.STRING_TYPE, params));
+
+    params = List.of(namedParam("monster", DataTypes.MONSTER_TYPE));
+    functions.add(new LibraryFunction("heartstone_middle_letter", DataTypes.STRING_TYPE, params));
+
+    params = List.of(namedParam("monster", DataTypes.STRING_TYPE));
+    functions.add(new LibraryFunction("heartstone_middle_letter", DataTypes.STRING_TYPE, params));
+
+    params = List.of();
+    functions.add(
+        new LibraryFunction("turns_until_mobius_noncombat_available", DataTypes.INT_TYPE, params));
+
+    params = List.of();
+    functions.add(new LibraryFunction("have_campground", DataTypes.BOOLEAN_TYPE, params));
   }
 
   public static Method findMethod(final String name, final Class<?>[] args)
@@ -4635,6 +4777,19 @@ public abstract class RuntimeLibrary {
     DataTypes.EFFECT_TYPE.validateValue(controller, s1, effect);
 
     return effect;
+  }
+
+  public static ArrayValue to_effects(ScriptRuntime controller, final Value value) {
+    String[] effectNames = UneffectRequest.skillToEffects(value.toString());
+    ArrayValue effects =
+        new ArrayValue(new AggregateType(DataTypes.EFFECT_TYPE, effectNames.length));
+
+    int i = 0;
+    for (String effect : effectNames) {
+      effects.aset(DataTypes.makeIntValue(i++), DataTypes.parseEffectValue(effect, true));
+    }
+
+    return effects;
   }
 
   public static Value to_location(ScriptRuntime controller, final Value value) {
@@ -6211,6 +6366,19 @@ public abstract class RuntimeLibrary {
 
     AdventureResult[] items = new AdventureResult[KoLConstants.freepulls.size()];
     KoLConstants.freepulls.toArray(items);
+
+    for (AdventureResult item : items) {
+      value.aset(DataTypes.makeItemValue(item.getItemId(), true), new Value(item.getCount()));
+    }
+
+    return value;
+  }
+
+  public static Value get_no_pulls(ScriptRuntime controller) {
+    MapValue value = new MapValue(DataTypes.ITEM_TO_INT_TYPE);
+
+    AdventureResult[] items = new AdventureResult[KoLConstants.nopulls.size()];
+    KoLConstants.nopulls.toArray(items);
 
     for (AdventureResult item : items) {
       value.aset(DataTypes.makeItemValue(item.getItemId(), true), new Value(item.getCount()));
@@ -8945,15 +9113,33 @@ public abstract class RuntimeLibrary {
       final Value maximizerStringValue,
       final Value maxPriceValue,
       final Value priceLevelValue,
-      final Value isSpeculateOnlyValue,
-      final Value showEquipment) {
+      final Value isSpeculateOnlyOrEquipScopeValue,
+      final Value showEquipmentOrFiltersValue) {
     String maximizerString = maximizerStringValue.toString();
     int maxPrice = (int) maxPriceValue.intValue();
     int priceLevel = (int) priceLevelValue.intValue();
-    boolean isSpeculateOnly = isSpeculateOnlyValue.intValue() != 0;
-    boolean showEquip = showEquipment.intValue() == 1;
+    boolean showEquip = showEquipmentOrFiltersValue.intValue() == 1;
+    boolean isFilterVariant = false;
 
-    Maximizer.maximize(maximizerString, maxPrice, PriceLevel.byIndex(priceLevel), isSpeculateOnly);
+    if (showEquipmentOrFiltersValue.getType().equals(DataTypes.STRING_TYPE)) {
+      // string should be formatted like maximizerLastFilters
+      isFilterVariant = true;
+      EquipScope equipScope = EquipScope.byIndex((int) isSpeculateOnlyOrEquipScopeValue.intValue());
+      Set<filterType> filters = EnumSet.noneOf(filterType.class);
+      String filterString = showEquipmentOrFiltersValue.toString().toLowerCase();
+      for (filterType filter : filterType.values()) {
+        if (filterString.contains(filter.toString().toLowerCase())) {
+          filters.add(filter);
+        }
+      }
+      showEquip = filters.contains(filterType.EQUIP);
+      Maximizer.maximize(
+          maximizerString, maxPrice, PriceLevel.byIndex(priceLevel), equipScope, filters);
+    } else {
+      boolean isSpeculateOnly = isSpeculateOnlyOrEquipScopeValue.intValue() != 0;
+      Maximizer.maximize(
+          maximizerString, maxPrice, PriceLevel.byIndex(priceLevel), isSpeculateOnly);
+    }
 
     List<Boost> m = Maximizer.boosts;
 
@@ -8967,12 +9153,15 @@ public abstract class RuntimeLibrary {
     }
 
     AggregateType type =
-        new AggregateType(RuntimeLibrary.maximizerResult, m.size() - lastEquipIndex);
+        new AggregateType(
+            isFilterVariant ? RuntimeLibrary.maximizerResultFull : RuntimeLibrary.maximizerResult,
+            m.size() - lastEquipIndex);
     ArrayValue value = new ArrayValue(type);
 
     for (int i = lastEquipIndex; i < m.size(); ++i) {
       Boost boo = m.get(i);
       String text = boo.toString();
+      String afterText = "";
       String cmd = boo.getCmd();
       double boost = boo.getBoost();
       AdventureResult arEffect = boo.isEquipment() ? null : boo.getItem();
@@ -8983,6 +9172,8 @@ public abstract class RuntimeLibrary {
       // remove the (+ X) from the display text, that info is in the score
       int cutIndex = boo.toString().indexOf(" (");
       if (cutIndex != -1) {
+        // get rid of the space
+        afterText = text.substring(cutIndex + 1);
         text = text.substring(0, cutIndex);
       }
 
@@ -9003,9 +9194,21 @@ public abstract class RuntimeLibrary {
           null);
       rec.aset(
           5, skill == null ? DataTypes.SKILL_INIT : DataTypes.parseSkillValue(skill, true), null);
+      // can't change the record type for the old function results without breaking existing
+      // scripts, so only add this field in the new method form
+      if (isFilterVariant) {
+        rec.aset(6, DataTypes.parseStringValue(afterText), null);
+      }
     }
 
     return value;
+  }
+
+  public static Value current_maximizer_score(
+      ScriptRuntime controller, Value evaluationStringValue) {
+    Evaluator eval = new Evaluator(evaluationStringValue.toString());
+    double current = eval.getScore(KoLCharacter.getCurrentModifiers());
+    return DataTypes.makeFloatValue(current);
   }
 
   public static Value monster_eval(ScriptRuntime controller, final Value expr) {
@@ -10497,8 +10700,12 @@ public abstract class RuntimeLibrary {
     Type type = modifier.getType();
     if (type.equals(DataTypes.MODIFIER_TYPE)) {
       Modifier content = (Modifier) modifier.content;
-      if (content != null && content.getType() == ModifierValueType.NUMERIC) {
-        return content;
+      if (content != null) {
+        switch (content.getType()) {
+          case NUMERIC, MULTINUMERIC -> {
+            return content;
+          }
+        }
       }
       throw controller.runtimeException("numeric modifier required");
     }
@@ -10526,36 +10733,43 @@ public abstract class RuntimeLibrary {
       Modifier content = (Modifier) modifier.content;
       if (content != null) {
         switch (content.getType()) {
-          case STRING -> {
-            return (StringModifier) content;
-          }
-          case MULTISTRING -> {
-            return (MultiStringModifier) content;
+          case STRING, MULTISTRING -> {
+            return content;
           }
         }
       }
       throw controller.runtimeException("string modifier required");
     }
     String mod = modifier.toString();
-    var str = StringModifier.byCaselessName(mod);
-    if (str != null) {
-      return str;
-    }
-    return MultiStringModifier.byCaselessName(mod);
+    return StringModifier.byCaselessName(mod);
   }
 
-  private static MultiStringModifier getMultiStringModifier(
+  private static StringModifier getMultiStringModifier(
       ScriptRuntime controller, final Value modifier) {
     Type type = modifier.getType();
     if (type.equals(DataTypes.MODIFIER_TYPE)) {
       Modifier content = (Modifier) modifier.content;
       if (content != null && content.getType() == ModifierValueType.MULTISTRING) {
-        return (MultiStringModifier) content;
+        return (StringModifier) content;
       }
-      throw controller.runtimeException("string modifier required");
+      throw controller.runtimeException("multistring modifier required");
     }
     String mod = modifier.toString();
-    return MultiStringModifier.byCaselessName(mod);
+    return StringModifier.byCaselessName(mod);
+  }
+
+  private static DoubleModifier getMultiDoubleModifier(
+      ScriptRuntime controller, final Value modifier) {
+    Type type = modifier.getType();
+    if (type.equals(DataTypes.MODIFIER_TYPE)) {
+      Modifier content = (Modifier) modifier.content;
+      if (content != null && content.getType() == ModifierValueType.MULTINUMERIC) {
+        return (DoubleModifier) content;
+      }
+      throw controller.runtimeException("multinumeric modifier required");
+    }
+    String mod = modifier.toString();
+    return DoubleModifier.byCaselessName(mod);
   }
 
   public static Value numeric_modifier(ScriptRuntime controller, final Value modifier) {
@@ -10584,6 +10798,38 @@ public abstract class RuntimeLibrary {
     AdventureResult it = ItemPool.get((int) item.intValue());
 
     return new Value(ModifierDatabase.getNumericModifier(fam, realMod, w, it));
+  }
+
+  public static Value numerics_modifier(ScriptRuntime controller, final Value modifier) {
+    var mod = getMultiDoubleModifier(controller, modifier);
+
+    var values = KoLCharacter.currentMultiDoubleModifier(mod);
+    ArrayValue value = new ArrayValue(new AggregateType(DataTypes.FLOAT_TYPE, values.size()));
+
+    int i = 0;
+    for (var val : values) {
+      value.aset(DataTypes.makeIntValue(i++), new Value(val));
+    }
+
+    return value;
+  }
+
+  public static Value numerics_modifier(
+      ScriptRuntime controller, final Value arg, final Value modifier) {
+    var mod = getMultiDoubleModifier(controller, modifier);
+
+    ModifierType type = RuntimeLibrary.getModifierType(arg);
+    String name = RuntimeLibrary.getModifierName(arg);
+
+    var values = ModifierDatabase.getMultiDoubleModifier(type, name, mod);
+    ArrayValue value = new ArrayValue(new AggregateType(DataTypes.FLOAT_TYPE, values.size()));
+
+    int i = 0;
+    for (var val : values) {
+      value.aset(DataTypes.makeIntValue(i++), new Value(val));
+    }
+
+    return value;
   }
 
   public static Value boolean_modifier(ScriptRuntime controller, final Value modifier) {
@@ -11740,7 +11986,7 @@ public abstract class RuntimeLibrary {
   public static Value dart_parts_to_skills(ScriptRuntime controller) {
     MapValue value = new MapValue(DataTypes.STRING_TO_SKILL_TYPE);
 
-    String[] darts = Preferences.getString("_currentDartboard").split("\\s*,\\s*");
+    String[] darts = StringUtilities.splitByComma(Preferences.getString("_currentDartboard"));
     for (String dart : darts) {
       int colon = dart.indexOf(":");
       if (colon != -1) {
@@ -11757,7 +12003,7 @@ public abstract class RuntimeLibrary {
   public static Value dart_skills_to_parts(ScriptRuntime controller) {
     MapValue value = new MapValue(DataTypes.SKILL_TO_STRING_TYPE);
 
-    String[] darts = Preferences.getString("_currentDartboard").split("\\s*,\\s*");
+    String[] darts = StringUtilities.splitByComma(Preferences.getString("_currentDartboard"));
     for (String dart : darts) {
       int colon = dart.indexOf(":");
       if (colon != -1) {
@@ -11858,5 +12104,97 @@ public abstract class RuntimeLibrary {
     }
 
     return value;
+  }
+
+  public static Value shrunken_head_zombie(ScriptRuntime controller, final Value monsterVal) {
+    var monId = ((MonsterData) monsterVal.content).getId();
+    var pathId = KoLCharacter.getPath().id;
+    return shrunken_head_zombie(monId, pathId);
+  }
+
+  public static Value shrunken_head_zombie(
+      ScriptRuntime controller, final Value monsterVal, final Value pathVal) {
+    var monId = ((MonsterData) monsterVal.content).getId();
+    var pathId = ((Path) pathVal.content).id;
+    return shrunken_head_zombie(monId, pathId);
+  }
+
+  private static Value shrunken_head_zombie(int monsterId, int pathId) {
+    var abilities = ShrunkenHeadDatabase.shrunkenHeadZombie(monsterId, pathId);
+    return DataTypes.makeStringArrayValue(abilities);
+  }
+
+  public static Value heartstone_middle_letter(ScriptRuntime controller, final Value value) {
+    var valType = value.getType();
+    if (valType.equals(TypeSpec.MONSTER)) {
+      var data = ((MonsterData) value.content);
+      if (data == null) {
+        return DataTypes.STRING_INIT;
+      }
+      var monName = data.getManuelName();
+      return heartstone_middle_letter(monName);
+    }
+    return heartstone_middle_letter(value.toString());
+  }
+
+  public static Value heartstone_middle_letter(ScriptRuntime controller) {
+    return heartstone_middle_letter(FightRequest.currentEncounter);
+  }
+
+  private static Value heartstone_middle_letter(String monsterName) {
+    if (monsterName.isEmpty()) {
+      return DataTypes.STRING_INIT;
+    }
+    var noSpaces = monsterName.replaceAll(" ", "");
+    var bytes = noSpaces.getBytes(StandardCharsets.UTF_8);
+    var length = bytes.length;
+    // even length has no middle
+    if (length % 2 == 0) {
+      return DataTypes.STRING_INIT;
+    }
+    var middle =
+        new String(new byte[] {bytes[length / 2]}, StandardCharsets.UTF_8)
+            .toUpperCase(Locale.ENGLISH);
+    if (!middle.matches("[A-Z]")) {
+      return DataTypes.STRING_INIT;
+    }
+    return DataTypes.makeStringValue(middle);
+  }
+
+  public static Value turns_until_mobius_noncombat_available(ScriptRuntime controller) {
+    // if ring is not primed, cannot get NC
+    if (!Preferences.getBoolean("_mobiusRingPrimed")) {
+      return DataTypes.makeIntValue(Integer.MAX_VALUE);
+    }
+    var numEncounters = Preferences.getInteger("_mobiusStripEncounters");
+    var encounterDelay = mobiusDelay(numEncounters);
+    var turnsPlayed = KoLCharacter.getTurnsPlayed();
+    int encounterTurn;
+    if (numEncounters == 0) {
+      encounterTurn = Preferences.getInteger("_mobiusRingPrimedTurn");
+    } else {
+      encounterTurn = Preferences.getInteger("_lastMobiusStripTurn");
+    }
+    var turnsSince = turnsPlayed - encounterTurn;
+    var left = encounterDelay - turnsSince;
+    return DataTypes.makeIntValue(Math.max(left, 0));
+  }
+
+  private static int mobiusDelay(int numEncounters) {
+    return switch (numEncounters) {
+      case 0 -> 4;
+      case 1 -> 7;
+      case 2 -> 13;
+      case 3 -> 19;
+      case 4 -> 25;
+      case 5 -> 31;
+      case 6, 7, 8, 9, 10 -> 41;
+      case 11, 12, 13, 14, 15 -> 51;
+      default -> 76;
+    };
+  }
+
+  public static Value have_campground(ScriptRuntime controller) {
+    return DataTypes.makeBooleanValue(CampgroundRequest.haveCampground());
   }
 }

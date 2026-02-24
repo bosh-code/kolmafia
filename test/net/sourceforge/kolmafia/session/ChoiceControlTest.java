@@ -14,6 +14,7 @@ import static internal.helpers.Player.withIntrinsicEffect;
 import static internal.helpers.Player.withItem;
 import static internal.helpers.Player.withLastLocation;
 import static internal.helpers.Player.withNoEffects;
+import static internal.helpers.Player.withNoItems;
 import static internal.helpers.Player.withPath;
 import static internal.helpers.Player.withPostChoice1;
 import static internal.helpers.Player.withPostChoice2;
@@ -24,9 +25,11 @@ import static internal.matchers.Preference.isSetTo;
 import static internal.matchers.Quest.isStep;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.core.StringContains.containsString;
 
 import internal.helpers.Cleanups;
 import internal.helpers.RequestLoggerOutput;
@@ -44,6 +47,7 @@ import net.sourceforge.kolmafia.objectpool.EffectPool;
 import net.sourceforge.kolmafia.objectpool.FamiliarPool;
 import net.sourceforge.kolmafia.objectpool.ItemPool;
 import net.sourceforge.kolmafia.persistence.AdventureDatabase;
+import net.sourceforge.kolmafia.persistence.CoinmastersDatabase;
 import net.sourceforge.kolmafia.persistence.QuestDatabase;
 import net.sourceforge.kolmafia.persistence.QuestDatabase.Quest;
 import net.sourceforge.kolmafia.preferences.Preferences;
@@ -1731,10 +1735,58 @@ class ChoiceControlTest {
     var cleanups =
         new Cleanups(
             withProperty("_seadentWaveZone"),
+            withProperty("_seadentWaveUsed"),
             withPostChoice2(1566, 1, html("request/test_choice_summon_waves.html")));
 
     try (cleanups) {
       assertThat("_seadentWaveZone", isSetTo("Barf Mountain"));
+      assertThat("_seadentWaveUsed", isSetTo(true));
+    }
+  }
+
+  @Test
+  void visitingCrimboPastSkeletonSetsDailies() {
+    var cleanups =
+        new Cleanups(
+            withProperty("_crimboPastSmokingPope"),
+            withProperty("_crimboPastPrizeTurkey"),
+            withProperty("_crimboPastMedicalGruel"),
+            withProperty("_crimboPastDailySpecial"),
+            withProperty("_crimboPastDailySpecialItem"),
+            withProperty("_crimboPastDailySpecialPrice"));
+
+    try (cleanups) {
+      var req = new GenericRequest("choice.php?whichchoice=1567");
+      req.responseText = html("request/test_choice_crimbo_past_none.html");
+
+      ChoiceManager.visitChoice(req);
+
+      assertThat("_crimboPastSmokingPope", isSetTo(true));
+      assertThat("_crimboPastPrizeTurkey", isSetTo(true));
+      assertThat("_crimboPastMedicalGruel", isSetTo(true));
+      assertThat("_crimboPastDailySpecial", isSetTo(false));
+      assertThat("_crimboPastDailySpecialItem", isSetTo(ItemPool.ELVEN_SOCKS));
+      assertThat("_crimboPastDailySpecialPrice", isSetTo(442));
+
+      var items = CoinmastersDatabase.getBuyItems("Skeleton of Crimbo Past");
+      assertThat(items, hasSize(4));
+      assertThat(items, hasItem(ItemPool.get(ItemPool.ELVEN_SOCKS)));
+      var prices = CoinmastersDatabase.getBuyPrices("Skeleton of Crimbo Past");
+      assertThat(prices.get(ItemPool.ELVEN_SOCKS), is(442));
+    }
+  }
+
+  @Test
+  void diggingUpGiftLogsNote() {
+    RequestLoggerOutput.startStream();
+    var cleanups =
+        new Cleanups(
+            withNoItems(),
+            withPostChoice2(1591, 1, html("request/test_choice_diggin_up_a_gift.html")));
+
+    try (cleanups) {
+      var stream = RequestLoggerOutput.stopStream();
+      assertThat(stream, containsString("Note: bottom text"));
     }
   }
 }

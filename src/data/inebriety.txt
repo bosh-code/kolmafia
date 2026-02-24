@@ -5,6 +5,7 @@
 # Drink	Inebriety	Level Req	quality	Adv	Musc	Myst	Moxie
 
 [experimental crimbo booze]	3	1	good	0	0	0	0	Random
+&quot;salvaged&quot; wine	1	11	super ultra mega turbo EPIC	0	0	0	0	Unspaded
 5-hour acrimony	5	1	awesome	0	0	0	0	+10 PvP fights
 1950 Vampire Vintner wine	1	1	awesome	5	0	0	0	Unspaded, WINE
 a little sump'm sump'm	4	4	good	10-14	0	25-27	8-10
@@ -100,6 +101,7 @@ bottle of peppermint schnapps	3	1	good	8-10	20-40	20-40	20-40	50 Crimbo Nostalgi
 bottle of Pete's Sake	3	2	decent	4-8	0	0	0	1 Warm Belly (+hot dmg, +10 Fishy), WINE
 bottle of Pinot Renoir	2	4	good	4-8	30	18	0	WINE
 bottle of popskull	2	1	decent	2-4	0	0	0	lose 3 HP
+bottle of prize-winning rum	2	6	super EPIC	0	0	0	0	Unspaded
 bottle of Professor Beer	2	6	EPIC	10-12	20-30	20-30	20-30	20 Thinkin' Drunk (+50 Mys, +10-20 MP regen), BEER
 bottle of Race Car Red	3	11	EPIC	18-20	40-60	40-60	40-60	20 Flyin' Drunk (+100 Init, +25 DR), BEER
 bottle of Rapier Witbier	2	6	EPIC	10-12	20-30	20-30	20-30	20 Jokin' Drunk (+50 Mox, +20% Pickpocket chance), BEER
@@ -490,6 +492,7 @@ mourning wine	2	1	good	5-7	30-50	30-50	30-50	WINE
 Mt. Noob Pale Ale	2	1	good	3-6	0	0	0	BEER
 mulled berry wine	5	7	awesome	18-22	0	30-50	0	30 Sweet Nostalgia (+20 Candy Drop), WINE
 mulled blood	1	1	super ultra mega turbo EPIC	14	10-15	10-15	10-15	Vampyre
+mulled butter rum	2	1	awesome	0	0	0	0	Unspaded
 mulled cider	3	5	awesome	8-12	25-40	25-40	25-40
 mulled hobo wine	1	1	awesome	4-5	5-15	5-15	5-15	20 Burnt 'n' Turnt (+100% MP)
 mulled wine	4	1	awesome	13	0	0	0	50 Mullin' for Bullion (more pieces of 12), WINE
@@ -548,6 +551,7 @@ perfect paloma	3	5	EPIC	18-19	10-25	1-15	20-35
 perpendicular hula	4	4	good	10-14	0	0	34-36
 perpendicular hula with a fly in it	0	1	crappy	0	0	0	0	Undrinkable
 Petite Porter	3	4	decent	3-5	0	0	0
+pheromone cocktail	1	1	awesome	3-4	0	0	20-30	1 charge of Mark Your Territory (full-day banish)
 Phil Collins	1	3	awesome	3-5	0	10-20	0	40 Hello, I Must Be Going (+40 Monster Level)
 Phlegethon	1	1	awesome	4-6	0	0	0	40 Flambé-a-thon (+20 Hot Damage & Hot Spell Damage)
 Phonus Balonus	3	1	awesome	10-14	0	0	0	+5 PvP fights
@@ -618,6 +622,7 @@ Sazerorc	2	1	good	4-5	10-20	0	0	5 Orc Chops (+50 Muscle)
 Sazuruk-hai	2	4	awesome	6-7	20-30	0	0	10 Orc Chops (+50 Muscle)
 Schr&ouml;dinger's thermos	0	1	???	0	0	0	0	random booze
 Scorpion Bowl	6	6	awesome	19-24	40-60	0	0	40 Tiki Toughness (+100% Muscle, +10% Muscle Gains)
+Scotch and eggnog	4	1	awesome	17-19	0	0	0
 scotch on the rocks	3	11	EPIC	15-18	10-20	10-20	10-20	30 Hair on Your Chest (+50% MP)
 Scrawny Stout	3	6	decent	3-6	0	0	0
 screwdiver	3	4	decent	5-6	34-80	0	0	20 Brined Liver
@@ -664,6 +669,7 @@ Sloppy Jalopy	5	1	awesome	18-22	20-40	20-40	20-40	acquire Hollow Leg (+1 Liver)
 slug of rum	3	2	crappy	3	0	0	0	10 Brined Liver
 slug of shochu	3	2	crappy	3	0	0	0	10 Brined Liver
 slug of vodka	3	2	crappy	3	0	0	0	10 Brined Liver
+Smoking Pope	2	1	EPIC	10-12	20-30	20-30	20-30	50 Ordained (+50% skeleton damage, +50% item)
 smooth mushroom wine	4	3	EPIC	22-24	0	0	100-150	80 Gyromitra Gymnastics (+40 Mox), WINE
 Smuggler's Punch	5	4	awesome	0	0	0	0	Unspaded 30 Tiki Temerity (+100% Moxie, +10% Moxie Gains)
 snakebite	1	4	crappy	1	-1	-1	-1	30 Sweet Tooth (+40% Candy Drops), BEER
@@ -674,7 +680,7 @@ soilzerac	1	1	good	2-4	0	0	0	40 Here's Mud in Your Eye (+50 Meat Drop)
 Sourfinger	3	1	awesome	12	15-30	15-30	15-30	20 Touched (+3 Spooky Resist, +20 Spooky Dam, +3 Experience)
 Southern yam	2	4	EPIC	10-12	0	54-56	0
 soy cordial	5	6	EPIC	28-35	55-61	38-50	35-52	2 Electrolyte Fantastic (+10% mys exp)
-soyburger juice	2	3	crappy	2-4	0	0	0	gain Oversaturated Palate or lose Deadened Palate
+soyburger juice	2	3	crappy	2-4	0	0	0	gain Oversaturated Palate or lose Deadened palate
 space port	2	5	good	5-6	10-20	10-20	10-20	WINE
 space wine	6	1	awesome	20-22	0	0	0
 Spasmi Dolorosi Del Rene Champagne	1	10	super ultra mega turbo EPIC	6-10	60	60	60	WINE
@@ -689,6 +695,7 @@ stealth bomber	3	6	awesome	9-12	10-20	0	10-20
 Steamboat	3	1	awesome	12	15-30	15-30	15-30	20 Steamed (+3 Hot Resist, +20 Hot Dam, +20 Item Drop)
 steel margarita	5	5	quest	0	0	0	0	Liver of Steel skill
 stepmom's booze	3	5	decent	4-6	0	5-10	5-10	KOLHS
+Steve Abrams' Holiday Sampler Beer	2	6	EPIC	0	0	0	0	Unspaded, BEER
 stillsuit distillate	1	1	pseudoitem	0	0	0	0	Buzzed on Distillate
 stinkwater	3	24	super ultra EPIC	25-29	20-30	20-30	20-30
 stinky mushroom wine	3	6	awesome	10-14	0	0	12-15	WINE
@@ -750,6 +757,7 @@ vintage smart drink	10	1	awesome	40	0	0	0	1 Smart Drunk (+120 HP, +20 Familiar W
 vodka and cranberry	3	1	decent	5-6	0	15-20	0
 vodka and tonic	3	3	good	5-10	0	16-20	0
 vodka barracuda	1	3	awesome	4-6	10-20	10-20	10-20	40 Mer-kinkiness (+4 Prismatic res)
+vodka cranberry sauce	4	1	awesome	0	0	0	0	Unspaded
 Vodka Dog	3	1	good	8-10	0	0	30-40
 vodka gibson	3	3	good	5-10	0	0	16-20	MARTINI
 vodka martini	3	1	decent	5-6	0	0	8-10	MARTINI
@@ -765,6 +773,7 @@ warbear feasting mead	3	1	awesome	12-15	5-10	5-10	5-10	40 Warbear Loot Lust (+15
 wasabi-infused sake	3	1	good	6-8	6-8	8-8	6-8	30 Wasabi With You (+150% weapon dmg), WINE
 water purification pills	3	1	decent	6	25-35	25-35	25-35
 wax booze	2	1	awesome	8-9	20-25	20-25	20-25	30 Waxing (+100% HP, +50% MP, +50 Init)
+weak skeleton venom	2	4	awesome	8-9	1-10	1-10	1-10
 Wet Russian	3	11	awesome	13-14	0	40-60	0
 whiskey and cola	3	1	decent	5-6	0	4-6	4-6	14-16 MP
 whiskey and soda	3	1	decent	5-6	0	8-10	0	3-5 MP

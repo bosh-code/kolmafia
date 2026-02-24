@@ -477,7 +477,7 @@ class StringUtilitiesTest {
     StringBuffer input = new StringBuffer();
     input.append("Substitute in me.");
     StringUtilities.globalStringReplace(input, "e", 3);
-    assertEquals(input.toString(), "Substitut3 in m3.");
+    assertEquals("Substitut3 in m3.", input.toString());
   }
 
   @ParameterizedTest
@@ -797,5 +797,38 @@ class StringUtilitiesTest {
   })
   void parseRomanNumerals(final String roman, final Integer value) {
     assertThat(StringUtilities.parseRomanNumerals(roman), is(value));
+  }
+
+  @Nested
+  class SplitByComma {
+    @Test
+    void splitsSimpleCommaDelimited() {
+      assertArrayEquals(new String[] {"a", "b", "c"}, StringUtilities.splitByComma("a,b,c"));
+    }
+
+    @Test
+    void trimsWhitespaceAroundCommas() {
+      assertArrayEquals(new String[] {"a", "b", "c"}, StringUtilities.splitByComma("a , b , c"));
+    }
+
+    @Test
+    void handlesSingleValue() {
+      assertArrayEquals(new String[] {"hello"}, StringUtilities.splitByComma("hello"));
+    }
+
+    @Test
+    void handlesEmptyString() {
+      assertArrayEquals(new String[] {""}, StringUtilities.splitByComma(""));
+    }
+
+    @Test
+    void discardsTrailingEmptyStrings() {
+      assertArrayEquals(new String[] {"a", "b"}, StringUtilities.splitByComma("a,b,"));
+    }
+
+    @Test
+    void preservesEmptyMiddleElements() {
+      assertArrayEquals(new String[] {"a", "", "c"}, StringUtilities.splitByComma("a,,c"));
+    }
   }
 }

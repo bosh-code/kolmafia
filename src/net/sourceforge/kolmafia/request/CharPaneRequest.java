@@ -164,10 +164,6 @@ public class CharPaneRequest extends GenericRequest {
       return true;
     }
 
-    if (KoLCharacter.getLimitMode() == LimitMode.SPELUNKY) {
-      KoLCharacter.setLimitMode(LimitMode.NONE);
-    }
-
     // We can deduce whether we are in compact charpane mode
 
     CharPaneRequest.compactCharacterPane = responseText.contains("<br>Lvl. ");
@@ -281,6 +277,8 @@ public class CharPaneRequest extends GenericRequest {
     CharPaneRequest.checkNoncombatForcers(responseText);
 
     CharPaneRequest.checkWereProfessor(responseText);
+
+    CharPaneRequest.checkShrunkenHead(responseText);
 
     // Mana cost adjustment may have changed
 
@@ -955,10 +953,11 @@ public class CharPaneRequest extends GenericRequest {
     }
 
     switch (effectId) {
-      case EffectPool.BLESSING_OF_THE_BIRD -> ResultProcessor.updateBird(
-          EffectPool.BLESSING_OF_THE_BIRD, effectName, "_birdOfTheDay");
-      case EffectPool.BLESSING_OF_YOUR_FAVORITE_BIRD -> ResultProcessor.updateBird(
-          EffectPool.BLESSING_OF_YOUR_FAVORITE_BIRD, effectName, "yourFavoriteBird");
+      case EffectPool.BLESSING_OF_THE_BIRD ->
+          ResultProcessor.updateBird(EffectPool.BLESSING_OF_THE_BIRD, effectName, "_birdOfTheDay");
+      case EffectPool.BLESSING_OF_YOUR_FAVORITE_BIRD ->
+          ResultProcessor.updateBird(
+              EffectPool.BLESSING_OF_YOUR_FAVORITE_BIRD, effectName, "yourFavoriteBird");
     }
 
     return EffectPool.get(effectId, duration);
@@ -1659,6 +1658,27 @@ public class CharPaneRequest extends GenericRequest {
     }
   }
 
+  private static final Pattern shrunkenHeadPattern =
+      Pattern.compile(
+          "Animating ([^<]+)</small><table border=0><tr><td><img alt=\"Abilities: ([^\"]+)\" [^>]+></td><td class=\"small\">HP: <b>(\\d+)</b>",
+          Pattern.DOTALL);
+
+  private static void checkShrunkenHead(final String responseText) {
+    Matcher matcher = shrunkenHeadPattern.matcher(responseText);
+    if (matcher.find()) {
+      String monster = matcher.group(1);
+      String abilities = matcher.group(2);
+      int hp = Integer.parseInt(matcher.group(3));
+      Preferences.setString("shrunkenHeadZombieMonster", monster);
+      Preferences.setString("shrunkenHeadZombieAbilities", abilities);
+      Preferences.setInteger("shrunkenHeadZombieHP", hp);
+    } else {
+      Preferences.setString("shrunkenHeadZombieMonster", "");
+      Preferences.setString("shrunkenHeadZombieAbilities", "");
+      Preferences.setInteger("shrunkenHeadZombieHP", 0);
+    }
+  }
+
   public static void parseStatus(final JSONObject json) throws JSONException {
     int turnsThisRun = json.getIntValue("turnsthisrun");
     CharPaneRequest.turnsThisRun = turnsThisRun;
@@ -1795,6 +1815,9 @@ public class CharPaneRequest extends GenericRequest {
         KoLCharacter.setRadSickness(0);
       }
     }
+
+    int paradoxicity = json.getIntValue("paradoxicity");
+    KoLCharacter.setParadoxicity(paradoxicity);
   }
 
   private static void parseFamiliarStatus(final JSONObject json) {

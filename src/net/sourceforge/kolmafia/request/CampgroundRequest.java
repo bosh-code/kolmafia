@@ -1,6 +1,13 @@
 package net.sourceforge.kolmafia.request;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -1071,6 +1078,16 @@ public class CampgroundRequest extends GenericRequest {
         Preferences.decrement("_nightmareFuelCharges");
       }
 
+      if (responseText.contains("onClick='descitem(693029493)'")) {
+        Preferences.increment("_knuckleboneRests", 1, 5);
+        Preferences.increment("_knuckleboneDrops", 1, 100);
+      }
+
+      // It looks like another mini kiwi has sprung up next to your tiny kiwi tipi!
+      if (responseText.contains("next to your tiny kiwi tipi")) {
+        Preferences.setBoolean("_miniKiwiTipiDrop", true);
+      }
+
       handleCinchoRest(responseText);
 
       var m = HOUSING_PATTERN.matcher(responseText);
@@ -1161,6 +1178,11 @@ public class CampgroundRequest extends GenericRequest {
       return;
     }
 
+    if (action.equals("terminal")) {
+      CampgroundRequest.parseTerminal(responseText);
+      return;
+    }
+
     if (action.equals("monolith")) {
       Preferences.setBoolean("_blackMonolithUsed", true);
       return;
@@ -1215,14 +1237,8 @@ public class CampgroundRequest extends GenericRequest {
       updateElVibratoPortal();
     }
 
-    if (responseText.contains("campterminal.gif")
-        && Preferences.getString("sourceTerminalEducateKnown").equals("")) {
-      // There is a Terminal, but we don't know what upgrades it has, so find out
-      RequestThread.postRequest(new TerminalRequest("status"));
-      RequestThread.postRequest(new TerminalRequest("educate"));
-      RequestThread.postRequest(new TerminalRequest("enhance"));
-      RequestThread.postRequest(new TerminalRequest("enquiry"));
-      RequestThread.postRequest(new TerminalRequest("extrude"));
+    if (responseText.contains("campterminal.gif")) {
+      checkTerminalUpgrades();
     }
 
     findImage(responseText, "teatree", ItemPool.POTTED_TEA_TREE);
@@ -1249,6 +1265,17 @@ public class CampgroundRequest extends GenericRequest {
     }
 
     CampgroundRequest.parseDwelling(responseText);
+  }
+
+  private static void checkTerminalUpgrades() {
+    if (Preferences.getString("sourceTerminalEducateKnown").equals("")) {
+      // There is a Terminal, but we don't know what upgrades it has, so find out
+      RequestThread.postRequest(new TerminalRequest("status"));
+      RequestThread.postRequest(new TerminalRequest("educate"));
+      RequestThread.postRequest(new TerminalRequest("enhance"));
+      RequestThread.postRequest(new TerminalRequest("enquiry"));
+      RequestThread.postRequest(new TerminalRequest("extrude"));
+    }
   }
 
   private static boolean parseGarden(final String responseText) {
@@ -1446,6 +1473,14 @@ public class CampgroundRequest extends GenericRequest {
         || findRockGarden(responseText);
   }
 
+  private static void parseTerminal(final String responseText) {
+    findImage(responseText, "terminal_lightos.gif", ItemPool.SOURCE_TERMINAL);
+
+    if (responseText.contains("terminal_lightos.gif")) {
+      checkTerminalUpgrades();
+    }
+  }
+
   private static boolean findRockGarden(final String responseText) {
     if (!responseText.contains("/rockgarden/")) {
       return false;
@@ -1548,9 +1583,10 @@ public class CampgroundRequest extends GenericRequest {
       case 15 -> itemId = ItemPool.GIANT_PILGRIM_HAT;
       case 16 -> itemId = ItemPool.HOUSE_SIZED_MUSHROOM;
       case 17 -> itemId = ItemPool.MINI_KIWI_TIPI;
-      default -> KoLmafia.updateDisplay(
-          MafiaState.ERROR,
-          "Unrecognized housing type (" + CampgroundRequest.currentDwellingLevel + ")!");
+      default ->
+          KoLmafia.updateDisplay(
+              MafiaState.ERROR,
+              "Unrecognized housing type (" + CampgroundRequest.currentDwellingLevel + ")!");
     }
 
     if (itemId != -1) {
@@ -1827,8 +1863,8 @@ public class CampgroundRequest extends GenericRequest {
           ItemPool.SLEEPING_STOCKING,
           ItemPool.SPIRIT_BED,
           ItemPool.SPOOKY_BEDDING,
-          ItemPool.STENCH_BEDDING,
-          ItemPool.WET_BLANKET -> true;
+          ItemPool.STENCH_BEDDING ->
+          true;
       default -> false;
     };
   }
@@ -1961,7 +1997,8 @@ public class CampgroundRequest extends GenericRequest {
 
     if (action.equals("inspectdwelling")
         || action.equals("inspectkitchen")
-        || action.equals("workshed")) {
+        || action.equals("workshed")
+        || action.equals("terminal")) {
       // Nothing to log.
       return true;
     }
@@ -2002,5 +2039,27 @@ public class CampgroundRequest extends GenericRequest {
     RequestLogger.updateSessionLog();
     RequestLogger.updateSessionLog(message);
     return true;
+  }
+
+  public static final boolean haveCampground() {
+    if (KoLCharacter.getLimitMode().limitCampground()) {
+      return false;
+    }
+    if (KoLCharacter.isEd()
+        || KoLCharacter.inRobocore()
+        || KoLCharacter.inNuclearAutumn()
+        || KoLCharacter.inSmallcore()
+        || KoLCharacter.inWereProfessor()
+        || KoLCharacter.isMeat()) {
+      return false;
+    }
+    return true;
+  }
+
+  public static final boolean haveWorkshed() {
+    if (KoLCharacter.inSmallcore()) {
+      return true;
+    }
+    return haveCampground();
   }
 }

@@ -33,6 +33,12 @@ public class StringUtilities {
   private static final HashMap<String, String> prepositionsMap = new HashMap<>();
   private static final WeakHashMap<String[], int[]> hashCache = new WeakHashMap<>();
 
+  private static final Pattern COMMA_DELIMITED_PATTERN = Pattern.compile("\\s*,\\s*");
+
+  public static String[] splitByComma(String input) {
+    return COMMA_DELIMITED_PATTERN.split(input);
+  }
+
   private static final Pattern NONINTEGER_PATTERN = Pattern.compile("[^0-9\\-]+");
 
   private static final Pattern PREPOSITIONS_PATTERN =
@@ -993,12 +999,13 @@ public class StringUtilities {
     return num
         + switch (num % 100) {
           case 11, 12, 13 -> "th";
-          default -> switch (num % 10) {
-            case 1 -> "st";
-            case 2 -> "nd";
-            case 3 -> "rd";
-            default -> "th";
-          };
+          default ->
+              switch (num % 10) {
+                case 1 -> "st";
+                case 2 -> "nd";
+                case 3 -> "rd";
+                default -> "th";
+              };
         };
   }
 

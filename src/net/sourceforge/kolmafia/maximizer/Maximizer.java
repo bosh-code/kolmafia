@@ -26,6 +26,7 @@ import net.sourceforge.kolmafia.equipment.Slot;
 import net.sourceforge.kolmafia.equipment.SlotSet;
 import net.sourceforge.kolmafia.modifiers.BitmapModifier;
 import net.sourceforge.kolmafia.modifiers.DoubleModifier;
+import net.sourceforge.kolmafia.modifiers.StringModifier;
 import net.sourceforge.kolmafia.moods.MoodManager;
 import net.sourceforge.kolmafia.objectpool.ConcoctionPool;
 import net.sourceforge.kolmafia.objectpool.EffectPool;
@@ -96,10 +97,12 @@ public class Maximizer {
   private Maximizer() {}
 
   public static boolean maximize(
-      String maximizerString, int maxPrice, PriceLevel priceLevel, boolean isSpeculationOnly) {
+      String maximizerString,
+      int maxPrice,
+      PriceLevel priceLevel,
+      EquipScope equipScope,
+      Set<filterType> filter) {
     MaximizerFrame.expressionSelect.setSelectedItem(maximizerString);
-    EquipScope equipScope =
-        isSpeculationOnly ? EquipScope.SPECULATE_INVENTORY : EquipScope.EQUIP_NOW;
 
     // iECOC has to be turned off before actually maximizing as
     // it would cause all item lookups during the process to just
@@ -107,7 +110,7 @@ public class Maximizer {
 
     KoLmafiaCLI.isExecutingCheckOnlyCommand = false;
 
-    Maximizer.maximize(equipScope, maxPrice, priceLevel, false, EnumSet.allOf(filterType.class));
+    Maximizer.maximize(equipScope, maxPrice, priceLevel, false, filter);
 
     if (!KoLmafia.permitsContinue()) {
       return false;
@@ -117,6 +120,14 @@ public class Maximizer {
     ModifierDatabase.overrideModifier(ModifierType.GENERATED, "_spec", mods);
 
     return !Maximizer.best.failed;
+  }
+
+  public static boolean maximize(
+      String maximizerString, int maxPrice, PriceLevel priceLevel, boolean isSpeculationOnly) {
+    EquipScope equipScope =
+        isSpeculationOnly ? EquipScope.SPECULATE_INVENTORY : EquipScope.EQUIP_NOW;
+    return maximize(
+        maximizerString, maxPrice, priceLevel, equipScope, EnumSet.allOf(filterType.class));
   }
 
   public static void maximize(
@@ -552,6 +563,10 @@ public class Maximizer {
           case "use":
             if (!filter.contains(KoLConstants.filterType.USABLE)) continue;
             break;
+          case "genie":
+          case "monkeypaw":
+            if (!filter.contains(KoLConstants.filterType.WISH)) continue;
+            break;
           default:
             if (!filter.contains(KoLConstants.filterType.OTHER)) continue;
         }
@@ -645,7 +660,16 @@ public class Maximizer {
 
             Modifiers effMod = ModifierDatabase.getItemModifiers(item.getItemId());
             if (effMod != null) {
-              duration = (int) effMod.getDouble(DoubleModifier.EFFECT_DURATION);
+              var effects = effMod.getStrings(StringModifier.EFFECT);
+              var effectIndex = effects.indexOf(effect.getName());
+              if (effectIndex != -1) {
+                var effectDurations = effMod.getDoubles(DoubleModifier.EFFECT_DURATION);
+                if (effectIndex >= effectDurations.size()) {
+                  duration = 0;
+                } else {
+                  duration = effectDurations.get(effectIndex).intValue();
+                }
+              }
             }
           }
           // Hot Dogs don't have items
@@ -902,14 +926,14 @@ public class Maximizer {
           duration = 20;
           usesRemaining = Preferences.getBoolean("concertVisited") ? 0 : 1;
         } else if (cmd.startsWith("telescope ")) {
-          if (limitMode.limitCampground()) {
+          if (!CampgroundRequest.haveCampground()) {
             continue;
           } else if (Preferences.getInteger("telescopeUpgrades") == 0) {
             if (includeAll) {
               text = "( get a telescope )";
               cmd = "";
             } else continue;
-          } else if (KoLCharacter.inBadMoon() || KoLCharacter.inNuclearAutumn()) {
+          } else if (KoLCharacter.inBadMoon()) {
             continue;
           } else if (Preferences.getBoolean("telescopeLookedHigh")) {
             cmd = "";
@@ -1852,7 +1876,7 @@ public class Maximizer {
             switch (method) {
               case "uncloset" -> "closet take 1 \u00B6" + item.getItemId() + ";" + cmd;
               case "unstash" -> "stash take 1 \u00B6" + item.getItemId() + ";" + cmd;
-                // Should be only hitting this after Ronin I think
+              // Should be only hitting this after Ronin I think
               case "pull" -> "pull 1 \u00B6" + item.getItemId() + ";" + cmd;
               default -> cmd;
             };
@@ -1931,9 +1955,9 @@ public class Maximizer {
   private static boolean excludedTCRSItem(int itemId) {
     return switch (itemId) {
       case ItemPool.DIETING_PILL ->
-      // Doubles adventures and stats from next food.  Also
-      // doubles fullness - which can be a surprise.
-      true;
+          // Doubles adventures and stats from next food.  Also
+          // doubles fullness - which can be a surprise.
+          true;
       default -> false;
     };
   }

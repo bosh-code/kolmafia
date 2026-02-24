@@ -70,6 +70,8 @@ public enum ModifierType {
   GENERATED,
   TERRARIUM_FAMILIAR,
   SEAHORSE,
+  SHRUNKEN_HEAD,
+  ETERNITY_CODPIECE,
   NONE;
 
   private static Map<String, ModifierType> stringToType =

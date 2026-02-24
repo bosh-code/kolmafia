@@ -15,8 +15,22 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -37,7 +51,6 @@ import net.sourceforge.kolmafia.StaticEntity;
 import net.sourceforge.kolmafia.modifiers.Lookup;
 import net.sourceforge.kolmafia.modifiers.ModifierList;
 import net.sourceforge.kolmafia.modifiers.ModifierList.ModifierValue;
-import net.sourceforge.kolmafia.modifiers.MultiStringModifier;
 import net.sourceforge.kolmafia.modifiers.StringModifier;
 import net.sourceforge.kolmafia.objectpool.Concoction;
 import net.sourceforge.kolmafia.objectpool.ItemPool;
@@ -674,9 +687,9 @@ public class DebugDatabase {
   private static boolean typesMatch(final ConsumptionType type, final ConsumptionType descType) {
     return switch (type) {
       case NONE, FOOD_HELPER, DRINK_HELPER, STICKER, FOLDER, POKEPILL ->
-      // We intentionally disallow certain items from being
-      // "used" through the GUI.
-      descType == ConsumptionType.NONE || descType == ConsumptionType.USE;
+          // We intentionally disallow certain items from being
+          // "used" through the GUI.
+          descType == ConsumptionType.NONE || descType == ConsumptionType.USE;
       case EAT,
           DRINK,
           SPLEEN,
@@ -688,13 +701,15 @@ public class DebugDatabase {
           PANTS,
           SHIRT,
           WEAPON,
-          OFFHAND -> descType == type;
-      case USE_MESSAGE_DISPLAY, USE, USE_MULTIPLE, USE_INFINITE -> descType == ConsumptionType.USE
-          || descType == ConsumptionType.USE_MULTIPLE
-          || descType == ConsumptionType.EAT
-          || descType == ConsumptionType.DRINK
-          || descType == ConsumptionType.AVATAR_POTION
-          || descType == ConsumptionType.NONE;
+          OFFHAND ->
+          descType == type;
+      case USE_MESSAGE_DISPLAY, USE, USE_MULTIPLE, USE_INFINITE ->
+          descType == ConsumptionType.USE
+              || descType == ConsumptionType.USE_MULTIPLE
+              || descType == ConsumptionType.EAT
+              || descType == ConsumptionType.DRINK
+              || descType == ConsumptionType.AVATAR_POTION
+              || descType == ConsumptionType.NONE;
       case POTION, AVATAR_POTION -> descType == ConsumptionType.POTION;
       case CARD, EL_VIBRATO_SPHERE, ZAP -> descType == ConsumptionType.NONE;
       default -> true;
@@ -1276,6 +1291,7 @@ public class DebugDatabase {
     DebugDatabase.appendModifier(known, ModifierDatabase.parseSoftcoreOnly(text));
     DebugDatabase.appendModifier(known, ModifierDatabase.parseLastsOneDay(text));
     DebugDatabase.appendModifier(known, ModifierDatabase.parseFreePull(text));
+    DebugDatabase.appendModifier(known, ModifierDatabase.parseNoPull(text));
     DebugDatabase.appendModifier(known, ModifierDatabase.parseEffect(text));
     DebugDatabase.appendModifier(known, ModifierDatabase.parseEffectDuration(text));
     DebugDatabase.appendModifier(known, ModifierDatabase.parseSongDuration(text));
@@ -1353,13 +1369,6 @@ public class DebugDatabase {
   public static String parseItemEnchantments(
       final String text, final ArrayList<String> unknown, final ConsumptionType type) {
     ModifierList known = new ModifierList();
-    DebugDatabase.parseItemEnchantments(text, known, unknown, type);
-    return known.toString();
-  }
-
-  public static String parseItemEnchantments(final String text, final ConsumptionType type) {
-    ModifierList known = new ModifierList();
-    ArrayList<String> unknown = new ArrayList<>();
     DebugDatabase.parseItemEnchantments(text, known, unknown, type);
     return known.toString();
   }
@@ -1442,6 +1451,7 @@ public class DebugDatabase {
     String[] mods = enchantments.toString().split("\n+");
     String BLUE_START = "<font color=\"blue\">";
     String BLUE_END = "</font>";
+    String DAGGER_FOOTNOTE = " <sup>&dagger;</sup>";
 
     boolean decemberEvent = false;
 
@@ -1449,6 +1459,11 @@ public class DebugDatabase {
       String enchantment = s.trim();
       if (enchantment.isEmpty()) {
         continue;
+      }
+
+      // <sup>&dagger;</sup> This enchantment scales with your level.
+      if (enchantment.endsWith(DAGGER_FOOTNOTE)) {
+        enchantment = enchantment.substring(0, enchantment.length() - DAGGER_FOOTNOTE.length());
       }
 
       // Unfortunately, since KoL has removed any indication
@@ -2615,7 +2630,8 @@ public class DebugDatabase {
                   BOOTSPUR,
                   FOOD_HELPER,
                   DRINK_HELPER,
-                  PASTA_GUARDIAN -> true;
+                  PASTA_GUARDIAN ->
+                  true;
               default -> id == ItemPool.GLITCH_ITEM;
             };
         if (!skipUsableCheck.contains(id)) {
@@ -3025,7 +3041,7 @@ public class DebugDatabase {
       // Potions grant an effect. Check for a new effect.
       String itemName = ItemDatabase.getItemDataName(id);
       String effectName =
-          ModifierDatabase.getStringModifier(ModifierType.ITEM, itemId, MultiStringModifier.EFFECT);
+          ModifierDatabase.getStringModifier(ModifierType.ITEM, itemId, StringModifier.EFFECT);
       if (!effectName.isEmpty() && EffectDatabase.getEffectId(effectName, true) == -1) {
         String rawText = DebugDatabase.rawItemDescriptionText(itemId);
         String effectDescid = DebugDatabase.parseEffectDescid(rawText);

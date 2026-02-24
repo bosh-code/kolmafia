@@ -11,14 +11,14 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 import net.java.dev.spellcast.utilities.DataUtilities;
 import net.sourceforge.kolmafia.KoLConstants;
 import net.sourceforge.kolmafia.ModifierType;
 import net.sourceforge.kolmafia.Modifiers;
 import net.sourceforge.kolmafia.modifiers.BitmapModifier;
+import net.sourceforge.kolmafia.modifiers.DoubleModifier;
 import net.sourceforge.kolmafia.modifiers.Lookup;
-import net.sourceforge.kolmafia.modifiers.MultiStringModifier;
+import net.sourceforge.kolmafia.modifiers.StringModifier;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -76,7 +76,7 @@ public class ModifierDatabaseTest {
 
     ModifierDatabase.writeModifiers(writer);
     writer.close();
-    List<String> writeModifiersLines = ostream.toString().lines().collect(Collectors.toList());
+    List<String> writeModifiersLines = ostream.toString().lines().toList();
 
     BufferedReader reader =
         DataUtilities.getReader(KoLConstants.DATA_DIRECTORY, "modifiers.txt", true);
@@ -97,10 +97,10 @@ public class ModifierDatabaseTest {
     if (writeModifiersLine != null) {
       int index = writeModifiersLines.indexOf(writeModifiersLine);
       for (int i = Math.min(3, index); i >= 0; i--) {
-        message.append("previous line: [" + writeModifiersLines.get(index - i) + "]\n");
+        message.append("previous line: [").append(writeModifiersLines.get(index - i)).append("]\n");
       }
     }
-    message.append("unmatched line: [" + writeModifiersLine + "]");
+    message.append("unmatched line: [").append(writeModifiersLine).append("]");
     assertThat(message.toString(), writeModifiersIterator.hasNext(), is(false));
   }
 
@@ -108,7 +108,13 @@ public class ModifierDatabaseTest {
   void canParseMultiStringModifier() {
     String enchantment = "Rollover Effect: \"Sleepy\", Rollover Effect: \"Light!\"";
     var mods = ModifierDatabase.parseModifiers(new Lookup(ModifierType.ITEM, "1"), enchantment);
-    assertThat(
-        mods.getStrings(MultiStringModifier.ROLLOVER_EFFECT), is(List.of("Sleepy", "Light!")));
+    assertThat(mods.getStrings(StringModifier.ROLLOVER_EFFECT), is(List.of("Sleepy", "Light!")));
+  }
+
+  @Test
+  void canParseMultiDoubleModifier() {
+    String enchantment = "Effect Duration: 5, Effect Duration: 10";
+    var mods = ModifierDatabase.parseModifiers(new Lookup(ModifierType.ITEM, "1"), enchantment);
+    assertThat(mods.getDoubles(DoubleModifier.EFFECT_DURATION), is(List.of(5.0, 10.0)));
   }
 }

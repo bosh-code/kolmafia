@@ -489,6 +489,8 @@ user	clanFortuneWord1	pizza
 user	clanFortuneWord2	batman
 user	clanFortuneWord3	thick
 user	clanAttacksEnabled	false
+user	clubEmNextWeekMonster		roa
+user	clubEmNextWeekMonsterTurn	-1	roa
 user	clumsinessGroveBoss		roa
 user	cocktailSummons	0	ld
 user	coldAirportAlways	false
@@ -691,6 +693,7 @@ user	essenceOfBearAvailable	true
 user	essenceOfBearCost	1000
 user	EVEDirections	LLRLR0
 user	everfullDartPerks		roa
+user	eweItem		roa
 user	expressCardUsed	false	ld
 user	extraCosmeticModifiers
 user	extraRolloverAdventures	0	ld
@@ -717,6 +720,7 @@ user	fistTeachingsSlums	false	roa
 user	fistTeachingsFratHouse	false	roa
 user	fistTeachingsRoad	false	roa
 user	fistTeachingsNinjaSnowmen	false	roa
+user	flagellateFlagonsActive	0 roa
 user	flickeringPixel1	false
 user	flickeringPixel2	false
 user	flickeringPixel3	false
@@ -861,10 +865,20 @@ user	hasMaydayContract	false
 user	hasOven	false	roa
 user	hasRange	false	roa
 user	hasShaker	false	roa
+user	hasShrunkenHead	false
 user	hasSushiMat	false	roa
 user	hasTwinkleVision	false
 user	haveBoxingDaydreamHardcore	false
 user	haveBoxingDaydreamSoftcore	false
+user	heartstoneAttunementMods		roa
+user	heartstoneAttunementWord		roa
+user	heartstoneBanishUnlocked	false
+user	heartstoneBuffUnlocked	false
+user	heartstoneKillUnlocked	false
+user	heartstoneLetters		roa
+user	heartstoneLuckUnlocked	false
+user	heartstonePalsUnlocked	false
+user	heartstoneStunUnlocked	false
 user	heavyRainsStartingThunder	0
 user	heavyRainsStartingRain	0
 user	heavyRainsStartingLightning	0
@@ -1042,6 +1056,9 @@ user	lastQuartetAscension	-1
 user	lastQuartetRequest	0
 user	lastSecondFloorUnlock	-1
 user	lastShadowForgeUnlockAdventure	-1	roa
+user	lastKOLHSArtClassUnlockAdventure	-1	roa
+user	lastKOLHSChemClassUnlockAdventure	-1	roa
+user	lastKOLHSShopClassUnlockAdventure	-1	roa
 user	lastSkateParkReset	-1
 user	lastSlimeVial3885
 user	lastSlimeVial3886
@@ -1156,6 +1173,7 @@ user	maraisDarkUnlock	false
 user	maraisVillageUnlock	false
 user	maraisWildlifeUnlock	false
 user	maraisWizardUnlock	false
+user	markYourTerritoryCharges	0	roa
 user	masksUnlocked	0
 user	maximizerList	mainstat | mus | mys | mox | familiar weight | HP | MP | ML | DA | DR | +combat -tie | -combat -tie | initiative | exp | meat drop | item drop | 2.0 meat, 1.0 item | item, sea | weapon dmg | ranged dmg | elemental dmg | spell dmg | adv | pvp fights | hot res | cold res | spooky res | stench res | sleaze res | all res | mp regen | ML, 0.001 slime res | 4 clownosity, -tie | 7 raveosity, -tie | surgeonosity | +four songs
 user	maximizerMRUList	mainstat;mus;mys;mox;familiar weight;HP;MP;ML;DA;DR;+combat -tie;-combat -tie;initiative;exp;meat drop;item drop;2.0 meat, 1.0 item;item, sea;weapon dmg;ranged dmg;elemental dmg;spell dmg;adv;hot res;cold res;spooky res;stench res;sleaze res;all res;mp regen;ML, 0.001 slime res;4 clownosity;7 raveosity;+four songs
@@ -1168,6 +1186,7 @@ user	maximizerEquipmentLevel	1
 user	maximizerEquipmentScope	0
 user	maximizerFoldables	true
 user	maximizerIncludeAll	false
+user	maximizerLastFilters	equip,cast,wish,other,usable,booze,food,spleen
 user	maximizerMaxPrice	0
 user	maximizerNoAdventures	false
 user	maximizerPriceLevel	0
@@ -1539,6 +1558,9 @@ user	shrubGarland
 user	shrubGifts
 user	shrubLights
 user	shrubTopper
+user	shrunkenHeadZombieAbilities		roa
+user	shrunkenHeadZombieHP	0	roa
+user	shrunkenHeadZombieMonster		roa
 user	shubJigguwattDefeated	false	roa
 user	sideDefeated	neither
 user	sidequestArenaCompleted	none
@@ -1728,6 +1750,7 @@ user	trackedMonsters
 user	trackedPhyla
 user	trainsetConfiguration		roa
 user	trainsetPosition	0	roa
+user	tryToRememberCharges	0	roa
 user	turtleBlessingTurns	0	roa
 user	trapperOre		roa
 user	twinPeakProgress	0	roa
@@ -1940,6 +1963,15 @@ user	_batWingsCauldronUsed	0
 user	_batWingsFreeFights	0
 user	_batWingsRestUsed	0
 user	_batWingsSwoopUsed	0
+user	_bczBloodGeyserCasts	0
+user	_bczRefractedGazeCasts	0
+user	_bczSweatBulletsCasts	0
+user	_bczBloodBathCasts	0
+user	_bczDialitupCasts	0
+user	_bczSweatEquityCasts	0
+user	_bczBloodThinnerCasts	0
+user	_bczSpinalTapasCasts	0
+user	_bczPheromoneCocktailCasts	0
 user	_beachCombing	false
 user	_beachHeadsUsed
 user	_beachLayout
@@ -2040,6 +2072,9 @@ user	_clocksUsed	0
 user	_cloudTalkMessage
 user	_cloudTalkSmoker
 user	_cloversPurchased	0
+user	_clubEmBattlefieldUsed	0
+user	_clubEmNextWeekUsed	0
+user	_clubEmTimeUsed	0
 user	_coalPaperweightUsed	false
 user	_coatOfPaintModifier
 user	_cocoaDispenserUsed	false
@@ -2066,6 +2101,12 @@ user	_cosmicSixPackConjured	false
 user	_crappyCameraUsed	false
 user	_creepyVoodooDollUsed	false
 user	_crimbo21ColdResistance	0
+user	_crimboPastDailySpecial	false
+user	_crimboPastDailySpecialItem	-1
+user	_crimboPastDailySpecialPrice	0
+user	_crimboPastMedicalGruel	false
+user	_crimboPastPrizeTurkey	false
+user	_crimboPastSmokingPope	false
 user	_crimboTraining	false
 user	_crimboTree	false
 user	_crToday	false
@@ -2178,6 +2219,7 @@ user	_fireworksShopHatBought	false
 user	_fireworksShopEquipmentBought	false
 user	_fireworkUsed	false
 user	_fishyPipeUsed	false
+user	_flagellateFlagonUsed	false
 user	_floristPlantsUsed
 user	_floundryItemCreated	false
 user	_floundryItemUsed	false
@@ -2251,6 +2293,12 @@ user	_guzzlrQuestAbandoned	false
 user	_hardKnocksDiplomaUsed	false
 user	_hareAdv	0
 user	_hareCharge	0
+user	_heartstoneBanishUsed	0
+user	_heartstoneBuffUsed	0
+user	_heartstoneKillUsed	0
+user	_heartstoneLuckUsed	false
+user	_heartstonePalsUsed	0
+user	_heartstoneStunUsed	0
 user	_highTopPumps	0
 user	_hippyMeatCollected	false
 user	_hipsterAdv	0
@@ -2337,6 +2385,8 @@ user	_kgbTranquilizerDartUses	0
 user	_klawSummons	0
 user	_kloopCharge	0
 user	_kloopDrops	0
+user	_knuckleboneDrops	0
+user	_knuckleboneRests	0
 user	_kolConSixPackUsed	false
 user	_kolhsAdventures	0
 user	_kolhsCutButNotDried	false
@@ -2416,6 +2466,8 @@ user	_mcHugeLargeSkiPlowUses	0
 user	_mcHugeLargeSlashUses	0
 user	_meatballMachineUsed	false
 user	_meatifyMatterUsed	false
+user	_meatCuteUsed	0
+user	_meatLoafUsed	0
 user	_mediumSiphons	0
 user	_meteoriteAdesUsed	0
 user	_meteorShowerUses	0
@@ -2427,9 +2479,12 @@ user	_mimicEggsDonated	0
 user	_mimicEggsObtained	0
 user	_miniKiwiDrops	0
 user	_miniKiwiIntoxicatingSpiritsBought	false
+user	_miniKiwiTipiDrop	false
 user	_miniMartiniDrops	0
 user	_missGravesVermouthDrunk	false
 user	_missileLauncherUsed	false
+user	_mobiusRingPrimed	false
+user	_mobiusRingPrimedTurn	-1
 user	_mobiusStripEncounters	0
 user	_molehillMountainUsed	false
 user	_momFoodReceived	false
@@ -2609,6 +2664,7 @@ user	_sleazeAirportToday	false
 user	_sloppyDinerBeachBucks	0
 user	_smilesOfMrA	0
 user	_smithsnessSummons	0
+user	_smolderingSkeletonsDefeated	0
 user	_smoochArmyHQCombats	0
 user	_snojoFreeFights	0
 user	_snojoParts	0
@@ -2787,6 +2843,7 @@ user	_VYKEACompanionLevel	0
 user	_VYKEACompanionName
 user	_VYKEALoungeRaided	false
 user	_walfordQuestStartedToday	false
+user	_wandOfPigificationUsed	0
 user	_warbearAutoAnvilCrafting	0
 user	_warbearBankUsed	false
 user	_warbearBreakfastMachineUsed	false
@@ -3587,6 +3644,7 @@ user	choiceAdventure1547	1
 user	choiceAdventure1548	1
 user	choiceAdventure1549	1
 user	choiceAdventure1550	1
+user	choiceAdventure1591	1
 user	lockedItem4637	true
 user	lockedItem4638	true
 user	lockedItem4639	true

@@ -145,7 +145,7 @@ public class EffectDatabase {
 
     EffectDatabase.qualityById.put(effectId, EffectDatabase.parseQuality(quality));
 
-    String[] list = attributes.split("\\s*,\\s*");
+    String[] list = StringUtilities.splitByComma(attributes);
     List<String> attrs = new LinkedList<>(Arrays.asList(list));
     attrs.remove("none");
     EffectDatabase.attributesById.put(effectId, attrs);
@@ -236,7 +236,7 @@ public class EffectDatabase {
           && either[1].equals(
               "either")) { // Split commands like "use either X, Y" into "use X", "use Y"
         String cmd = either[0];
-        either = either[2].split("\\s*,\\s*");
+        either = StringUtilities.splitByComma(either[2]);
         for (int j = 0; j < either.length; ++j) {
           rv.add(cmd + " " + either[j]);
         }
@@ -759,8 +759,8 @@ public class EffectDatabase {
           case EffectPool.WINE_DARK -> (int) emods.getDouble(DoubleModifier.SPOOKY_DAMAGE) / 4;
           case EffectPool.WINE_BEFOULED -> (int) emods.getDouble(DoubleModifier.STENCH_DAMAGE) / 3;
           case EffectPool.WINE_FRISKY -> (int) emods.getDouble(DoubleModifier.SLEAZE_DAMAGE) / 3;
-          case EffectPool.WINE_FRIENDLY -> (int) emods.getDouble(DoubleModifier.FAMILIAR_DAMAGE)
-              / 3;
+          case EffectPool.WINE_FRIENDLY ->
+              (int) emods.getDouble(DoubleModifier.FAMILIAR_DAMAGE) / 3;
           default -> -1;
         };
 

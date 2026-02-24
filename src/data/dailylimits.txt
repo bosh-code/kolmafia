@@ -68,6 +68,9 @@ Cast	Cincho: Fiesta Exit	_cinchUsed	100
 Cast	Cincho: Party Foul	_cinchUsed	100
 Cast	Cincho: Party Soundtrack	_cinchUsed	100
 Cast	Cincho: Projectile Piñata	_cinchUsed	100
+Cast	Club 'Em Across the Battlefield	_clubEmBattlefieldUsed	5
+Cast	Club 'Em Into Next Week	_clubEmNextWeekUsed	5
+Cast	Club 'Em Back in Time	_clubEmTimeUsed	5
 Cast	Communism!	_communismUsed
 Cast	Conjure Cheese	_jarlsCheeseSummoned
 Cast	Conjure Cream	_jarlsCreamSummoned
@@ -110,6 +113,12 @@ Cast	Gingerbread Mob Hit	_gingerbreadMobHitUsed
 Cast	Give Your Opponent the Stinkeye	_stinkyCheeseBanisherUsed
 Cast	Grab a Cold One	_coldOne
 Cast	Gulp Latte	_latteDrinkUsed
+Cast	Heartstone: %kill	_heartstoneKillUsed	5
+Cast	Heartstone: %banish	_heartstoneBanishUsed	5
+Cast	Heartstone: %stun	_heartstoneStunUsed	5
+Cast	Heartstone: %luck	_heartstoneLuckUsed
+Cast	Heartstone: %pals	_heartstonePalsUsed	5
+Cast	Heartstone: %buff	_heartstoneBuffUsed	5
 Cast	Hugs and Kisses!	_xoHugsUsed	11
 Cast	Implode Universe	_universeImploded	[pref(skillLevel188)]
 Cast	Incite Riot	_peteRiotIncited
@@ -129,6 +138,8 @@ Cast	Map the Monsters	_monstersMapped	3
 Cast	McHugeLarge Avalanche	_mcHugeLargeAvalancheUses	3
 Cast	McHugeLarge Ski Plow	_mcHugeLargeSkiPlowUses	11
 Cast	McHugeLarge Slash	_mcHugeLargeSlashUses	3
+Cast	Meat Cute	_meatCuteUsed	5
+Cast	Meat Loaf	_meatLoafUsed	11
 Cast	Meatify Matter	_meatifyMatterUsed
 Cast	Meteor Shower	_meteorShowerUses	5
 Cast	Offer Latte to Opponent	_latteCopyUsed
@@ -347,6 +358,7 @@ Use	fancy chocolate car	_chocolatesUsed	3
 Use	festive warbear bank	_warbearBankUsed
 Use	fish hatchet	_floundryItemUsed
 Use	fishy pipe	_fishyPipeUsed
+Use	flagellate flagon	_flagellateFlagonUsed
 Use	fudge spork	_fudgeSporkUsed
 Use	glass gnoll eye	_gnollEyeUsed
 Use	green rocket	_fireworkUsed

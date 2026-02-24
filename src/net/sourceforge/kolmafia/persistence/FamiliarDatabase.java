@@ -163,7 +163,7 @@ public class FamiliarDatabase {
         }
 
         if (data.length == 11) {
-          String[] list = data[10].split("\\s*,\\s*");
+          String[] list = StringUtilities.splitByComma(data[10]);
           List<String> attrs = Arrays.asList(list);
           FamiliarDatabase.attributesById.put(id, attrs);
         }
@@ -983,7 +983,7 @@ public class FamiliarDatabase {
           current.setMove3(move3);
           update = true;
         }
-        // Fall through
+      // Fall through
       case 4:
         if (power != current.getPower4()) {
           current.setPower4(power);

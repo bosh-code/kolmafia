@@ -20,6 +20,7 @@ import static internal.helpers.Player.withItemInStorage;
 import static internal.helpers.Player.withLocation;
 import static internal.helpers.Player.withMCD;
 import static internal.helpers.Player.withMeat;
+import static internal.helpers.Player.withMuscle;
 import static internal.helpers.Player.withNotAllowedInStandard;
 import static internal.helpers.Player.withOverrideModifiers;
 import static internal.helpers.Player.withPath;
@@ -447,6 +448,69 @@ public class MaximizerTest {
   }
 
   @Nested
+  class Potions {
+    @Test
+    public void recommendsUsableNonPotion() {
+      var cleanups = withItem(ItemPool.CHARTER_NELLYVILLE);
+
+      try (cleanups) {
+        maximize("hot dmg");
+
+        assertThat(
+            getBoosts(), hasItem(hasProperty("cmd", startsWith("use 1 Charter: Nellyville"))));
+      }
+    }
+
+    @Test
+    public void recommendsLoathingIdol() {
+      var cleanups = withItem(ItemPool.LOATHING_IDOL_MICROPHONE_50);
+
+      try (cleanups) {
+        maximize("init");
+
+        assertThat(getBoosts(), hasItem(hasProperty("cmd", startsWith("loathingidol pop"))));
+      }
+    }
+
+    @Test
+    public void givesCorrectEffectDuration() {
+      var cleanups =
+          new Cleanups(withProperty("verboseMaximizer", true), withItem(ItemPool.CUP_OF_SUGAR));
+
+      try (cleanups) {
+        maximize("init");
+
+        var boosts = getBoosts();
+        assertThat(boosts, hasItem(hasProperty("cmd", startsWith("eat 1 cup of sugar"))));
+        var boost =
+            boosts.stream()
+                .filter(x -> x.getCmd().startsWith("eat 1 cup of sugar"))
+                .findAny()
+                .orElseThrow();
+        assertThat(boost.toString(), containsString("10 advs duration"));
+      }
+    }
+
+    @Test
+    public void doesntCrashOnInvalidData() {
+      // you can end up with effects without durations e.g. in current TCRS
+      var cleanups =
+          new Cleanups(
+              withProperty("verboseMaximizer", true),
+              withItem(ItemPool.BLACK_CANDLE),
+              withOverrideModifiers(
+                  ModifierType.ITEM, ItemPool.BLACK_CANDLE, "Effect: \"Rainy Soul Miasma\""));
+
+      try (cleanups) {
+        maximize("muscle");
+
+        var boosts = getBoosts();
+        assertThat(boosts, hasItem(hasProperty("cmd", startsWith("use 1 thin black candle"))));
+      }
+    }
+  }
+
+  @Nested
   class Beecore {
 
     @Test
@@ -545,29 +609,6 @@ public class MaximizerTest {
           assertThat(
               getBoosts(),
               not(hasItem(hasProperty("cmd", startsWith("use 1 baggie of powdered sugar")))));
-        }
-      }
-
-      @Test
-      public void recommendsUsableNonPotion() {
-        var cleanups = withItem(ItemPool.CHARTER_NELLYVILLE);
-
-        try (cleanups) {
-          maximize("hot dmg");
-
-          assertThat(
-              getBoosts(), hasItem(hasProperty("cmd", startsWith("use 1 Charter: Nellyville"))));
-        }
-      }
-
-      @Test
-      public void recommendsLoathingIdol() {
-        var cleanups = withItem(ItemPool.LOATHING_IDOL_MICROPHONE_50);
-
-        try (cleanups) {
-          maximize("init");
-
-          assertThat(getBoosts(), hasItem(hasProperty("cmd", startsWith("loathingidol pop"))));
         }
       }
     }
@@ -830,7 +871,7 @@ public class MaximizerTest {
 
       try (cleanups) {
         assertEquals(
-            AdventureDatabase.getEnvironment(Modifiers.currentLocation), Environment.UNDERWATER);
+            Environment.UNDERWATER, AdventureDatabase.getEnvironment(Modifiers.currentLocation));
         assertTrue(maximize("-combat -tie"));
 
         assertThat(getBoosts(), hasItem(recommendsSlot(Slot.HAT, "Mer-kin sneakmask")));
@@ -2467,6 +2508,79 @@ public class MaximizerTest {
                 hasItem(
                     hasProperty("cmd", startsWith("monkeypaw effect Mild-Mannered Professor")))));
       }
+    }
+  }
+
+  @Nested
+  class Holiday {
+    @Test
+    public void recommendsCrystallizedSpiceInAutumn() {
+      var cleanups =
+          new Cleanups(
+              withItem(ItemPool.CRYSTALLIZED_PUMPKIN_SPICE), withDay(2025, Month.OCTOBER, 11));
+
+      try (cleanups) {
+        maximize("item");
+        var boosts = getBoosts();
+        assertThat(
+            boosts, hasItem(hasProperty("cmd", equalTo("use 1 crystallized pumpkin spice"))));
+      }
+    }
+
+    @Test
+    public void doesNotRecommendCrystallizedSpiceOutsideAutumn() {
+      var cleanups =
+          new Cleanups(
+              withItem(ItemPool.CRYSTALLIZED_PUMPKIN_SPICE), withDay(2025, Month.DECEMBER, 11));
+
+      try (cleanups) {
+        maximize("item");
+        var boosts = getBoosts();
+        assertThat(
+            boosts, not(hasItem(hasProperty("cmd", equalTo("use 1 crystallized pumpkin spice")))));
+      }
+    }
+
+    @Test
+    public void recommendsM242OnDependenceDay() {
+      var cleanups =
+          new Cleanups(withItem(ItemPool.M282), withDay(2025, Month.OCTOBER, 30), withMuscle(100));
+
+      try (cleanups) {
+        maximize("muscle");
+        var boosts = getBoosts();
+        assertThat(boosts, hasItem(hasProperty("cmd", equalTo("use 1 M-242"))));
+      }
+    }
+
+    @Test
+    public void doesNotRecommendM242OutsideDependenceDay() {
+      var cleanups =
+          new Cleanups(withItem(ItemPool.M282), withDay(2025, Month.DECEMBER, 11), withMuscle(100));
+
+      try (cleanups) {
+        maximize("muscle");
+        var boosts = getBoosts();
+        assertThat(boosts, not(hasItem(hasProperty("cmd", equalTo("use 1 M-242")))));
+      }
+    }
+  }
+
+  @Test
+  void canMaximizeRolloverEffectDuration() {
+    var cleanups =
+        new Cleanups(
+            withEquippableItem(ItemPool.SILENT_NIGHTLIGHT),
+            withEquippableItem(ItemPool.SPACEGATE_MILITARY_INSIGNIA),
+            withEquippableItem(ItemPool.SPACEGATE_SCIENTIST_INSIGNIA),
+            withEquippableItem(ItemPool.SHINY_HOOD_ORNAMENT, 3));
+
+    try (cleanups) {
+      maximize(
+          "10.0 adv, 0.001 rollover effect duration, switch disembodied hand, switch left-hand man, -tie");
+      assertThat(getBoosts(), hasItem(recommends(ItemPool.SPACEGATE_SCIENTIST_INSIGNIA)));
+      assertThat(getBoosts(), hasItem(recommends(ItemPool.SPACEGATE_MILITARY_INSIGNIA)));
+      assertThat(getBoosts(), hasItem(recommends(ItemPool.SILENT_NIGHTLIGHT)));
     }
   }
 }

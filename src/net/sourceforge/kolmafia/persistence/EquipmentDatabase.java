@@ -167,10 +167,10 @@ public class EquipmentDatabase {
           String image = data[2];
           outfit.setImage(image);
 
-          String[] pieces = data[3].split("\\s*,\\s*");
+          String[] pieces = StringUtilities.splitByComma(data[3]);
 
           if (data.length >= 5) {
-            String[] treats = data[4].split("\\s*,\\s*");
+            String[] treats = StringUtilities.splitByComma(data[4]);
             for (String treat : treats) {
               if (treat.equals("none")) {
                 break;
@@ -771,38 +771,23 @@ public class EquipmentDatabase {
 
     int pulver = PULVERIZE_BITS | ELEM_TWINKLY;
     Modifiers mods = ModifierDatabase.getItemModifiers(id);
-    if (mods == null) { // Apparently no enchantments at all, which would imply that this
-      // item pulverizes to useless powder.  However, there are many items
-      // with enchantments that don't correspond to a KoLmafia modifier
-      // (the "They do nothing!" enchantment of beer goggles, for example),
-      // so this can't safely be assumed, so for now all truly unenchanted
-      // items will have to be explicitly listed in pulverize.txt.
-      pulver |= EquipmentDatabase.ELEM_TWINKLY;
-    } else {
-      for (var implication : IMPLICATIONS.entrySet()) {
-        if (mods.getDouble(implication.getKey()) > 0.0f) {
-          pulver |= implication.getValue();
-        }
-      }
+
+    // Null mods might suggest no enchantments at all, which would imply
+    // that this pulverizes to useless powder.  However, there are many items
+    // with enchantments that don't correspond to a KoLmafia modifier
+    // (the "They do nothing!" enchantment of beer goggles, for example),
+    // so this can't safely be assumed, so for now all truly unenchanted
+    // items will have to be explicitly listed in pulverize.txt.
+
+    if (mods != null) {
+      pulver |=
+          IMPLICATIONS.entrySet().stream()
+              .filter(e -> mods.getDouble(e.getKey()) > 0.0)
+              .mapToInt(Map.Entry::getValue)
+              .reduce(0, (a, b) -> a | b);
     }
 
     int power = EquipmentDatabase.getPower(id);
-    if (power <= 0) {
-      // power is unknown, derive from requirement (which isn't always accurate)
-      pulver |= YIELD_UNCERTAIN;
-      String req = EquipmentDatabase.statRequirements.get(id);
-
-      if (req == null || req.equals("none")) {
-        power = 0;
-      } else {
-        int colonIndex = req.indexOf(":");
-
-        if (colonIndex != -1) {
-          String reqValue = req.substring(colonIndex + 1).trim();
-          power = StringUtilities.parseInt(reqValue) * 2 + 30;
-        }
-      }
-    }
     if (power >= 180) {
       pulver |= YIELD_3W;
     } else if (power >= 160) {
@@ -893,13 +878,14 @@ public class EquipmentDatabase {
       case AdventurePool.HIPPY_CAMP, AdventurePool.HIPPY_CAMP_DISGUISED -> OutfitPool.HIPPY_OUTFIT;
       case AdventurePool.FRAT_HOUSE, AdventurePool.FRAT_HOUSE_DISGUISED -> OutfitPool.FRAT_OUTFIT;
       case AdventurePool.PIRATE_COVE -> OutfitPool.SWASHBUCKLING_GETUP;
-        // Choose the uniform randomly
-      case AdventurePool.COLA_BATTLEFIELD -> KoLConstants.RNG.nextInt(2) == 0
-          ? OutfitPool.CLOACA_UNIFORM
-          : OutfitPool.DYSPEPSI_UNIFORM;
+      // Choose the uniform randomly
+      case AdventurePool.COLA_BATTLEFIELD ->
+          KoLConstants.RNG.nextInt(2) == 0
+              ? OutfitPool.CLOACA_UNIFORM
+              : OutfitPool.DYSPEPSI_UNIFORM;
       case AdventurePool.CLOACA_BATTLEFIELD -> OutfitPool.CLOACA_UNIFORM;
       case AdventurePool.DYSPEPSI_BATTLEFIELD -> OutfitPool.DYSPEPSI_UNIFORM;
-        // No outfit existed for this area
+      // No outfit existed for this area
       default -> -1;
     };
   }

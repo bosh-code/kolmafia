@@ -14,6 +14,7 @@ import net.sourceforge.kolmafia.RestrictedItemType;
 import net.sourceforge.kolmafia.StaticEntity;
 import net.sourceforge.kolmafia.objectpool.ItemPool;
 import net.sourceforge.kolmafia.preferences.Preferences;
+import net.sourceforge.kolmafia.request.CampgroundRequest;
 import net.sourceforge.kolmafia.request.StandardRequest;
 import net.sourceforge.kolmafia.request.UseItemRequest;
 import net.sourceforge.kolmafia.session.InventoryManager;
@@ -323,26 +324,27 @@ public class RestoresDatabase {
             : (InventoryManager.getAccessibleCount(itemId) > 0);
       }
       case "skill" -> KoLCharacter.hasSkill(name);
-      case "loc" -> switch (name) {
-        case "A Relaxing Hot Tub" -> InventoryManager.getCount(ItemPool.VIP_LOUNGE_KEY) > 0
-            && (!KoLCharacter.inBadMoon() || KoLCharacter.kingLiberated())
-            && !limitMode.limitClan();
-        case "April Shower" -> InventoryManager.getCount(ItemPool.VIP_LOUNGE_KEY) > 0
-            && (!KoLCharacter.inBadMoon() || KoLCharacter.kingLiberated())
-            && StandardRequest.isAllowed(RestrictedItemType.CLAN_ITEMS, "April Shower")
-            && !limitMode.limitClan();
-        case "Campground" -> !limitMode.limitCampground()
-            && !KoLCharacter.isEd()
-            && !KoLCharacter.inNuclearAutumn();
-        case "Comfy Sofa" -> !limitMode.limitClan();
-        case "Doc Galaktik's" -> true;
-        case "Free rests" -> KoLCharacter.freeRestsAvailable() > 0;
-        case "Nunnery (Frat Warrior)" -> Preferences.getString("sidequestNunsCompleted")
-            .equals("fratboy");
-        case "Nunnery (War Hippy)" -> Preferences.getString("sidequestNunsCompleted")
-            .equals("hippy");
-        default -> false;
-      };
+      case "loc" ->
+          switch (name) {
+            case "A Relaxing Hot Tub" ->
+                InventoryManager.getCount(ItemPool.VIP_LOUNGE_KEY) > 0
+                    && (!KoLCharacter.inBadMoon() || KoLCharacter.kingLiberated())
+                    && !limitMode.limitClan();
+            case "April Shower" ->
+                InventoryManager.getCount(ItemPool.VIP_LOUNGE_KEY) > 0
+                    && (!KoLCharacter.inBadMoon() || KoLCharacter.kingLiberated())
+                    && StandardRequest.isAllowed(RestrictedItemType.CLAN_ITEMS, "April Shower")
+                    && !limitMode.limitClan();
+            case "Campground" -> CampgroundRequest.haveCampground() || KoLCharacter.inSmallcore();
+            case "Comfy Sofa" -> !limitMode.limitClan();
+            case "Doc Galaktik's" -> true;
+            case "Free rests" -> KoLCharacter.freeRestsAvailable() > 0;
+            case "Nunnery (Frat Warrior)" ->
+                Preferences.getString("sidequestNunsCompleted").equals("fratboy");
+            case "Nunnery (War Hippy)" ->
+                Preferences.getString("sidequestNunsCompleted").equals("hippy");
+            default -> false;
+          };
       default -> false;
     };
   }

@@ -84,6 +84,8 @@ Item	All-Hallow's Steve's fright wig	Sleaze Damage: +20, Spooky Resistance: +2, 
 Item	Amoon-Ra Cowtep's nemes	Mysticality Percent: +35, Spell Damage: +25, Spell Critical Percent: +15, Last Available: "2016-02", Familiar Effect: "atk, 1xVolley"
 Item	Ancient Saucehelm	Mysticality: +11, Spell Damage: +11, Class: "Sauceror", Familiar Effect: "3xGhuol, cap 25"
 Item	ancient turtle shell helmet	Meat Drop: +10, Familiar Effect: "hot atk, cap 8"
+# angelbone halo: 15% Chance to avoid an enemy attack
+Item	angelbone halo	HP Regen Min: 7, HP Regen Max: 11, Spleen Drop: +77, Last Available: "2026-12"
 Item	anniversary concrete fedora	Muscle: +1, Mysticality: +1, Moxie: +1, Familiar Effect: "5xVolley, 5xLep, cap 2"
 Item	antique helmet	Initiative: -10, Spooky Resistance: +2, Breakable, Familiar Effect: "0.5xPotato, 0.5xFairy"
 Item	antique nutcracker hat	Initiative: +15, Moxie Percent: +15, Last Available: "2019-12"
@@ -124,8 +126,7 @@ Item	Boris's Helm	Initiative: +25, Weapon Damage Percent: +50, Familiar Weight: 
 Item	Boris's Helm (askew)	Initiative: +25, Monster Level: +15, Weapon Damage Percent: +50, Familiar Weight: +5, Softcore Only: [1-path(Avatar of Boris)], Free Pull: [path(Avatar of Boris)], Last Available: "2012-04", MP Regen Min: [floor(L/2)+1], MP Regen Max: [floor(L/2)+3], Minstrel Level: +1, Familiar Effect: "atk, MP regen, cap 25"
 Item	bounty-hunting helmet	Item Drop: +20, Familiar Effect: "1.5xFairy, cap 25"
 Item	bowler	Muscle: +5, Last Available: "2004-12", Familiar Effect: "1.5xVolley, 1.5xLep, cap 25"
-# brainwave-controlled unicorn horn: Enables Friendship.  And Goring.
-Item	brainwave-controlled unicorn horn	Maximum HP: +20, Maximum MP: +20, Last Available: "2012-12", Familiar Effect: "atk, 5xVolley, cap 2"
+Item	brainwave-controlled unicorn horn	Maximum HP: +20, Maximum MP: +20, Last Available: "2012-12", Familiar Effect: "atk, 5xVolley, cap 2", Conditional Skill (Equipped): "Uni-Gore"
 Item	BRICKO hat	Maximum MP: +3, Last Available: "2010-02", Familiar Effect: "atk, cap 7"
 Item	Brimstone Beret	Moxie Percent: +50, Muscle Percent: -20, Four Songs, Brimstone, Familiar Effect: "1xVolley, 1xLep"
 Item	Brogre bucket hat	Combat Rate: +5, Last Available: "2014-05", Familiar Effect: "1xVolley, 1xBarrr, cap 14"
@@ -179,6 +180,8 @@ Item	demon-horned hat	Moxie: +4, Familiar Effect: "hot atk, 1xLep, cap 17"
 # depleted Crimbonium football helmet: Reduce all damage taken from monster attacks by 50%
 Item	depleted Crimbonium football helmet	Initiative: -50, Last Available: "2021-12"
 Item	depleted Grimacite ninja mask	Moxie Percent: [5*G], PvP Fights: [G], Last Available: "2011-12", Familiar Effect: "1xBarrr, 1xFairy, cap 25"
+# devilbone helmet: Adds Hot Damage to your Attacks
+Item	devilbone helmet	Monster Level: +13, Combat Rate: +5, Last Available: "2026-12"
 Item	dice-print do-rag	Random Monster Modifiers: +1
 Item	dilapidated wizard hat	Hot Damage: +10, Hot Spell Damage: +15, Familiar Effect: "cap 31"
 # Dinsey mascot mask: Changes Your Avatar
@@ -464,6 +467,7 @@ Item	safarrri hat	Maximum HP: +15, Familiar Effect: "2xVolley, cap 22"
 Item	samurai turtle helmet	Muscle: +1, Weapon Damage: +2, Familiar Effect: "atk, 1xPotato, cap 6"
 Item	Satan hat	Hat Drop: +50, Hot Damage: +30, Class: "Sauceror", Last Available: "2020-12"
 Item	Scalp of Gorgolok	Muscle: +11, Weapon Damage: +7, Class: "Seal Clubber", Familiar Effect: "3xGhuol, cap 25"
+Item	scorched skeleton mask	Experience Percent (Muscle): +20, Hot Resistance: +3, Last Available: "2025-12"
 Item	sea cowboy hat	Adventures: +3, Spooky Resistance: +1, Stench Resistance: +1, Hot Resistance: +1, Cold Resistance: +1, Sleaze Resistance: +1, Maximum HP: +50, Familiar Effect: "1xLep"
 Item	seal-skull helmet	Weapon Damage: +1, Familiar Effect: "atk, cap 2"
 Item	sealhide hood	Initiative: +20, Familiar Effect: "atk, 1xBarrr, cap 40"
@@ -522,7 +526,7 @@ Item	terrycloth turban	Maximum HP: +30
 # The Crown of Ed the Undying: Allows you to read thoughts
 Item	The Crown of Ed the Undying	Maximum HP: +50, Maximum MP: +50, Initiative: +25, Softcore Only: [1-path(Actually Ed the Undying)], Last Available: "2015-03", Familiar Effect: "spooky atk, 1.5xVolley, cap 25"
 Item	The Emperor's new hat	Mysticality: [L], Last Available: "2015-07"
-Item	The Jokester's wig	MP Regen Min: 6, MP Regen Max: 8, Monster Level: +10, Spooky Damage: +25, Last Available: "2016-12", Familiar Effect: "1xPotato, 1xGhuol"
+Item	The Jokester's wig	MP Regen Min: 6, MP Regen Max: 8, Monster Level: +10, Spooky Damage: +25, Last Available: "2016-12", Familiar Effect: "1xPotato, 1xGhuol", Conditional Skill (Equipped): "Adjust the Jokester's Wig"
 Item	The Necbromancer's Hat	Mysticality Percent: +20, Spooky Spell Damage: +30, Last Available: "2011-10", Familiar Effect: "1xVolley, 1xBarrr"
 # Third Eye: Improves chances of finding lumps and sludge
 Item	Third Eye	Initiative: +20, Muscle Percent: +15, Mysticality Percent: +15, Moxie Percent: +15, Last Available: "2016-12"
@@ -549,8 +553,7 @@ Item	undersea surveying goggles	Muscle Percent: +50, Mysticality Percent: +50, M
 Item	Unfortunato's foolscap	Spooky Damage: +10, Stench Damage: +10, Hot Damage: +10, Cold Damage: +10, Sleaze Damage: +10, Mysticality Percent: +10, Mana Cost (combat): -2, Last Available: "2016-08"
 Item	Unkillable Skeleton's skullcap	Muscle Percent: +50, Maximum HP: +500, HP Regen Min: 40, HP Regen Max: 80, Class: "Turtle Tamer", Familiar Effect: "1xPotato, 1xFairy"
 Item	Van der Graaf helmet	Maximum MP: +15, MP Regen Min: 1, MP Regen Max: 3, Last Available: "2011-05", Familiar Effect: "3xPotato, cap 7"
-# very pointy crown: Weakens Monster on Critical Hit
-Item	very pointy crown	Experience (Moxie): +5, Adventures: +5, Moxie Percent: +50, Combat Rate: -5, Lasts Until Rollover, Last Available: "2016-03", Familiar Effect: "atk, 1xGhuol"
+Item	very pointy crown	Experience (Moxie): +5, Adventures: +5, Moxie Percent: +50, Combat Rate: -5, Weakens Monster on Critical Hit, Lasts Until Rollover, Last Available: "2016-03", Familiar Effect: "atk, 1xGhuol"
 Item	viking helmet	Muscle: +1, Familiar Effect: "atk, cap 5"
 Item	Voluminous Radio Hat	MP Regen Min: 5, MP Regen Max: 6, Familiar Effect: "1xPotato, 1xGhoul, cap 37"
 Item	wad of used tape	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Item Drop: +15, Meat Drop: +30, Last Available: "2018-01", Lasts Until Rollover
@@ -604,6 +607,8 @@ Item	Zombo's skullcap	Muscle Percent: +20, Familiar Weight: +10, Class: "Turtle 
 Item	1337 7r0uZ0RZ	Muscle: +6, Moxie: -3, Familiar Effect: "2xPotato, cap 27"
 Item	adobe arsecover	Muscle Percent: [20+20*min(1,effect(Adobe Arsecover Subscription))], Item Drop: [10+10*min(1,effect(Adobe Arsecover Subscription))], Last Available: "2024-12"
 Item	alpha-mail pants	Familiar Effect: "atk, 1xBarrr, cap 35"
+# angelbone kilt: 15% Chance to avoid an enemy attack
+Item	angelbone kilt	HP Regen Min: 7, HP Regen Max: 11, Food Drop: +77, Last Available: "2026-12"
 Item	Angelhair Culottes	Mysticality: +11, Spell Damage: +15, Class: "Pastamancer", Familiar Effect: "1.5xPotato, 2xGhoul, cap 31"
 Item	antique greaves	Initiative: -10, Breakable, Familiar Effect: "1xBarrr"
 Item	antique nutcracker pants	Meat Drop: +15, Moxie Percent: +15, Last Available: "2019-12"
@@ -672,6 +677,8 @@ Item	demonskin trousers	Hot Resistance: +2, Familiar Effect: "hot atk, 3xPotato,
 Item	depleted Grimacite shinguards	Muscle Percent: [5*G], PvP Fights: [G], Last Available: "2011-12", Familiar Effect: "atk, 3xBarrr, cap 25"
 # designer sweatpants: oh, and also a 5% discount at NPC stores
 Item	designer sweatpants	Muscle: [5+(2*floor(sqrt(pref(sweat))))], Mysticality: [5+(2*floor(sqrt(pref(sweat))))], Moxie: [5+(2*floor(sqrt(pref(sweat))))], Damage Reduction: [5+(1*floor(sqrt(pref(sweat))))], Hot Resistance: [1+(0.5*floor(sqrt(pref(sweat))))], Sleaze Damage: [10+(5*floor(sqrt(pref(sweat))))], Sleaze Spell Damage: [10+(5*floor(sqrt(pref(sweat))))], Last Available: "2022-07", Conditional Skill (Equipped): "Sweat Flick", Conditional Skill (Equipped): "Sweat Flood", Conditional Skill (Equipped): "Sweat Spray", Conditional Skill (Equipped): "Sweat Sip", Conditional Skill (Equipped): "Make Sweat-Ade", Conditional Skill (Equipped): "Drench Yourself in Sweat", Conditional Skill (Equipped): "Sip Some Sweat", Conditional Skill (Inventory): "Sweat Out Some Booze"
+# devilbone greaves: Adds Hot Damage to your Attacks
+Item	devilbone greaves	Monster Level: +13, Spleen Capacity: +1, Last Available: "2026-12"
 Item	dice-print pajama pants	Random Monster Modifiers: +1
 # digibritches: CyberRealm: Take less damage from processes
 Item	digibritches	Last Available: "2025-12"
@@ -853,6 +860,7 @@ Item	rusty metal greaves	Initiative: -10, Familiar Effect: "1xBarrr, cap 37"
 # saffron antaravasaka: Improves chances of finding lumps and sludge
 Item	saffron antaravasaka	MP Regen Min: 4, MP Regen Max: 6, Spell Critical Percent: +5, Last Available: "2016-12"
 Item	scale-mail underwear	MP Regen Min: 8, MP Regen Max: 12, Spooky Resistance: +3, Familiar Effect: "2xVolley"
+Item	scorched skeleton pants	Experience Percent (Moxie): +20, Hot Resistance: +3, Last Available: "2025-12"
 Item	sea chaps	Muscle Percent: +15, HP Regen Min: 6, HP Regen Max: 10, Familiar Effect: "atk, 2xBarrr"
 Item	sealhide leggings	HP Regen Min: 5, HP Regen Max: 10, Familiar Effect: "1xVolley, cap 40"
 Item	servo-assisted exo-pants	Initiative: -30, Last Available: "2014-12", Familiar Effect: "cold atk, 1xPotato, cap 12"
@@ -884,13 +892,12 @@ Item	stylish swimsuit	Moxie: +5, Last Available: "2012-05", Sleaze Damage: [5-5*
 Item	sucker hakama	Damage Reduction: 5, Last Available: "2011-11", Familiar Effect: "afk, cap 12"
 Item	sugar shorts	Muscle Percent: +25, Mysticality Percent: +25, Moxie Percent: +25, Last Available: "2009-09", Breakable, Familiar Effect: "2xVolley, 1xLep, cap 25"
 Item	swashbuckling pants	Moxie: +4, Familiar Effect: "3xPotato, 1.5xFairy, cap 20"
-# tearaway pants: Tear them away in combat!
-Item	tearaway pants	Sleaze Damage: [5*L], Damage Reduction: 10, Spooky Resistance: +2, Stench Resistance: +2, Hot Resistance: +2, Cold Resistance: +2, Sleaze Resistance: +2, Initiative: +50, Maximum HP: +50
+Item	tearaway pants	Sleaze Damage: [5*L], Damage Reduction: 10, Spooky Resistance: +2, Stench Resistance: +2, Hot Resistance: +2, Cold Resistance: +2, Sleaze Resistance: +2, Initiative: +50, Maximum HP: +50, Conditional Skill (Equipped): "Tear Away your Pants!"
 Item	terra cotta trousers	Muscle Percent: +20, Familiar Weight: +5, Last Available: "2020-12", Conditional Skill (Equipped): "Unleash Terra Cotta Army"
 Item	the Archwizard's briefs	Mysticality: +15, Mysticality Percent: +25, Maximum MP: +100, Last Available: "2018-04"
 Item	The Emperor's new pants	Moxie: [L], Last Available: "2015-07"
 Item	The Ghoul King's ghoulottes	Muscle: +15, Muscle Percent: +25, Maximum HP: +100, Last Available: "2018-04"
-Item	The Jokester's pants	HP Regen Min: 6, HP Regen Max: 8, Moxie Percent: +20, Never Fumble, Last Available: "2016-12"
+Item	The Jokester's pants	HP Regen Min: 6, HP Regen Max: 8, Moxie Percent: +20, Never Fumble, Last Available: "2016-12", Conditional Skill (Equipped): "Adjust the Jokester's Pants"
 Item	The Necbromancer's Shorts	Cold Resistance: +3, Sleaze Resistance: +3, Booze Drop: +30, Last Available: "2011-10", Familiar Effect: "atk, 2xGhuol"
 # The Sagittarian's leisure pants: Disco Bandit Combat Skills weaken enemies by an additional 20%
 Item	The Sagittarian's leisure pants	DB Combat Damage: +13, Familiar Effect: "atk, cap 18"
@@ -951,8 +958,7 @@ Item	whittled shorts	Muscle: +10, Mysticality: +10, Moxie: +10, Spooky Resistanc
 Item	Whoompa Fur Pants	Stench Damage: +10, Stench Resistance: +2, Familiar Effect: "atk, cap 27"
 # wicker knickers: Increases the effectiveness of Shield of the Pastalord
 Item	wicker knickers	Experience (Mysticality): +2, Adventures: +2, Last Available: "2016-12"
-# wired underwear: CyberRealm: Restore your HP (Hacker Physiology) by 50% for 1 RAM
-Item	wired underwear	Last Available: "2025-12"
+Item	wired underwear	Last Available: "2025-12", Conditional Skill (Equipped): "Refresh HP"
 Item	wooly loincloth	Pickpocket Chance: +25, MP Regen Min: 4, MP Regen Max: 8, Familiar Effect: "atk, 1xVolley, cap 27"
 # wrought-iron waders: Adds an extra source of damage to Concerto de los Muertos
 Item	wrought-iron waders	Spooky Damage: +5, Stench Damage: +5, Hot Damage: +5, Cold Damage: +5, Sleaze Damage: +5, Meat Drop: +20, Last Available: "2017-12"
@@ -1007,11 +1013,14 @@ Item	Crimbuccaneer bombjacket	Moxie Percent: +25, Ranged Damage: +25, Last Avail
 Item	Crimbuccaneer shirt	Familiar Weight: [+10*event(December)], Last Available: "2023-12"
 Item	demonskin jacket	Mysticality: +5, Hot Spell Damage: +5
 Item	denim jacket	Mysticality: +10, MP Regen Min: 4, MP Regen Max: 8, Last Available: "2018-09"
+# devilbone corset: Adds Hot Damage to your Attacks
+Item	devilbone corset	Monster Level: +13, Stomach Capacity: +1, Last Available: "2026-12"
 Item	Dragonscale breastplate	Muscle: +15, Muscle Percent: +25, Spooky Resistance: +3, Stench Resistance: +3, Hot Resistance: +3, Cold Resistance: +3, Sleaze Resistance: +3, Last Available: "2018-04"
 Item	dreadful sweater	HP Regen Min: 10, HP Regen Max: 20, MP Regen Min: 10, MP Regen Max: 20, Kruegerand Drop: 5
 Item	duct tape shirt	Moxie: +9, Meat Drop: +20
 Item	embers-only jacket	Hot Damage: +10, Hot Resistance: +3, Hot Spell Damage: +20, Lasts Until Rollover, Last Available: "2024-09"
 Item	extra-see-thru nightie	Moxie Percent: +15, Last Available: "2011-10"
+Item	extra-thick Crimbo sweater	Maximum HP: +60, Last Available: "2025-12"
 Item	eXtreme Bi-Polar Fleece Vest	Cold Resistance: +2
 Item	extremely wet T-shirt	Moxie Percent: +10, Sleaze Damage: +25, HP Regen Min: 5, HP Regen Max: 10, MP Regen Min: 5, MP Regen Max: 10, Last Available: "2014-05"
 Item	famous blue raincoat	Spooky Resistance: +2, Stench Resistance: +2, Hot Resistance: +2, Cold Resistance: +2, Sleaze Resistance: +2, Item Drop: +10, Initiative: +40, Lasts Until Rollover
@@ -1048,7 +1057,7 @@ Item	hipposkin poncho	Monster Level: +10
 Item	Hodgman's disgusting technicolor overcoat	Spooky Damage: +15, Stench Damage: +15, Hot Damage: +15, Cold Damage: +15, Sleaze Damage: +15, Spooky Resistance: +5, Stench Resistance: +5, Hot Resistance: +5, Cold Resistance: +5, Sleaze Resistance: +5
 Item	icing poncho	Cold Damage: +25, Cold Spell Damage: +25, Food Drop: +50, Last Available: "2019-12"
 Item	junk-mail shirt	Muscle: +4, Mysticality: +4, Moxie: +4
-Item	Jurassic Parka	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Spooky Resistance: +1, Stench Resistance: +1, Hot Resistance: +1, Cold Resistance: +1, Sleaze Resistance: +1, Last Available: "2022-09", Avoid Attack: 1
+Item	Jurassic Parka	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Spooky Resistance: +1, Stench Resistance: +1, Hot Resistance: +1, Cold Resistance: +1, Sleaze Resistance: +1, Last Available: "2022-09", Avoid Attack: 1, Conditional Skill (Equipped): "Engage ultra-attractive parka mode"
 Item	Kashmir sweater	Hot Damage: +10, Hot Spell Damage: +10
 Item	Kelflar vest	Elf Warfare Effectiveness: +3, Damage Reduction: 5, Negative Status Resist, Last Available: "2023-12"
 Item	Kiss the Knob apron	Maximum MP: +5
@@ -1088,6 +1097,7 @@ Item	reflective vest	Combat Rate: +10
 Item	replica Jurassic Parka	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Spooky Resistance: 1, Stench Resistance: 1, Hot Resistance: 1, Cold Resistance: 1, Sleaze Resistance: 1, Avoid Attack: 1
 Item	rhinestone cowboy shirt	Muscle: +5
 Item	safety vest	Damage Reduction: 3, Moxie: +5
+Item	scorched skeleton shirt	Experience Percent (Mysticality): +20, Hot Resistance: +3, Last Available: "2025-12"
 Item	sea salt scrubs	Maximum HP: +400, Maximum MP: +400, Mysticality Percent: +15
 Item	sequin-encrusted sweater	Spooky Damage: +9, Stench Damage: +9, Hot Damage: +9, Cold Damage: +9, Sleaze Damage: +9, Last Available: "2023-12"
 Item	shark jumper	Spooky Resistance: +3, Stench Resistance: +3, Hot Resistance: +3, Cold Resistance: +3, Sleaze Resistance: +3, HP Regen Min: 20, HP Regen Max: 40
@@ -1153,13 +1163,14 @@ Item	acoustic guitarrr	Meat Drop: +8
 Item	adobe adze	Experience (Muscle): [3+3*min(1,effect(Adobe Adze Subscription))], Familiar Weight: [5+5*min(1,effect(Adobe Adze Subscription))], Single Equip, Last Available: "2024-12"
 # aerogel accordion: Only takes up one hand!
 Item	aerogel accordion	Moxie: [10*(1+skill(Accordion Appreciation))], Maximum HP: [20*(1+skill(Accordion Appreciation))], Song Duration: 10, Last Available: "2017-12"
-# airblaster gun: Blasts Air (Duh.)
-Item	airblaster gun	Last Available: "2012-12"
+Item	airblaster gun	Last Available: "2012-12", Conditional Skill (Equipped): "Air Blast"
 Item	alarm accordion	Adventures: [3*(1+skill(Accordion Appreciation))], Initiative: [20*(1+skill(Accordion Appreciation))], Class: "Accordion Thief", Song Duration: 20
 Item	amok putter	Hot Damage: +9, Cold Damage: +9, Initiative: +18
 Item	ancient Elf dessert spoon	Hot Spell Damage: +20, Cold Spell Damage: +20, Spooky Spell Damage: +20, Stench Spell Damage: +20, Sleaze Spell Damage: +20, Spell Damage Percent: +20, Last Available: "2023-12"
 Item	ancient ice cream scoop	Spell Damage: +20
 Item	ancient stone fist	Damage Reduction: 2, Maximum HP: +20, Last Available: "2009-06"
+# angelbone totem: 15% Chance to avoid an enemy attack
+Item	angelbone totem	HP Regen Min: 7, HP Regen Max: 11, Spleen Capacity: +1, Single Equip, Last Available: "2026-12"
 Item	anger blaster	Hot Damage: +10, Last Available: "2013-12", Conditional Skill (Equipped): "Rage Flame"
 Item	antique accordion	Song Duration: 10
 Item	antique machete	Muscle Percent: +5
@@ -1259,8 +1270,7 @@ Item	Brimstone Bludgeon	Muscle Percent: +50, Mysticality Percent: -20, Weapon Da
 # broken champagne bottle: Doubles item drop bonus while the champagne flows
 Item	broken champagne bottle	MP Regen Min: 4, MP Regen Max: 8, Weapon Damage Percent: +50, Last Available: "2018-01", Lasts Until Rollover, Breakable
 Item	broken sword	Spooky Resistance: +1
-# brute force hammer: CyberRealm: Deal 40 damage for 3 RAM
-Item	brute force hammer	Last Available: "2025-12"
+Item	brute force hammer	Last Available: "2025-12", Conditional Skill (Equipped): "Brute Force Hammer"
 Item	bubble bauble bow	Moxie: +3, Mysticality: +2, Item Drop: +5
 Item	bubblewrap crossbow	Moxie: +3, Mysticality: +2
 Item	bubblewrap staff	Mysticality: +3, Muscle: +2
@@ -1322,8 +1332,7 @@ Item	chrome staff	Mysticality: +7, Adventures: +3
 Item	chrome sword	Muscle: +7, Adventures: +3
 # Cloaca-Cola-issue combat knife: Drains MP on Successful Hit
 Item	clock-cleaning hammer	Weapon Damage: +20, Last Available: "2011-09"
-# clockwork crossbow: Weakens Monster on Critical Hit
-Item	clockwork crossbow	Ranged Damage: +10, Critical Hit Percent: +7
+Item	clockwork crossbow	Ranged Damage: +10, Critical Hit Percent: +7, Weakens Monster on Critical Hit
 # clockwork staff: Restores 3-24 MP on Critical Hit
 Item	clockwork staff	Spell Damage: +10, Critical Hit Percent: +15
 # clockwork sword: Heals 3-24 HP on Critical Hit
@@ -1384,6 +1393,8 @@ Item	dented scepter	Experience (Muscle): +5, HP Regen Min: 5, HP Regen Max: 10, 
 Item	depleted Grimacite hammer	Monster Level: [5*G], Last Available: "2011-12"
 Item	depleted Grimacite kneecapping stick	Critical Hit Percent: [ceil(G/2)], Last Available: "2007-06"
 Item	detective roscoe	Ranged Damage: +10, Weakens Monster, Booze Drop: +20, Last Available: "2016-07"
+# devilbone flute: Adds Hot Damage to your Attacks
+Item	devilbone flute	Monster Level: +13, Mana Cost (combat): -2, Last Available: "2026-12"
 Item	diabolical crossbow	Spooky Damage: +30, Critical Hit Percent: +10, Slime Hates It: +1
 Item	diamond-studded cane	Moxie: +5, Class: "Disco Bandit"
 Item	didgeridooka	Moxie: +9
@@ -1426,12 +1437,11 @@ Item	elevenderizing hammer	Muscle: +11, Mysticality: +11, Moxie: +11, Weapon Dam
 Item	Elf Guard broom	Muscle Percent: +25, Mysticality Percent: +25, Moxie Percent: +25, Weakens Monster, Last Available: "2023-12"
 Item	Elf Guard mouthknife	Elf Warfare Effectiveness: +3, Moxie Percent: +20, Last Available: "2023-12"
 Item	Elf Guard officer's sidearm	Elf Warfare Effectiveness: +3, Weapon Damage Percent: +10, Last Available: "2023-12"
-Item	Elf Guard squirtgun	Weakens Monster, Stench Damage: +20, Last Available: "2023-12"
+Item	Elf Guard squirtgun	Weakens Monster, Stench Damage: +20, Last Available: "2023-12", Conditional Skill (Equipped): "Peppermint Squirt"
 Item	elven tambourine	Spooky Resistance: +2, Stench Resistance: +2, Hot Resistance: +2, Cold Resistance: +2, Sleaze Resistance: +2, Last Available: "2015-12"
 # elven whittling knife: On Critical:  Whittles enemy down
 Item	elven whittling knife	Last Available: "2008-12"
-# encrypted shuriken: CyberRealm: Deal 20 damage for 2 RAM
-Item	encrypted shuriken	Last Available: "2025-12"
+Item	encrypted shuriken	Last Available: "2025-12", Conditional Skill (Equipped): "Encrypted Shuriken"
 Item	evil paper umbrella	Monster Level: +1
 Item	evil-ass club	Weapon Damage: +25, Monster Level: +15, Spooky Damage: +15, Class: "Seal Clubber"
 Item	extra-large utility candle	Item Drop: +25, Hot Damage: +50, Lasts Until Rollover, Last Available: "2021-08"
@@ -1449,6 +1459,7 @@ Item	fire axe	Cold Damage: +200, Last Available: "2012-07"
 Item	fire crackers	Effect: "Fire cracked", Effect Duration: 20, Last Available: "2021-07"
 Item	[10462]fire flower	Plumber Stat: "Mysticality", Plumber Power: 1
 Item	fire poi	Hot Damage: +15, Moxie: +3
+Item	fireproof bonesaw	Damage vs. Skeletons: +50, Muscle Percent: +10, Last Available: "2025-12"
 Item	fish bazooka	Moxie Percent: +5, Meat Drop: +10
 Item	fish hatchet	Muscle Percent: +100, Weapon Damage: +50, Familiar Weight: +5, Combat Rate: -10, Lasts Until Rollover, Last Available: "2016-04"
 Item	fish scimitar	Muscle Percent: +5, Weapon Damage Percent: +10
@@ -1491,8 +1502,7 @@ Item	ga-ga radio	Experience: +1, Weapon Damage: +5, Maximum MP: +20
 Item	garbage sticker	Food Drop: +20, Booze Drop: +20, Accessory Drop: +20, Weapon Drop: +20, Hat Drop: +20, Meat Drop: +30, Last Available: "2015-04", Drops Meat
 Item	gatorskin umbrella	Stench Resistance: +3, Weapon Damage: +15
 Item	genie's scimitar	Muscle: +5, Weapon Damage: +5, Last Available: "2018-02"
-# geofencing rapier: CyberRealm:  Deal 150-200 damage for 7 RAM
-Item	geofencing rapier	Single Equip, Last Available: "2025-12"
+Item	geofencing rapier	Single Equip, Last Available: "2025-12", Conditional Skill (Equipped): "Thrust your geofencing rapier"
 Item	ghast iron cleaver	Spooky Damage: +15, Hot Damage: +15
 Item	ghost accordion	Spooky Damage: [5*(1+skill(Accordion Appreciation))], Booze Drop: [15*(1+skill(Accordion Appreciation))], Class: "Accordion Thief", Song Duration: 16
 Item	ghostly dagger	Spooky Resistance: +1, Stench Resistance: +1, Hot Resistance: +1, Cold Resistance: +1, Sleaze Resistance: +1, Damage Reduction: 11, Weapon Damage: -10
@@ -1568,6 +1578,7 @@ Item	happiness	Hot Damage: +12
 Item	haunted bindle	Spooky Damage: +10, Spooky Spell Damage: +10, Last Available: "2016-08"
 Item	haunted paddle-ball	Monster Level: +5, Spooky Damage: +10
 Item	hawk	Critical Hit Percent: +5, Weapon Damage: +11, Damage vs. Skeletons: +22
+Item	heat-resistant harpoon pistol	Damage vs. Skeletons: +50, Moxie Percent: +10, Last Available: "2025-12"
 # heavy hammer: +2 to Hammer attacks
 Item	heavy hammer	Plumber Stat: "Muscle", Plumber Power: 2
 Item	heavy leather-bound tome	Weakens Monster
@@ -1582,6 +1593,7 @@ Item	hippy bongo	Stench Damage: +5
 # Hodgman's whackin' stick: On Critical: Insanity!
 Item	Hodgman's whackin' stick	Muscle Percent: +20, Mysticality Percent: +20, Moxie Percent: +20
 Item	honey dipper	Mysticality Percent: +5, MP Regen Min: 3, MP Regen Max: 7, Spell Damage: +15
+Item	hot boning knife	Hot Damage: +75, HP Regen Min: 4, HP Regen Max: 8, Experience (Muscle): +2, Single Equip, Last Available: "2025-12"
 Item	hot cross bow	Moxie: +7, Muscle: +5, Hot Damage: +5
 Item	hot-ass club	Weapon Damage: +25, Monster Level: +15, Hot Damage: +15, Class: "Seal Clubber"
 Item	hothammer	Hot Damage: +50
@@ -1631,6 +1643,8 @@ Item	lawnmower blade	Weapon Damage: +15, Last Available: "2010-04"
 Item	lead pipe	Maximum HP: +50, Muscle Percent: +100, Lasts Until Rollover, Last Available: "2015-07"
 # lead yo-yo
 Item	leechknife	Maximum HP: +10, Maximum MP: +5, HP Regen Min: 4, HP Regen Max: 6, MP Regen Min: 4, MP Regen Max: 6
+# legendary seal-clubbing club: Increase Fury Capacity and Generation (Seal Clubbers Only)
+Item	legendary seal-clubbing club	Muscle Percent: +50, Weapon Damage: [10*L], Initiative: +50, Attacks Can't Miss, Last Available: "2026-01", Conditional Skill (Equipped): "Club 'Em Across the Battlefield", Conditional Skill (Equipped): "Club 'Em Into Next Week", Conditional Skill (Equipped): "Club 'Em Back in Time"
 # licorice whip: Candiful Crits
 Item	licorice whip	Critical Hit Percent: +5, Last Available: "2014-12"
 Item	lightning rod	Spell Damage Percent: +200, Maximum MP: +50, MP Regen Min: 5, MP Regen Max: 10, Lasts Until Rollover
@@ -1669,13 +1683,13 @@ Item	Meat Tenderizer is Murder	Weapon Damage Percent: +20, Smithsness: +5, Class
 Item	Meatcleaver	Meat Drop: +35, Weapon Damage Percent: +100, Last Available: "2013-12"
 Item	meatspout staff	Mysticality: +7, Adventures: +3, Meat Drop: +15
 Item	Mer-kin digpick	Weapon Damage: +30
-Item	Mer-kin dodgeball	PvP Fights: +7, Muscle Percent: +10, Moxie Percent: +10
-Item	Mer-kin dragnet	PvP Fights: +7, Muscle Percent: +10, Moxie Percent: +10
+Item	Mer-kin dodgeball	PvP Fights: +7, Muscle Percent: +10, Moxie Percent: +10, Conditional Skill (Equipped): "Ball Bust", Conditional Skill (Equipped): "Ball Sweat", Conditional Skill (Equipped): "Ball Sack"
+Item	Mer-kin dragnet	PvP Fights: +7, Muscle Percent: +10, Moxie Percent: +10, Conditional Skill (Equipped): "Net Gain", Conditional Skill (Equipped): "Net Loss", Conditional Skill (Equipped): "Net Neutrality"
 Item	Mer-kin finpaddle	Damage vs. Mer-kin: 100
 # Mer-kin hookspear: Extracts Meat on Critical Hits
 Item	Mer-kin hookspear	Initiative: +20, Weapon Damage: +40, Drops Meat
 Item	Mer-kin rollpin	Mysticality Percent: +25, Food Drop: +75, Last Available: "2019-12"
-Item	Mer-kin switchblade	PvP Fights: +7, Muscle Percent: [10*G], Moxie Percent: +10
+Item	Mer-kin switchblade	PvP Fights: +7, Muscle Percent: [10*G], Moxie Percent: +10, Conditional Skill (Equipped): "Blade Sling", Conditional Skill (Equipped): "Blade Roller", Conditional Skill (Equipped): "Blade Runner"
 # mercenary pistol: Allows the Use of Specialty Ammunition
 Item	mercenary pistol	Muscle: +10, Mysticality: +10, Moxie: +10, Never Fumble, Last Available: "2014-10"
 # mercenary rifle: Allows the Use of Specialty Ammunition
@@ -1691,8 +1705,7 @@ Item	Moonthril Flamberge	Muscle Percent: [15*G], Last Available: "2011-06"
 Item	Moonthril Longbow	Moxie Percent: [15*G], Last Available: "2011-06"
 Item	moss mace	Experience (Muscle): +2, Hot Resistance: +2, Last Available: "2024-12", Conditional Skill (Equipped): "Moss Mugging"
 Item	muculent machete	Muscle: +2, Meat Drop: +5
-# murderbot plasma rifle: Can be used to instantly kill Spants
-Item	murderbot plasma rifle	Hot Damage: +25, Reduce Enemy Defense: 10, Last Available: "2017-04"
+Item	murderbot plasma rifle	Hot Damage: +25, Reduce Enemy Defense: 10, Last Available: "2017-04", Conditional Skill (Equipped): "EXTERMINATE SPANT"
 # murderbot whip: Deals 1,000 extra damage on Critical Hit
 Item	murderbot whip	Weapon Damage: +10, Critical Hit Percent: +10, Last Available: "2017-04"
 Item	mutant arm	Monster Level: +5, Maximum HP: +25, Weapon Damage Percent: +50, Last Available: "2018-11"
@@ -1783,8 +1796,7 @@ Item	primitive alien spear	Muscle: +20, Hot Damage: +25, HP Regen Min: 2, HP Reg
 Item	pristine walrus tusk	Cold Damage: +50, Muscle: +15, Last Available: "2018-12"
 Item	projectile icemaker	Moxie: +7, Spell Damage: +7, Cold Damage: +5
 Item	protection stick	Critical Hit Percent: +4, Muscle Percent: +6, Maximum HP: +10, PvP Fights: +1
-# pterodactyl rifle: Lets you snipe pterodactyls from a great distance
-Item	pterodactyl rifle	Ranged Damage Percent: +50
+Item	pterodactyl rifle	Ranged Damage Percent: +50, Conditional Skill (Equipped): "Snipe Pterodactyl"
 Item	PVC staff	Mysticality Percent: +15, Item Drop: +10, Cold Spell Damage: +60
 Item	pygmy concertinette	Weapon Damage: [10*(1+skill(Accordion Appreciation))], Class: "Accordion Thief", Song Duration: 17
 Item	pygmy spear	Muscle: +7
@@ -2025,8 +2037,7 @@ Item	teacher's pen	Experience: +3, Experience (familiar): +2, Last Available: "2
 Item	teflon spatula	Mysticality Percent: +10, Sleaze Resistance: +3, Spell Damage: +40
 Item	terra cotta tongs	Experience (Mysticality): +3, Spooky Damage: +5, Stench Damage: +5, Hot Damage: +5, Cold Damage: +5, Sleaze Damage: +5, Last Available: "2020-12", Conditional Skill (Equipped): "Unleash Terra Cotta Army"
 Item	the gun	Weapon Damage: +50, Sleaze Damage: +50, Muscle: -25, Mysticality: -25, Moxie: -25, Last Available: "2025-08"
-# The Jokester's gun: Can be fired in a weird way once per day to instantly defeat an opponent
-Item	The Jokester's gun	Spooky Damage: +5, Stench Damage: +5, Hot Damage: +5, Cold Damage: +5, Sleaze Damage: +5, Initiative: +25, Pants Drop: +50, Last Available: "2016-12"
+Item	The Jokester's gun	Spooky Damage: +5, Stench Damage: +5, Hot Damage: +5, Cold Damage: +5, Sleaze Damage: +5, Initiative: +25, Pants Drop: +50, Last Available: "2016-12", Conditional Skill (Equipped): "Fire the Jokester's Gun"
 Item	The Landscaper's leafblower	Last Available: "2010-04", Monster Level: [pref(_leafblowerML)]
 Item	The Necbromancer's Wizard Staff	Spell Damage Percent: +200, Sleaze Spell Damage: +30, MP Regen Min: 20, MP Regen Max: 30, Last Available: "2011-10"
 Item	The Nuge's favorite crossbow	Ranged Damage: +30, Initiative: +100, Adventures: +5
@@ -2046,7 +2057,6 @@ Item	tommy gun	Weapon Damage: +5, Conditional Skill (Equipped): "Unload Tommy Gu
 # Totally Gay Claymore
 Item	toxic mop	Stench Damage: +20, Stench Spell Damage: +20, Last Available: "2015-04"
 Item	toy accordion	Song Duration: 5
-# toy Crimbot power glove: Allows use of ZAP in combat
 Item	toy Crimbot power glove	Weapon Damage: +15, Crimbot Outfit Power: +1, Last Available: "2014-12", Conditional Skill (Equipped): "ZAP"
 Item	toy ray gun	Hot Damage: +5, Critical Hit Percent: +5, Last Available: "2006-12"
 # toy taijijian
@@ -2069,6 +2079,8 @@ Item	twisted-up wet towel	Item Drop: [+25*zone(KOL High School)]
 Item	ultimate ultimate frisbee	Moxie: +2, Ranged Damage: +4
 Item	Uncle Hobo's highest bough	Muscle Percent: +15, HP Regen Min: 15, HP Regen Max: 30, MP Regen Min: 15, MP Regen Max: 30, Last Available: "2010-12"
 Item	uncursed machete	Meat Drop: +20
+# undertakers' forceps: Greater chance of collecting trophies from Crimbo '25 skeletons
+Item	undertakers' forceps	Last Available: "2025-12"
 Item	Underworld flail	Experience (Moxie): +10, Ranged Damage: +30, Moxie Percent: +10, Last Available: "2009-10"
 Item	Underworld truncheon	Experience (Muscle): +10, Weapon Damage Percent: +20, Muscle Percent: +10, Last Available: "2009-10"
 Item	Unionize The Elves sign	Weakens Monster, Last Available: "2005-12"
@@ -2089,8 +2101,7 @@ Item	VYKEA hex key	Muscle: +6, Mysticality: +6, Moxie: +6, HP Regen Min: 6, HP R
 # Wand of Nagamar
 Item	war tongs	Hot Damage: +10, Hot Spell Damage: +10
 Item	warbear exhaust manifold	Stench Damage: [10*(1+skill(Accordion Appreciation))], Class: "Accordion Thief", Song Duration: 10, Last Available: "2013-12"
-# warbear oil pan: Lets you sling hot grease!
-Item	warbear oil pan	Hot Spell Damage: +10, Sleaze Spell Damage: +10, Class: "Sauceror", Last Available: "2013-12"
+Item	warbear oil pan	Hot Spell Damage: +10, Sleaze Spell Damage: +10, Class: "Sauceror", Last Available: "2013-12", Conditional Skill (Equipped): "Spray Hot Grease"
 Item	weeping willow wand	Spell Damage Percent: +100, Mysticality: +25, Experience (Mysticality): +5, Lasts Until Rollover, Last Available: "2020-08", Conditional Skill (Equipped): "Barrage of Tears"
 Item	weighted paperclip chain	Weapon Damage: +12, Last Available: "2013-12"
 Item	western-style skinning knife	Weapon Damage: +5, Hat Drop: +10, Last Available: "2016-02"
@@ -2188,6 +2199,8 @@ Item	battered hubcap	Muscle: +15, Maximum HP: +100, Spooky Resistance: +2, Stenc
 Item	beach ball marble	Spell Damage: +35, Hot Spell Damage: +35, Cold Spell Damage: +35
 Item	beetle antenna	Maximum MP: +30, Mysticality: [5*L]
 Item	beige clambroth marble	Spell Damage: +30, Hot Spell Damage: +30
+# big birthday bloon: Happy Birthday!
+Item	big birthday bloon	Initiative: +5
 Item	big bumboozer marble	Spell Damage: +80
 Item	big hot pepper	Spell Damage: +10, Hot Damage: +10, Last Available: "2023-02", Lantern: 1, Lantern Element: "Hot"
 Item	birdybug antenna	Maximum MP: +20, Mysticality: [4*L]
@@ -2196,6 +2209,8 @@ Item	black shield	Muscle: +5, Maximum HP: +20, Damage Reduction: 10
 Item	blue LavaCo Lamp&trade;	Adventures: +5, Rollover Effect: "Blue Eyed Devil", Rollover Effect Duration: 50, Last Available: "2015-08"
 Item	bobble-hip hula elf doll	Muscle: +5, Mysticality: +5, Moxie: +5, Meat Drop: +15, Last Available: "2006-12"
 # bone abacus: Helps you track your progress
+# bone-polishing rag: Chance of upgrading the trophies collected from Crimbo '25 skeletons
+Item	bone-polishing rag	Last Available: "2025-12"
 Item	Book of Old-Timey Carols	Item Drop: [15*event(December)], Last Available: "2020-12"
 Item	borg sock monkey	Moxie: +3, Last Available: "2007-12"
 # botanical sample kit: Increases the yield of Spacegate botany operations
@@ -2269,6 +2284,8 @@ Item	cursed arcane orb	Spooky Damage: +13, Stench Damage: +13, Hot Damage: +13, 
 Item	cursed compass	Lasts Until Rollover, Last Available: "2019-04", Item Drop: [100*zone(PirateRealm)]
 # cursed magnifying glass: Reveals things you weren't meant to see
 Item	cursed magnifying glass	Item Drop: +13, Spooky Damage: +13, Initiative: +13, Last Available: "2022-12"
+# cursed ship's lantern: Causes your spells to echo against skeletons
+Item	cursed ship's lantern	Mysticality Percent: +10, Last Available: "2025-12"
 Item	cursed stats	Experience: +5, Muscle Limit: 69, Mysticality Limit: 69, Moxie Limit: 69
 Item	cyborg doll	Muscle: +3, Last Available: "2007-12"
 Item	Dallas Dynasty Falcon Crest shield	Spooky Resistance: +5, Stench Resistance: +5, Hot Resistance: +5, Cold Resistance: +5, Sleaze Resistance: +5, Damage Reduction: 15
@@ -2321,7 +2338,7 @@ Item	faded red protest sign	Last Available: "2015-12"
 # fake hand: Gives Extra Offhand Equipment Slot
 Item	fake hand	Weapon Damage: -1, Last Available: "2006-04"
 Item	fake washboard	Experience Percent (Muscle): +25, Damage Absorption: +50, Accessory Drop: +75, Damage Reduction: 13, Last Available: "2015-04"
-Item	familiar scrapbook	HP Regen Min: [4+min(30,pref(scrapbookCharges)/10)], HP Regen Max: [6+min(30,pref(scrapbookCharges)/10)], MP Regen Min: [2+min(30,pref(scrapbookCharges)/10)], MP Regen Max: [3+min(30,pref(scrapbookCharges)/10)], Experience Percent (Muscle): [5+min(10,pref(scrapbookCharges)/10)], Experience Percent (Mysticality): [5+min(10,pref(scrapbookCharges)/10)], Experience Percent (Moxie): [5+min(10,pref(scrapbookCharges)/10)], Familiar Weight: +5, Experience (familiar): +1, Moxie: [min(1,floor(pref(scrapbookCharges)/1111))], Last Available: "2021-06"
+Item	familiar scrapbook	HP Regen Min: [4+min(30,pref(scrapbookCharges)/10)], HP Regen Max: [6+min(30,pref(scrapbookCharges)/10)], MP Regen Min: [2+min(30,pref(scrapbookCharges)/10)], MP Regen Max: [3+min(30,pref(scrapbookCharges)/10)], Experience Percent (Muscle): [5+min(10,pref(scrapbookCharges)/10)], Experience Percent (Mysticality): [5+min(10,pref(scrapbookCharges)/10)], Experience Percent (Moxie): [5+min(10,pref(scrapbookCharges)/10)], Familiar Weight: +5, Experience (familiar): +1, Moxie: [min(1,floor(pref(scrapbookCharges)/1111))], Last Available: "2021-06", Conditional Skill (Equipped): "Show Your Boring Familiar Pictures"
 Item	fancy marzipan briefcase	MP Regen Min: 4, MP Regen Max: 8, Combat Rate: -10, Lasts Until Rollover, Last Available: "2016-12"
 Item	fancy opera glasses	Meat Drop: +5, Item Drop: +5
 # fiberglass fetish: A Seal Spirit will accompany you in combat
@@ -2331,6 +2348,7 @@ Item	fireproof megaphone	Monster Level: +10, Hot Resistance: +2, Last Available:
 Item	flagstone flag	Experience (Muscle): +3, Item Drop: +10, Last Available: "2022-12", Conditional Skill (Equipped): "Flagellate"
 # flak shield: Protects you from Axis grenades
 Item	flak shield	Damage Reduction: 9
+Item	flaming fistbone	Hot Spell Damage: +75, MP Regen Min: 4, MP Regen Max: 8, Experience (Mysticality): +2, Last Available: "2025-12"
 Item	flaming talons	Weapon Damage: +5, Hot Damage: +5
 Item	fleshy lump	Maximum HP: +20, HP Regen Min: 2, HP Regen Max: 4, Damage Reduction: 3, Last Available: "2016-08"
 Item	flickering flashlight	Item Drop: +15, Last Available: "2020-04"
@@ -2381,8 +2399,7 @@ Item	grisly shield	Weapon Damage: +50, PvP Fights: +5, Slime Hates It: +1, Damag
 Item	gunwale	Muscle Percent: +25, Maximum HP: +50, Damage Absorption: +75, Damage Reduction: 9, Last Available: "2023-12"
 Item	Guzzlr souvenir stein	Booze Drop: +50, Last Available: "2020-05"
 Item	Half a Purse	Experience: +1, Damage Reduction: 3, Smithsness: +5, Last Available: "2013-12", Meat Drop: [2*K]
-# hand of Mr. Cards: Can be thrown
-Item	hand of Mr. Cards	Muscle: +5, Mysticality: +5, Moxie: +5
+Item	hand of Mr. Cards	Muscle: +5, Mysticality: +5, Moxie: +5, Conditional Skill (Equipped): "Throw a Mr. Card"
 Item	handmade hobby horse	Experience (Muscle): +2, Last Available: "2007-12"
 # heart-shaped balloon
 # heavy duty umbrella: Reduces the level of nearby water.  Somehow.
@@ -2463,8 +2480,7 @@ Item	mad scientist's sock monkey	Moxie: +3, Last Available: "2006-12"
 Item	magic lamp	Mysticality: +5
 Item	magical ice cubes	Cold Damage: +1
 Item	makeshift castanets	DB Combat Damage: +10, Class: "Disco Bandit"
-# malware injector: CyberRealm: Infect a process (1 RAM, 30 damage per round)
-Item	malware injector	Last Available: "2025-12"
+Item	malware injector	Last Available: "2025-12", Conditional Skill (Equipped): "Inject Malware"
 Item	maple magnet	Maximum HP: +100, Weapon Drop: +50, Accessory Drop: +50, Lasts Until Rollover, Last Available: "2020-08"
 Item	marble mignonette bowl	MP Regen Min: 4, MP Regen Max: 8, Cold Spell Damage: +40, Last Available: "2019-12", Thorns: 1
 Item	marinara jug	Spell Damage: +30, Class: "Sauceror"
@@ -2627,6 +2643,7 @@ Item	Sceptre of the Torremolinos Prince	Mysticality Percent: +12, Last Available
 # Science Notebook: Allows you to collect data about Tentacles
 Item	Science Notebook	Monster Level: +10
 Item	scissor duck	Mysticality: +5, Last Available: "2010-12"
+Item	scorched skull trophy	PvP Fights: +10, Last Available: "2025-12"
 Item	sealhide buckler	Damage Reduction: 17
 Item	sealskin drum	Weapon Damage: +20, Class: "Seal Clubber"
 Item	sebaceous shield	Stench Damage: +1, Sleaze Damage: +1, Damage Reduction: 2
@@ -2634,11 +2651,12 @@ Item	security flashlight	Monster Level: -10
 Item	set of jacks	Experience (Moxie): +2, Last Available: "2007-12"
 Item	Seven Loco	Booze Drop: +5, Candy Drop: +5, Last Available: "2010-09"
 Item	sewer turtle	Stench Damage: +1, Damage Reduction: 1
-# shadow candle: Bathe your foes in cleansing flame
+Item	shadow candle	Conditional Skill (Equipped): "Shadow Flame"
 Item	shadowy seal eye	Spooky Damage: +20, Monster Level: +15, Class: "Seal Clubber"
 Item	Shield of Icy Fate	Spooky Resistance: +1, Stench Resistance: +1, Hot Resistance: +1, Cold Resistance: +1, Sleaze Resistance: +1, Weapon Damage Percent: +25, Muscle Percent: +5, Mysticality Percent: +5, Moxie Percent: +5, Damage Reduction: 7, Last Available: "2013-02"
 Item	shield of the Skeleton Lord	Muscle Percent: +50, Monster Level: +50, Familiar Weight: +5, Damage Reduction: 19, Last Available: "2018-04"
 Item	Shrub's Premium Baked Beans	Maximum MP: [25*(1+skill(Beanweaver))], Spell Damage Percent: [25*(1+skill(Beanweaver))], Spell Critical Percent: [5*(1+skill(Beanweaver))], Last Available: "2016-02"
+Item	shrunken head	Damage Reduction: [5*L], Muscle: [3*L], Mysticality: [3*L], Moxie: [3*L], MP Regen Min: 13, MP Regen Max: 15, Last Available: "2025-11", Conditional Skill (Equipped): "Prepare to reanimate your Foe"
 # signal receiver: Receives signals, presumably
 Item	silver cow creamer	Adventures: +3, PvP Fights: +3, Meat Drop: +30, Last Available: "2014-12"
 # silver sausage
@@ -2742,7 +2760,7 @@ Item	Tesla's Electroplated Beans	Maximum MP: [15*(1+skill(Beanweaver))], Spell D
 Item	The Lot's engagement ring	Stench Damage: +3, Conditional Skill (Equipped): "Propose To Your Opponent"
 # The Necbromancer's Stein: All Spells Cast Are Spooky
 Item	The Necbromancer's Stein	Spell Damage Percent: +100, Spooky Spell Damage: +30, Last Available: "2011-10"
-Item	The Spirit of Crimbo	Free Pull, Last Available: "2008-12"
+Item	The Spirit of Crimbo	Free Pull, Last Available: "2008-12", Conditional Skill (Equipped): "Recite 'The Spirit of Crimbo'"
 Item	third-hand lantern	Initiative: +5
 # thought balloon
 Item	Tiki lighter	Experience: +1, Last Available: "2006-12", Stat Tuning: "Moxie"
@@ -2752,7 +2770,6 @@ Item	tinsel orb	Accessory Drop: +100, Spooky Damage: +60, Class: "Turtle Tamer",
 Item	tiny black hole	Pickpocket Chance: +25, Initiative: -200, Last Available: "2011-04"
 Item	tip jar	Meat Drop: +5
 Item	tortoboggan shield	Initiative: +30, Cold Resistance: +2, Damage Reduction: 6
-# toy Crimbot super fist: Allows use of POW in combat
 Item	toy Crimbot super fist	Damage Reduction: 10, Crimbot Outfit Power: +1, Last Available: "2014-12", Conditional Skill (Equipped): "POW"
 Item	Trader Olaf's Exotic Stinkbeans	Stench Spell Damage: [15*(1+skill(Beanweaver))], Last Available: "2016-02"
 Item	trench lighter	Experience Percent (Muscle): +10, Experience Percent (Mysticality): +10, Experience Percent (Moxie): +10, Last Available: "2014-10"
@@ -2776,6 +2793,7 @@ Item	velcro shield	Mysticality Percent: +10, Damage Reduction: 24, Weapon Drop: 
 # velour valise: Triples the damage and deleveling of Tango of Terror
 Item	velour valise	Experience (Moxie): +2, Booze Drop: +30, Last Available: "2021-12"
 Item	vengeful spirit	Hot Spell Damage: +80
+Item	vermiculite shield	Damage Reduction: 19, Hot Resistance: +3, Last Available: "2025-12"
 Item	Victor, the Insult Comic Hellhound Puppet	Monster Level: +5
 Item	vinyl shield	Moxie Percent: +10, Damage Reduction: 24, Monster Level: +25
 # visual packet sniffer: CyberRealm:  Gives a chance for additional 1s to drop after combat
@@ -2830,6 +2848,10 @@ Item	Amulet of Yendor	Mana Cost: +3, Initiative: -10, Single Equip, Last Availab
 Item	anchovy can key	Food Drop: +100, Last Available: "2020-08"
 # anemoney clip: +50% Meat Drops (Underwater only)
 Item	anemoney clip	Meat Drop: [25+50*env(underwater)], Single Equip, Last Available: "2019-12"
+# angelbone chopsticks: 15% Chance to avoid an enemy attack
+Item	angelbone chopsticks	HP Regen Min: 7, HP Regen Max: 11, Stomach Capacity: +1, Single Equip, Last Available: "2026-12"
+# angelbone dice: 15% Chance to avoid an enemy attack
+Item	angelbone dice	HP Regen Min: 7, HP Regen Max: 11, Liver Capacity: +1, Single Equip, Last Available: "2026-12"
 Item	Ankh of Badahnkadh	Spell Damage Percent: +25, Single Equip
 Item	ankleweights	PvP Fights: +4, Experience: +1, Single Equip, Last Available: "2014-12"
 Item	annealed drippy orb	Drippy Resistance: +5
@@ -2862,7 +2884,7 @@ Item	attorney's badge	Single Equip
 Item	automatic wine thief	Single Equip
 Item	autumn leaf pendant	Familiar Weight: +5, Familiar Damage: +10, Experience (familiar): +1, Lasts Until Rollover, Last Available: "2022-10"
 Item	Axis suspenders	Mysticality Percent: +5, Spell Damage Percent: +10, Single Equip
-Item	backup camera	Maximum HP: +20, Maximum MP: +20, Single Equip, Last Available: "2021-04"
+Item	backup camera	Maximum HP: +20, Maximum MP: +20, Single Equip, Last Available: "2021-04", Conditional Skill (Equipped): "Back-Up to your Last Enemy"
 Item	baconstone bracelet	Mysticality: +2, Mana Cost: -1, Single Equip
 Item	baconstone earring	Mysticality: +2, Mana Cost: -1, Single Equip
 Item	baconstone pendant	Mysticality: +4, Spell Damage: +10
@@ -2920,6 +2942,7 @@ Item	blackberry galoshes	Muscle: +7, Mysticality: +7, Moxie: +7, Single Equip
 Item	blackberry moccasins	Moxie: +8, Initiative: +25, Damage Reduction: 3, Single Equip
 Item	blackberry slippers	Mysticality: +10, Spell Damage: +10, Spell Damage Percent: +5, Single Equip
 Item	Bling of the New Wave	Moxie: +11, HP Regen Min: 5, HP Regen Max: 9, MP Regen Min: 5, MP Regen Max: 9, Extra Pickpocket, Class: "Disco Bandit", Single Equip
+Item	blood cubic zirconia	Spooky Resistance: +3, Spooky Damage: [3*L], Spooky Spell Damage: [3*L], Critical Hit Percent: +20, Weakens Monster on Critical Hit, Meat Drop: +20, Last Available: "2025-10", Conditional Skill (Equipped): "BCZ: Blood Geyser", Conditional Skill (Equipped): "BCZ: Refracted Gaze", Conditional Skill (Equipped): "BCZ: Sweat Bullets", Conditional Skill (Equipped): "BCZ: Blood Bath", Conditional Skill (Equipped): "BCZ: Dial it up to 11", Conditional Skill (Equipped): "BCZ: Sweat Equity", Conditional Skill (Equipped): "BCZ: Create Blood Thinner", Conditional Skill (Equipped): "BCZ: Prepare Spinal Tapas", Conditional Skill (Equipped): "BCZ: Craft a Pheromone Cocktail"
 Item	Blue Diamond of Honesty	Muscle: +7, Mysticality: +7, Moxie: +7, Item Drop: +9, Single Equip
 Item	blue glowstick	Maximum MP: +5, Moxie: -3, Last Available: "2007-11", Raveosity: +1
 Item	blue plastic baby	Maximum HP: +5, Maximum MP: +5, Single Equip, Last Available: "2008-12"
@@ -2949,6 +2972,7 @@ Item	bugbear detector	Single Equip
 Item	bullet necklace	Mysticality: +30, Maximum MP: +30, Single Equip
 Item	bully badge	Combat Rate: +5, Lasts Until Rollover, Last Available: "2025-08"
 Item	burning paper slippers	Cold Resistance: +3, Maximum HP: +25, Maximum MP: +25, Initiative: +50, Single Equip, Lasts Until Rollover, Last Available: "2018-12"
+Item	burnt bone belt	Stench Damage: +75, HP Regen Min: 3, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 6, Experience (Moxie): +2, Single Equip, Last Available: "2025-12"
 Item	C.A.R.N.I.V.O.R.E. button	Monster Level: +15
 Item	cactus key	Maximum HP: +20, HP Regen Min: 9, HP Regen Max: 10, Last Available: "2020-08"
 Item	candy dress shoes	Maximum HP: +20, Weapon Damage: +15, Critical Hit Percent: +10, Single Equip, Last Available: "2016-12"
@@ -3022,8 +3046,7 @@ Item	crepe paper polka charm	Experience (Moxie): +2, Weapon Damage: +10, Spell D
 # CRIMBCO lanyard: Lets you work harder!
 Item	CRIMBCO lanyard	Single Equip, Last Available: "2011-01"
 Item	Crimbolex watch	Adventures: +5, PvP Fights: +5, Rollover Effect: "Watched Over", Rollover Effect Duration: 100, Single Equip, Last Available: "2018-12", Nonstackable Watch
-# Crimbomega drive chain: Allows use of LUBE in combat
-Item	Crimbomega drive chain	Moxie: +5, Sleaze Damage: +20, Sleaze Spell Damage: +20, Crimbot Outfit Power: +1, Single Equip, Last Available: "2014-12"
+Item	Crimbomega drive chain	Moxie: +5, Sleaze Damage: +20, Sleaze Spell Damage: +20, Crimbot Outfit Power: +1, Single Equip, Last Available: "2014-12", Conditional Skill (Equipped): "LUBE"
 Item	Crimbuccaneer fledges (disintegrating)	Pirate Warfare Effectiveness: +10, PvP Fights: +9, Single Equip, Last Available: "2023-12"
 Item	Crimbuccaneer fledges (mint)	Pirate Warfare Effectiveness: +1, Last Available: "2023-12"
 Item	Crimbuccaneer nose ring	Pirate Warfare Effectiveness: +5, Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Potion Drop: +25, Last Available: "2023-12"
@@ -3038,7 +3061,7 @@ Item	cursed bat paw	Monster Level: +25, Muscle Percent: -25, Mysticality Percent
 Item	cursed dragon wishbone	Item Drop: +50, Meat Drop: -50
 Item	cursed medallion	Initiative: +100, Weapon Damage Percent: -50, Spell Damage Percent: -50
 # cursed monkey's paw: Grants Wishes!
-Item	cursed monkey's paw	Muscle: +10, Mysticality: +10, Moxie: +10, Spooky Damage: +10, Spooky Spell Damage: +10, Spooky Resistance: +2, Stench Resistance: +2, Hot Resistance: +2, Cold Resistance: +2, Sleaze Resistance: +2, Single Equip, Last Available: "2023-04"
+Item	cursed monkey's paw	Muscle: +10, Mysticality: +10, Moxie: +10, Spooky Damage: +10, Spooky Spell Damage: +10, Spooky Resistance: +2, Stench Resistance: +2, Hot Resistance: +2, Cold Resistance: +2, Sleaze Resistance: +2, Single Equip, Last Available: "2023-04", Conditional Skill (Equipped): "Monkey Slap", Conditional Skill (Equipped): "Monkey Tickle", Conditional Skill (Equipped): "Evil Monkey Eye", Conditional Skill (Equipped): "Monkey Peace Sign", Conditional Skill (Equipped): "Monkey Point", Conditional Skill (Equipped): "Monkey Punch"
 Item	cursed ring finger ring	Spell Damage Percent: +50, Spooky Spell Damage: +30, Spell Critical Percent: +10, Single Equip
 Item	cursed scrunchie	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Single Equip, Last Available: "2011-10"
 Item	cursed swash buckle	Moxie: +25, Meat Drop: +50, Item Drop: +25, Single Equip, Last Available: "2019-07"
@@ -3059,6 +3082,10 @@ Item	depleted Grimacite astrolabe	Mysticality Percent: [5*G], PvP Fights: [G], S
 Item	depleted Grimacite grappling hook	Moxie Percent: [5*G], Adventures: [G], Single Equip, Last Available: "2011-12"
 Item	depleted Grimacite weightlifting belt	Muscle Percent: [5*G], Adventures: [G], Single Equip, Last Available: "2011-12"
 Item	dethklok	Spooky Damage: +15, Last Available: "2011-09"
+# devilbone rosary: Adds Hot Damage to your Attacks
+Item	devilbone rosary	Monster Level: +13, Liver Capacity: +1, Single Equip, Last Available: "2026-12"
+# devilbone shinguards: Adds Hot Damage to your Attacks
+Item	devilbone shinguards	Monster Level: +13, Experience: +3, Single Equip, Last Available: "2026-12"
 # diamond necklace
 Item	dice belt buckle	Random Monster Modifiers: +1, Single Equip
 Item	dice ring	Random Monster Modifiers: +1, Single Equip
@@ -3155,21 +3182,20 @@ Item	food drive button	Single Equip, Last Available: "2020-12"
 Item	Former Sheriff Dan's tin star	Muscle Percent: +25, Maximum HP: +50, HP Regen Min: 5, HP Regen Max: 10, Weapon Damage Percent: +25, Critical Hit Percent: +5, Last Available: "2016-02"
 Item	fossilized necklace	Last Available: "2010-09", Muscle: [2*pref(fossilB)], Mysticality: [2*pref(fossilB)], Moxie: [2*pref(fossilB)], Spell Damage: [2*pref(fossilS)], Weapon Damage: [3*pref(fossilN)], Muscle Percent: [3*pref(fossilW)], Mysticality Percent: [3*pref(fossilW)], Moxie Percent: [3*pref(fossilW)], Hot Damage: [3*pref(fossilD)], Spooky Damage: [3*pref(fossilP)]
 Item	frayed rope belt	Moxie Percent: +10, Single Equip
-# free boots: Give your opponents the old one-two (kick)
-Item	free boots	Sleaze Resistance: +3, HP Regen Min: 8, HP Regen Max: 12, MP Regen Min: 8, MP Regen Max: 12, Single Equip, Last Available: "2023-12"
+Item	free boots	Sleaze Resistance: +3, HP Regen Min: 8, HP Regen Max: 12, MP Regen Min: 8, MP Regen Max: 12, Single Equip, Last Available: "2023-12", Conditional Skill (Equipped): "The Old One-Two (Kick)"
 # French slippers
 Item	freshwater pearl necklace	Spell Critical Percent: +5
 Item	Frigid Northern Beans	Cold Spell Damage: [15*(1+skill(Beanweaver))], Last Available: "2016-02"
 # frosty button: Makes your fireball attacks deal Cold damage
 Item	frosty button	Single Equip
-Item	frosty halo	Item Drop: +25, Unarmed, Single Equip, Last Available: "2011-09"
+Item	frosty halo	Item Drop: [25*unarmed], Single Equip, Last Available: "2011-09"
 Item	Frosty's carrot	Stench Resistance: +3, Sleaze Resistance: +3, Class: "Seal Clubber", Single Equip
 Item	Frown Exerciser	Monster Level: [5*G], Moxie: -5, Single Equip, Last Available: "2012-12"
 Item	fudge pocket square	Muscle: +5, Last Available: "2011-11"
 Item	fudgecycle	Adventures: +7, Candy Drop: +100, HP Regen Min: 10, HP Regen Max: 20, MP Regen Min: 10, MP Regen Max: 20, Single Equip, Last Available: "2011-11"
 Item	furniture dolly	Initiative: +30, Single Equip
 Item	furry green earmuffs	Cold Resistance: +1
-Item	furry halo	Familiar Weight: +5, Unarmed, Single Equip, Last Available: "2011-09"
+Item	furry halo	Familiar Weight: [5*unarmed], Single Equip, Last Available: "2011-09"
 Item	fuzzy bracelets	Muscle: +15, Mysticality: +15, Moxie: +15
 # Fuzzy Slippers of Hatred: Makes running more comfortable
 Item	Fuzzy Slippers of Hatred	Combat Rate: -5, Reduce Enemy Defense: 10, Spell Damage Percent: +60, Single Equip
@@ -3202,6 +3228,7 @@ Item	gingerservo	Muscle Percent: +25, HP Regen Min: 6, HP Regen Max: 12, PvP Fig
 Item	Girdle of Hatred	Initiative: +45, Reduce Enemy Defense: 10, Spell Damage Percent: +60, Single Equip, Conditional Skill (Equipped): "Tighten Girdle"
 Item	glacial clock	Cold Damage: +15, Last Available: "2011-09"
 Item	glass eye	Initiative: +20, Weapon Damage: +20, Item Drop: [40*zone(Twitch)], Single Equip
+Item	glimmering golden crystal	Maximum MP: +10, Cold Resistance: +1, Last Available: "2025-12"
 Item	glow-in-the-dark necklace	Mysticality Percent: +10, Spell Damage: +10, MP Regen Min: 2, MP Regen Max: 10, Last Available: "2014-08"
 Item	glow-in-the-dark wristwatch	Mysticality: [9-M], Spell Damage: [9-M], Adventures: +3, Single Equip, Last Available: "2009-01", Nonstackable Watch
 Item	glowing red eye	Spooky Resistance: +2
@@ -3261,11 +3288,12 @@ Item	hazardous sauce dosimeter	Class: "Sauceror", Last Available: "2013-11"
 Item	head mirror	Spooky Resistance: +1, Stench Resistance: +1, Hot Resistance: +1, Cold Resistance: +1, Sleaze Resistance: +1, Surgeonosity: +1
 Item	headhunter necktie	Muscle: +15, Moxie: -3, Single Equip
 Item	heart of the volcano	HP Regen Min: 10, HP Regen Max: 20, MP Regen Min: 2, MP Regen Max: 5
+Item	Heartstone	Muscle Percent: +25, Mysticality Percent: +25, Moxie Percent: +25, Experience: +3, HP Regen Min: 15, HP Regen Max: 20, Single Equip, Last Available: "2026-02", Conditional Skill (Equipped): "Steal Monster's Heart", Conditional Skill (Equipped): "Heartstone: %kill", Conditional Skill (Equipped): "Heartstone: %banish", Conditional Skill (Equipped): "Heartstone: %stun", Conditional Skill (Equipped): "Heartstone: %luck", Conditional Skill (Equipped): "Heartstone: %pals", Conditional Skill (Equipped): "Heartstone: %buff"
 Item	heat-resistant gloves	Hot Resistance: +4, Weapon Damage Percent: -50, Fumble: 2, Single Equip, Last Available: "2015-08"
 Item	heat-resistant necktie	Hot Resistance: +4, Spell Damage: -50, Single Equip, Last Available: "2015-08"
 Item	Helps-You-Sleep	Initiative: +75, Critical Hit Percent: +10, Single Equip, Blind
 # hemp string
-Item	hewn moon-rune spoon	Experience: +3, Familiar Weight: +5, Critical Hit Percent: +10, Spell Damage: +10, Initiative: +25, Rollover Effect: "Spoon Boon", Rollover Effect Duration: 50, Muscle: +5, Mysticality: +5, Moxie: +5, Maximum HP: +25, Maximum MP: +25, Single Equip, Last Available: "2019-06", Alters Page Text
+Item	hewn moon-rune spoon	Experience: +3, Familiar Weight: +5, Critical Hit Percent: +10, Spell Damage: +10, Initiative: +25, Rollover Effect: "Spoon Boon", Rollover Effect Duration: 50, Muscle: +5, Mysticality: +5, Moxie: +5, Maximum HP: +25, Maximum MP: +25, Single Equip, Last Available: "2019-06", Alters Page Text, Conditional Skill (Equipped): "Dragoon Platoon", Conditional Skill (Equipped): "Spittoon Monsoon", Conditional Skill (Equipped): "Festoon Buffoon"
 # high-friction boots: Allows you to move normally on extremely windy planets
 Item	high-friction boots	Single Equip, Lasts Until Rollover, Last Available: "2017-04"
 Item	hippy medical kit	Mysticality: +10, HP Regen Min: 6, HP Regen Max: 10, Single Equip
@@ -3359,8 +3387,7 @@ Item	LyleCo premium monocle	Rubee Drop: 1, Single Equip, Last Available: "2018-0
 # M&ouml;bius ring: Allows interaction with your past and future
 Item	M&ouml;bius ring	Maximum HP: [25*eq(paradoxicity,0)], Maximum MP: [25*lte(paradoxicity,1)], Muscle: [10*lte(paradoxicity,2)], Mysticality: [10*lte(paradoxicity,3)], Moxie: [10*lte(paradoxicity,4)], Weapon Damage: [15*lte(paradoxicity,5)*gte(paradoxicity,1)], Hot Resistance: [2*lte(paradoxicity,6)*gte(paradoxicity,2)], Gear Drop: [100*lte(paradoxicity,7)*gte(paradoxicity,3)], Damage Reduction: [paradoxicity*lte(paradoxicity,8)*gte(paradoxicity,4)], Initiative: [50*lte(paradoxicity,9)*gte(paradoxicity,5)], Familiar Weight: [5*lte(paradoxicity,10)*gte(paradoxicity,6)], Cold Resistance: [2*lte(paradoxicity,11)*gte(paradoxicity,7)], Food Drop: [100*lte(paradoxicity,12)*gte(paradoxicity,8)], Spell Damage: [25*lte(paradoxicity,13)*gte(paradoxicity,9)], Stench Resistance: [2*lte(paradoxicity,14)*gte(paradoxicity,10)], Booze Drop: [50*lte(paradoxicity,15)*gte(paradoxicity,11)], Meat Drop: [25*lte(paradoxicity,16)*gte(paradoxicity,12)], Item Drop: [100*lte(paradoxicity,17)*gte(paradoxicity,13)], Ranged Damage: [15*lte(paradoxicity,18)*gte(paradoxicity,14)], Spooky Resistance: [2*lte(paradoxicity,19)*gte(paradoxicity,15)], Candy Drop: [100*lte(paradoxicity,20)*gte(paradoxicity,16)], Experience (familiar): [2*lte(paradoxicity,21)*gte(paradoxicity,17)], Experience: [4*lte(paradoxicity,22)*gte(paradoxicity,18)], Sleaze Resistance: [2*gte(paradoxicity,19)], Pickpocket Chance: [25*gte(paradoxicity,20)], Maximum HP Percent: [50*gte(paradoxicity,21)], Maximum MP Percent: [50*gte(paradoxicity,22)], Muscle Percent: [25*gte(paradoxicity,23)], Last Available: "2025-08"
 Item	Mafia bow tie	Muscle: +20, Moxie: +20, Last Available: "2004-10"
-# mafia middle finger ring: Show enemies your ring once a day!
-Item	mafia middle finger ring	Weapon Damage Percent: +13, Muscle Percent: +13, Single Equip
+Item	mafia middle finger ring	Weapon Damage Percent: +13, Muscle Percent: +13, Single Equip, Conditional Skill (Equipped): "Show them your ring"
 Item	mafia organizer badge	Adventures: +2, Single Equip
 Item	mafia pinky ring	Weapon Damage Percent: +10, Muscle Percent: +10, Single Equip
 # mafia pointer finger ring: Take advantage of critical moments.
@@ -3477,10 +3504,10 @@ Item	old soft shoes	Single Equip, Item Drop: [30*zone(Hobopolis)*(1-loc(Sewer Tu
 Item	orange glowstick	Maximum MP: +5, Moxie: -3, Last Available: "2006-10", Raveosity: +1
 Item	orange leather lanyard	Weapon Damage: +15, Single Equip, Last Available: "2011-05"
 Item	Orange Star of Sacrifice	Muscle: +10, Mysticality: +10, Moxie: +10, Item Drop: +6, Single Equip
-# orc wrist: +15 Damage vs. Orcs
+Item	orc wrist	Damage vs. Orcs: 15
 Item	Order of the Silver Wossname	Muscle: +11, Mysticality: +11, Moxie: +11, Item Drop: +11, Meat Drop: +11, Single Equip
 # ordnance magnet: Occasionally find combat items after fights
-Item	ordnance magnet	Single Equip
+Item	ordnance magnet	Drops Items, Single Equip
 Item	ornamental sextant	Muscle Percent: +15, Mysticality Percent: +15, Moxie Percent: +15, Last Available: "2013-12"
 Item	Oscus's pelt	Mysticality Percent: +20, Stench Spell Damage: +30, Class: "Pastamancer", Single Equip
 Item	Othello's handkerchief	Othello Skill: +10, Single Equip
@@ -3623,7 +3650,7 @@ Item	reinforced furry underpants	Mysticality: +2, Sleaze Damage: +2
 Item	replica Cincho de Mayo	Moxie Percent: +25, HP Regen Min: 10, HP Regen Max: 20, MP Regen Min: 10, MP Regen Max: 20, Booze Drop: +30, Item Drop: +15, Conditional Skill (Equipped): "Cincho: Dispense Salt and Lime", Conditional Skill (Equipped): "Cincho: Party Soundtrack", Conditional Skill (Equipped): "Cincho: Fiesta Exit", Conditional Skill (Equipped): "Cincho: Projectile Piñata", Conditional Skill (Equipped): "Cincho: Party Foul", Conditional Skill (Equipped): "Cincho: Confetti Extravaganza"
 Item	replica Elf Guard medal	Elf Warfare Effectiveness: +5, Experience: +2, Maximum HP: +20, Maximum MP: +20, Last Available: "2023-12"
 Item	replica Elvish sunglasses	Moxie: +10, Moxie Percent: +10, Ranged Damage: +15, Pickpocket Chance: +25, Single Equip, Conditional Skill (Equipped): "Play an Accordion Solo", Conditional Skill (Equipped): "Play a Guitar Solo", Conditional Skill (Equipped): "Play a Drum Solo", Conditional Skill (Equipped): "Play a Flute Solo"
-Item	replica hewn moon-rune spoon	Experience: +3, Familiar Weight: +5, Critical Hit Percent: +10, Spell Damage: +10, Initiative: +25, Rollover Effect: "Spoon Boon", Rollover Effect Duration: 50, Muscle: +5, Mysticality: +5, Moxie: +5, Maximum HP: +25, Maximum MP: +25, Single Equip, Alters Page Text
+Item	replica hewn moon-rune spoon	Experience: +3, Familiar Weight: +5, Critical Hit Percent: +10, Spell Damage: +10, Initiative: +25, Rollover Effect: "Spoon Boon", Rollover Effect Duration: 50, Muscle: +5, Mysticality: +5, Moxie: +5, Maximum HP: +25, Maximum MP: +25, Single Equip, Alters Page Text, Conditional Skill (Equipped): "Dragoon Platoon", Conditional Skill (Equipped): "Spittoon Monsoon", Conditional Skill (Equipped): "Festoon Buffoon"
 # replica Juju Mojo Mask: Big Mojo
 Item	replica Juju Mojo Mask	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Experience: +2, Single Equip
 # replica Kramco Sausage-o-Matic&trade;: Shows you how the sausage is made
@@ -3676,6 +3703,7 @@ Item	rubber gloves	Sleaze Resistance: +2, Last Available: "2013-12"
 Item	rum barrel charrrm bracelet	Booze Drop: +5
 Item	rusty chain necklace	Muscle: +9, Maximum HP: +25
 Item	Saccharine Maple pendant	Maximum HP: +20, Maximum MP: +20, Conditional Skill (Equipped): "Spray Sap"
+Item	Santa-Slayer medal	Cold Damage: +25, Cold Spell Damage: +25, Cold Resistance: +3, Single Equip, Last Available: "2025-12"
 Item	sardine can key	Cold Damage: +40, Hot Resistance: +4, Food Drop: +60, Last Available: "2015-11"
 Item	Sasq&trade; watch	PvP Fights: +3, Adventures: +6, Rollover Effect: "The Rich Get Richer", Rollover Effect Duration: 30, Single Equip, Last Available: "2014-10", Nonstackable Watch
 Item	scabrous seal epaulets	Maximum HP: +20, HP Regen Min: 8, HP Regen Max: 10, Single Equip
@@ -3701,7 +3729,7 @@ Item	Sheriff badge	Mysticality Percent: +50, Spooky Resistance: +3, Single Equip
 # Sheriff moustache: Provides 1/3 Authority
 Item	Sheriff moustache	Moxie Percent: +50, Initiative: +25, Single Equip, Lasts Until Rollover, Last Available: "2024-10"
 Item	shin gourds	Damage Reduction: 5, Weapon Damage: +10, Single Equip, Last Available: "2010-11"
-Item	shining halo	Experience: +3, Unarmed, Single Equip, Last Available: "2011-09"
+Item	shining halo	Experience: [3*unarmed], Single Equip, Last Available: "2011-09"
 Item	shiny hood ornament	Muscle: +5, Mysticality: +5, Moxie: +5, Maximum HP: +30, Maximum MP: +30, Initiative: +10
 Item	shiny ring	Muscle: +3, Mysticality: +3, Moxie: +3
 Item	shiny tribal beads	Mysticality: +6, Last Available: "2009-06"
@@ -3728,6 +3756,7 @@ Item	slime convention pin	Moxie: -1
 # slime-covered necklace: +50 Damage against Slimes
 Item	slime-covered necklace	Muscle: +6, Mysticality: +6, Moxie: +6, Maximum HP: +200, Weapon Damage: [50*loc(The Slime Tube)]
 Item	Slow Talkin' Elliot's dogtags	Muscle: +30, Initiative: -30
+Item	smoldering vertebra	Spooky Damage: +75, Spooky Spell Damage: +75, Experience: +1, Single Equip, Last Available: "2025-12"
 Item	SMOOCH bracers	Damage Reduction: 5, Damage Absorption: +15, Single Equip, Last Available: "2015-08", Thorns: 1
 Item	SMOOCH kneepads	Damage Reduction: 10, Single Equip, Last Available: "2015-08", Thorns: 1
 Item	SMOOCH spaulders	Damage Absorption: +25, Single Equip, Last Available: "2015-08", Thorns: 1
@@ -3771,7 +3800,7 @@ Item	spirit bell	Muscle: +5, Mysticality: +5, Maximum HP: +10, Maximum MP: +10, 
 Item	spooky glove	Never Fumble, Moxie: +5, Spooky Damage: +5
 Item	Spookyraven signet	Spooky Resistance: +2, Stench Damage: +15, Stench Spell Damage: +15, Single Equip, Last Available: "2016-08"
 # spring shoes: Nature springs up after each step
-Item	spring shoes	Initiative: +100, Moxie Percent: +20, Critical Hit Percent: +50, Last Available: "2024-02", Drops Items
+Item	spring shoes	Initiative: +100, Moxie Percent: +20, Critical Hit Percent: +50, Last Available: "2024-02", Drops Items, Conditional Skill (Equipped): "Spring Away", Conditional Skill (Equipped): "Spring Kick", Conditional Skill (Equipped): "Spring Growth Spurt"
 Item	stained glass spectacles	Experience (Mysticality): +3, Spooky Resistance: +3, Spooky Damage: +5, Single Equip, Last Available: "2021-12"
 Item	stained glass suspenders	Muscle Percent: +20, Hot Resistance: +3, Hot Damage: +5, Single Equip, Last Available: "2021-12"
 Item	stainless steel scarf	Spell Damage: +20, Monster Level: +20, Mysticality Percent: +15, Single Equip
@@ -3818,6 +3847,8 @@ Item	tarrrnished charrrm bracelet	Stench Damage: +10, Stench Spell Damage: +10, 
 Item	teflon swim fins	Moxie Percent: -5, Initiative: +25, Single Equip, Initiative Penalty: [10*env(underwater)], Item Drop Penalty: [10*env(underwater)], Meat Drop Penalty: [10*env(underwater)]
 Item	terra cotta tie tack	Experience (Moxie): +3, Meat Drop: +20, Single Equip, Last Available: "2020-12", Conditional Skill (Equipped): "Unleash Terra Cotta Army"
 Item	terra cotta truss	Experience (Muscle): +3, Initiative: +40, Single Equip, Last Available: "2020-12", Conditional Skill (Equipped): "Unleash Terra Cotta Army"
+# The Eternity Codpiece: Holds Gems
+Item	The Eternity Codpiece	Muscle: +5, Mysticality: +5, Moxie: +5, Last Available: "2026-12"
 Item	the Ley Incursion's waist	Mysticality: +15, Mysticality Percent: +25, Experience (Mysticality): +5, Single Equip, Last Available: "2018-04"
 Item	The Lost Glasses	Reduce Enemy Defense: 15, Hot Resistance: +2, Single Equip
 Item	The One Mood Ring	Muscle Percent: [5*G], Mysticality Percent: [5*G], Moxie Percent: [5*G], Monster Level: [25-5*G], Single Equip, Last Available: "2015-08"
@@ -3830,7 +3861,7 @@ Item	ticksilver ring	Adventures: +6, PvP Fights: +4, Single Equip, Last Availabl
 Item	tie-dyed fannypack	Spooky Damage: +2, Stench Damage: +2, Hot Damage: +2, Cold Damage: +2, Sleaze Damage: +2, Item Drop: +10, Single Equip, Last Available: "2016-08"
 # Time Bandit Badge of Courage: Proves your worth to the Time Bandits
 Item	Time Bandit Badge of Courage	Muscle Limit: 50, Mysticality Limit: 50, Moxie Limit: 50
-Item	time halo	Adventures: +5, Unarmed, Single Equip, Last Available: "2011-09"
+Item	time halo	Adventures: [5*unarmed], Single Equip, Last Available: "2011-09"
 # Time Lord Badge of Honor: Proves your worth to the Time Lords
 Item	Time Lord Badge of Honor	Muscle Limit: 50, Mysticality Limit: 50, Moxie Limit: 50
 # time-twitching toolbelt: Reveals various Time-Forgotten Secrets
@@ -4007,6 +4038,8 @@ Item	tiny plastic Knob Goblin mad scientist	Monster Level: +1
 Item	tiny plastic Knott Yeti	Monster Level: +1
 Item	tiny plastic Knows About Chakras	Spell Damage: +10, Last Available: "2016-12"
 Item	tiny plastic Krampus	PvP Fights: +1, Last Available: "2016-12"
+Item	tiny plastic left skeleton arm	Damage Reduction: 3, Last Available: "2025-12"
+Item	tiny plastic left skeleton leg	Damage Reduction: 3, Last Available: "2025-12"
 Item	tiny plastic lemon-in-the-box	Monster Level: +1
 Item	tiny plastic leprechaun	Familiar Weight: +1
 Item	tiny plastic levitating potato	Familiar Weight: +1
@@ -4045,6 +4078,8 @@ Item	tiny plastic protector spectre	Spooky Damage: +10
 Item	tiny plastic Queen Bee	Maximum HP: +10, Last Available: "2012-12"
 Item	tiny plastic reindeer	Cold Resistance: +1, Last Available: "2018-12"
 Item	tiny plastic Rene C. Corman	Mysticality Percent: +5, Spell Damage Percent: +25, Single Equip, Last Available: "2012-12"
+Item	tiny plastic right skeleton arm	Damage Reduction: 3, Last Available: "2025-12"
+Item	tiny plastic right skeleton leg	Damage Reduction: 3, Last Available: "2025-12"
 Item	tiny plastic Rudolph the Red	Hot Resistance: +2, Last Available: "2015-12"
 Item	tiny plastic sabre-toothed lime	Familiar Weight: +1
 Item	tiny plastic sauceror	Mysticality: +2, Moxie: +1
@@ -4056,6 +4091,10 @@ Item	tiny plastic seal clubber	Muscle: +2, Moxie: +1
 Item	tiny plastic semi-autonomous drill unit	Mysticality: +1, Last Available: "2014-12"
 Item	tiny plastic senile lihc	Monster Level: +1
 Item	tiny plastic skeletal reindeer	Adventures: +1, Single Equip, Last Available: "2006-12"
+Item	tiny plastic skeleton Crimbo hat	Damage Reduction: 3, Last Available: "2025-12"
+Item	tiny plastic skeleton pelvis	Damage Reduction: 3, Last Available: "2025-12"
+Item	tiny plastic skeleton rib cage	Damage Reduction: 3, Last Available: "2025-12"
+Item	tiny plastic skeleton skull	Damage Reduction: 3, Last Available: "2025-12"
 Item	tiny plastic smarmy pirate	Monster Level: +1
 Item	tiny plastic Sneaky Pete	Moxie: +5, Muscle: +3, Mysticality: +3
 Item	tiny plastic Spam Witch	Monster Level: +1
@@ -4218,13 +4257,13 @@ Item	Xiblaxian xeno-detection goggles	Meat Drop: +15, Single Equip, Last Availab
 Item	Xlyinia's notebook	Muscle: +15, Mysticality: +15, Moxie: +15
 Item	yamtility belt	Meat Drop: +55, Initiative: +15, Moxie Percent: +5, Lasts Until Rollover, Last Available: "2024-05"
 Item	ye olde golde frontes	Muscle: +15, Class: "Disco Bandit", Single Equip
-Item	Yearbook Club Camera	Muscle: [5*min(pref(yearbookCameraUpgrades),1)+5*max(min(pref(yearbookCameraUpgrades)-3,1),0)+5*max(min(pref(yearbookCameraUpgrades)-6,1),0)], Mysticality: [5*max(min(pref(yearbookCameraUpgrades)-1,1),0)+5*max(min(pref(yearbookCameraUpgrades)-4,1),0)+5*max(min(pref(yearbookCameraUpgrades)-7,1),0)], Moxie: [5*max(min(pref(yearbookCameraUpgrades)-2,1),0)+5*max(min(pref(yearbookCameraUpgrades)-5,1),0)+5*max(min(pref(yearbookCameraUpgrades)-8,1),0)], Maximum HP: [20*max(min(pref(yearbookCameraUpgrades)-9,1),0)], Maximum MP: [10*max(min(pref(yearbookCameraUpgrades)-10,1),0)], HP Regen Min: [4*max(min(pref(yearbookCameraUpgrades)-11,1),0)], HP Regen Max: [5*max(min(pref(yearbookCameraUpgrades)-11,1),0)], MP Regen Min: [2*max(min(pref(yearbookCameraUpgrades)-12,1),0)], MP Regen Max: [3*max(min(pref(yearbookCameraUpgrades)-12,1),0)], Adventures: [5*max(min(pref(yearbookCameraUpgrades)-13,1),0)], PvP Fights: [5*max(min(pref(yearbookCameraUpgrades)-14,1),0)], Damage Reduction: [5*max(min(pref(yearbookCameraUpgrades)-15,1),0)], Hot Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Cold Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Spooky Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Stench Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Sleaze Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Initiative: [10*max(min(pref(yearbookCameraUpgrades)-17,1),0)], Meat Drop: [20*max(min(pref(yearbookCameraUpgrades)-18,1),0)], Item Drop: [10*max(min(pref(yearbookCameraUpgrades)-19,1),0)]
+Item	Yearbook Club Camera	Muscle: [5*min(pref(yearbookCameraUpgrades),1)+5*max(min(pref(yearbookCameraUpgrades)-3,1),0)+5*max(min(pref(yearbookCameraUpgrades)-6,1),0)], Mysticality: [5*max(min(pref(yearbookCameraUpgrades)-1,1),0)+5*max(min(pref(yearbookCameraUpgrades)-4,1),0)+5*max(min(pref(yearbookCameraUpgrades)-7,1),0)], Moxie: [5*max(min(pref(yearbookCameraUpgrades)-2,1),0)+5*max(min(pref(yearbookCameraUpgrades)-5,1),0)+5*max(min(pref(yearbookCameraUpgrades)-8,1),0)], Maximum HP: [20*max(min(pref(yearbookCameraUpgrades)-9,1),0)], Maximum MP: [10*max(min(pref(yearbookCameraUpgrades)-10,1),0)], HP Regen Min: [4*max(min(pref(yearbookCameraUpgrades)-11,1),0)], HP Regen Max: [5*max(min(pref(yearbookCameraUpgrades)-11,1),0)], MP Regen Min: [2*max(min(pref(yearbookCameraUpgrades)-12,1),0)], MP Regen Max: [3*max(min(pref(yearbookCameraUpgrades)-12,1),0)], Adventures: [5*max(min(pref(yearbookCameraUpgrades)-13,1),0)], PvP Fights: [5*max(min(pref(yearbookCameraUpgrades)-14,1),0)], Damage Reduction: [5*max(min(pref(yearbookCameraUpgrades)-15,1),0)], Hot Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Cold Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Spooky Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Stench Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Sleaze Damage: [max(min(pref(yearbookCameraUpgrades)-16,1),0)], Initiative: [10*max(min(pref(yearbookCameraUpgrades)-17,1),0)], Meat Drop: [20*max(min(pref(yearbookCameraUpgrades)-18,1),0)], Item Drop: [10*max(min(pref(yearbookCameraUpgrades)-19,1),0)], Conditional Skill (Equipped): "Blinding Flash"
 # Yeg's Motel slippers: Extremely fragile (will be destroyed if you are hit in combat)
 Item	Yeg's Motel slippers	Spooky Spell Damage: +100, Mysticality Percent: +66, Single Equip, Lasts Until Rollover, Last Available: "2020-09"
 Item	yellow glowstick	Maximum MP: +5, Moxie: -3, Last Available: "2007-08", Raveosity: +1
 Item	Yellow Moon of Compassion	Muscle: +9, Mysticality: +9, Moxie: +9, Item Drop: +7, Single Equip
 # your cowboy boots: Lets you engage in Cowboy Kicking, can be further upgraded with skins and spurs
-Item	your cowboy boots	Maximum HP: +25, Maximum MP: +25, Last Available: "2016-02"
+Item	your cowboy boots	Maximum HP: +25, Maximum MP: +25, Last Available: "2016-02", Conditional Skill (Equipped): "Cowboy Kick"
 Item	Yuleviathan necklace	Spooky Damage: +15, Stench Damage: +15, Hot Damage: +15, Cold Damage: +15, Sleaze Damage: +15, MP Regen Min: 20, MP Regen Max: 30, Single Equip, Last Available: "2019-12"
 Item	Zinc Delta of Tranquility	Muscle: +8, Mysticality: +8, Moxie: +8, Item Drop: +8, Single Equip
 Item	zombie monkey necklace	Spooky Damage: +11, Stench Damage: +11
@@ -4234,6 +4273,8 @@ Item	Zombo's skull ring	Moxie Percent: +15, PvP Fights: +4, Single Equip
 
 # Allied Radio Backpack: Call for support
 Item	Allied Radio Backpack	Muscle Percent: +30, Mysticality Percent: +30, Moxie Percent: +30, Maximum HP: +30, Maximum MP: +30, Initiative: +30, Conditional Skill (Equipped): "Call in an Airstrike"
+# angelbone mantle: 15% Chance to avoid an enemy attack
+Item	angelbone mantle	HP Regen Min: 7, HP Regen Max: 11, Booze Drop: +77, Last Available: "2026-12"
 Item	anniversary pewter cape	Muscle: +1, Mysticality: +1, Moxie: +1
 Item	antique nutcracker cape	Spell Damage Percent: +30, Mysticality Percent: +15, Last Available: "2019-12"
 Item	auxiliary backbone	PvP Fights: +3, Last Available: "2012-10"
@@ -4356,7 +4397,7 @@ Item	Trainbot harness	Initiative: -200
 Item	uncursed blanket	Hot Resistance: +1, Cold Resistance: +1, Spooky Resistance: +1, Stench Resistance: +1, Sleaze Resistance: +1
 Item	uncursed goblin cape	Combat Rate: -5
 # vampyric cloake: Improves the effectiveness of various Dark Gyffte skills
-Item	vampyric cloake	Item Drop: +15, Maximum HP: [min(10*L,1300)], Initiative: +25, Adventures: +4, Experience: +3, Last Available: "2019-03"
+Item	vampyric cloake	Item Drop: +15, Maximum HP: [min(10*L,1300)], Initiative: +25, Adventures: +4, Experience: +3, Last Available: "2019-03", Conditional Skill (Equipped): "Become a Wolf", Conditional Skill (Equipped): "Become a Cloud of Mist", Conditional Skill (Equipped): "Become a Bat"
 # wet shower curtain: Reduces Hot Damage by 100,000
 Item	wet shower curtain	Last Available: "2025-04"
 Item	whatsit-covered turtle shell	Spooky Resistance: +1, Stench Resistance: +1, Hot Resistance: +1, Cold Resistance: +1, Sleaze Resistance: +1, Class: "Turtle Tamer"
@@ -4783,7 +4824,6 @@ Thrall	Vermincelli	Maximum MP: [floor(P/10)*30]
 # value of 1.
 
 Familiar	(none)	Underwater Familiar
-# Initiative bonus is a guess for now
 Familiar	Adventurous Spelunker	Last Available: "2015-12"
 Familiar	Aiolion	Last Available: "2018-03"
 Familiar	Amanitee	Last Available: "2018-03"
@@ -4820,7 +4860,7 @@ Familiar	Chocolate Lab	Last Available: "2016-12", Sprinkle Drop: [W]
 Familiar	Coffee Pixie	Last Available: "2005-10"
 Familiar	Comma Chameleon	Last Available: "2006-08"
 Familiar	Cookbookbat	Food Fairy Effectiveness: 1.5, Last Available: "2022-11"
-Familiar	Cooler Yeti	Cold Resistance: [floor(W/11)], Last Available: "2025-07"
+Familiar	Cooler Yeti	Cold Resistance: [floor(W/11)+1], Last Available: "2025-07"
 Familiar	Cornbeefadon	Last Available: "2018-03"
 Familiar	Cotton Candy Carnie	Last Available: "2008-08"
 Familiar	Crimbo Elf	Last Available: "2004-12"
@@ -4962,6 +5002,7 @@ Familiar	Sequestrian	Last Available: "2018-03"
 Familiar	Shorter-Order Cook	Last Available: "2021-05"
 Familiar	Shudder	Last Available: "2018-03"
 Familiar	Significant Bit	Last Available: "2025-12"
+Familiar	Skeleton of Crimbo Past	Last Available: "2025-12"
 Familiar	Sledgehamster	Last Available: "2018-03"
 Familiar	Slotter	Last Available: "2018-03"
 Familiar	Sludgepuppy	Last Available: "2015-04"
@@ -4984,6 +5025,7 @@ Familiar	Teddy Bear	Last Available: "2005-12"
 Familiar	Teddy Borg	Last Available: "2007-12"
 Familiar	Temporal Riftlet	Last Available: "2005-11"
 Familiar	Tickle-Me Emilio	Last Available: "2011-11"
+Familiar	Tiny Plastic Santa Claus Skeleton	Lantern: 1, Lantern Element: "Hot", Last Available: "2025-12"
 Familiar	Toothsome Rock	Last Available: "2008-12"
 Familiar	Trafikoan	Last Available: "2018-03"
 Familiar	Trick-or-Treating Tot	Last Available: "2016-10"
@@ -5015,20 +5057,20 @@ Familiar	Yule Hound	Last Available: "2018-12"
 # If a familiar cannot be enthroned, indicate with "none". If the effect is unspaded, leave blank.
 
 Throne	Adorable Seal Larva	HP Regen Min: 2, HP Regen Max: 8, MP Regen Min: 2, MP Regen Max: 8, Drops Items
-Throne	Adorable Space Buddy	Maximum HP: 30, Maximum MP: 30, MP Regen Min: 10, MP Regen Max: 12
+Throne	Adorable Space Buddy	Maximum HP: 30, Maximum MP: 30
 Throne	Adventurous Spelunker	Item Drop: +15, Drops Items, Variable
 Throne	Ancient Yuletide Troll	HP Regen Min: 2, HP Regen Max: 8, MP Regen Min: 2, MP Regen Max: 8, Drops Items
 Throne	Angry Goat	Muscle Percent: +15, Drops Items
 Throne	Angry Jung Man	Maximum HP: 10, Maximum MP: 10
 Throne	Animated Macaroni Duck	Familiar Weight: +5
-Throne	Antique Nutcracker	Experience: +2, HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
+Throne	Antique Nutcracker	Experience: +2
 Throne	Arachnelf	none
-Throne	Artistic Goth Kid	Muscle: +10, Mysticality: +10, Moxie: +10, HP Regen Min: 10, HP Regen Max: 20, MP Regen Min: 3, MP Regen Max: 4
+Throne	Artistic Goth Kid	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Astral Badger	Maximum HP: +10, Maximum MP: +10, Drops Items
 Throne	Attention-Deficit Demon	Meat Drop: +20, Drops Items
 Throne	Autonomous Disco Ball	Familiar Weight: +5
 Throne	Baby Bugged Bugbear	Muscle: -10, Mysticality: -10, Moxie: -10, Experience: +2
-Throne	Baby Gravy Fairy	Weapon Damage: +10, HP Regen Min: 3, HP Regen Max: 5, MP Regen Min: 3, MP Regen Max: 5
+Throne	Baby Gravy Fairy	Weapon Damage: +10
 Throne	Baby Mayonnaise Wasp	Mysticality Percent: +15
 Throne	Baby Mutant Rattlesnake	Experience (Muscle): +2
 Throne	Baby Sandworm	Maximum HP: +10, Maximum MP: +10
@@ -5046,16 +5088,16 @@ Throne	Bowlet	none
 Throne	BRICKO chick	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Drops Items
 Throne	Bulky Buddy Box	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 Throne	Burly Bodyguard	none
-Throne	Casagnova Gnome	Meat Drop: +20, HP Regen Min: 16, HP Regen Max: 20, MP Regen Min: 9, MP Regen Max: 11
+Throne	Casagnova Gnome	Meat Drop: +20
 Throne	Cat Burglar	Item Drop: +10
 Throne	Chauvinist Pig	Experience (Muscle): +2
-Throne	Cheshire Bat	Experience (Mysticality): +2, HP Regen Min: 8, HP Regen Max: 10
+Throne	Cheshire Bat	Experience (Mysticality): +2
 Throne	Chest Mimic	Maximum HP: +5
 Throne	Chocolate Lab	Weapon Damage: +15
-Throne	Choctopus	Maximum HP: 15, Maximum MP: 15, HP Regen Min: 3, HP Regen Max: 5, MP Regen Min: 3, MP Regen Max: 5
+Throne	Choctopus	Maximum HP: 15
 Throne	Clockwork Grapefruit	Moxie Percent: +15
 Throne	Cocoabo	Muscle: +10, Mysticality: +10, Moxie: +10, Drops Items
-Throne	Coffee Pixie	Meat Drop: +20, MP Regen Min: 5, MP Regen Max: 6
+Throne	Coffee Pixie	Meat Drop: +20
 Throne	Cold Cut	Cold Damage: +33
 Throne	Comma Chameleon	none
 Throne	Cookbookbat	Food Drop: +50, Drops Items
@@ -5071,15 +5113,15 @@ Throne	Cute Meteor	Hot Damage: +15
 Throne	Cymbal-Playing Monkey	Experience (Moxie): +2
 Throne	Dancing Frog	Meat Drop: +20
 Throne	Dandy Lion	HP Regen Min: 2, HP Regen Max: 8, MP Regen Min: 2, MP Regen Max: 8
-Throne	Dataspider	MP Regen Min: 3, MP Regen Max: 5, Spell Damage Percent: +10
+Throne	Dataspider	Spell Damage Percent: +10
 Throne	Defective Childrens' Stapler	Weapon Damage Percent: +20
 Throne	Dire Cassava	Damage Reduction: 11
 Throne	Disembodied Hand	none
 Throne	Disgeist	none
 Throne	Doll Moll	Meat Drop: +10
 Throne	Doppelshifter	none
-Throne	Dramatic Hedgehog	Experience (Mysticality): +2, HP Regen Min: 2, HP Regen Max: 3
-Throne	El Vibrato Megadrone	Monster Level: +10, MP Regen Min: 10, MP Regen Max: 15
+Throne	Dramatic Hedgehog	Experience (Mysticality): +2
+Throne	El Vibrato Megadrone	Monster Level: +10
 Throne	Elf Operative	none
 Throne	Emberiza Aureola	Cold Resistance: +2
 Throne	Emo Squid	Initiative: +20
@@ -5087,8 +5129,8 @@ Throne	Evil Teddy Bear	Initiative: +20
 Throne	Evolving Organism	none
 Throne	Exotic Parrot	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 Throne	Fancypants Scarecrow	none
-Throne	Feather Boa Constrictor	Initiative: +20, HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
-Throne	Feral Kobold	Item Drop: +15
+Throne	Feather Boa Constrictor	Initiative: +20
+Throne	Feral Kobold	Item Drop: +15, Drops Meat
 Throne	Fist Turkey	Weapon Damage: +20
 Throne	Flaming Face	Cold Resistance: +3
 Throne	Flaming Gravy Fairy	Hot Damage: +20, Drops Items
@@ -5100,10 +5142,10 @@ Throne	Fuzzy Dice	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Galloping Grill	Spell Damage Percent: +10
 Throne	Garbage Fire	Hot Spell Damage: +25, Drops Items, Variable
 Throne	Gelatinous Cubeling	Familiar Weight: +5
-Throne	Ghost of Crimbo Carols	HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
-Throne	Ghost of Crimbo Cheer	Experience (Moxie): +2
-Throne	Ghost of Crimbo Commerce	Meat Drop: +20, Drops Meat
-Throne	Ghost Pickle on a Stick	Familiar Weight: +5, HP Regen Min: 8, HP Regen Max: 10
+Throne	Ghost of Crimbo Carols	Weapon Damage: +15
+Throne	Ghost of Crimbo Cheer	Experience: +3
+Throne	Ghost of Crimbo Commerce	Meat Drop: +25, Drops Meat
+Throne	Ghost Pickle on a Stick	Familiar Weight: +5
 Throne	Ghuol Whelp	HP Regen Min: 2, HP Regen Max: 8, MP Regen Min: 2, MP Regen Max: 8
 Throne	Glover	none
 Throne	Gluttonous Green Ghost	Food Drop: +15, Drops Items
@@ -5136,62 +5178,62 @@ Throne	Imitation Crab	Muscle Percent: +15
 Throne	Inflatable Dodecapede	Mysticality Percent: +15
 Throne	Intergnat	Monster Level: +10
 Throne	Jack-in-the-Box	Experience: +2
-Throne	Jill-O-Lantern	Experience (Moxie): +2, HP Regen Min: 8, HP Regen Max: 10
+Throne	Jill-O-Lantern	Experience (Moxie): +2
 Throne	Jill-of-All-Trades	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Jitterbug	Meat Drop: +20
-Throne	Jumpsuited Hound Dog	Weapon Damage: +20, HP Regen Min: 4, HP Regen Max: 10, MP Regen Min: 2, MP Regen Max: 10
-Throne	Killer Bee	Experience (Muscle): +2, HP Regen Min: 8, HP Regen Max: 10
+Throne	Jumpsuited Hound Dog	Weapon Damage: +20
+Throne	Killer Bee	Experience (Muscle): +2
 Throne	Knob Goblin Organ Grinder	Meat Drop: +25, Drops Meat
 Throne	Left-Hand Man	Muscle Percent: 10, Mysticality Percent: 10, Moxie Percent: 10
 Throne	Leprechaun	Meat Drop: +20, Drops Meat
-Throne	Levitating Potato	Initiative: +20, HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
+Throne	Levitating Potato	Initiative: +20
 Throne	Li'l Xenomorph	Item Drop: +15, Drops Items
 Throne	Lil' Barrel Mimic	Experience: +2
-Throne	Llama Lama	Maximum HP: +10, Maximum MP: +10, MP Regen Min: 5, MP Regen Max: 6
+Throne	Llama Lama	Maximum HP: +10, Maximum MP: +10
 Throne	Machine Elf	Muscle: +7, Mysticality: +7, Moxie: +7, Drops Items, Variable
 Throne	Mad Hatrack	none
-Throne	Magic Dragonfish	Spell Damage Percent: +15, HP Regen Min: 10, HP Regen Max: 10
+Throne	Magic Dragonfish	Spell Damage Percent: +15
 Throne	MagiMechTech MicroMechaMech	Muscle Percent: +15
 Throne	Mariachi Chihuahua	Experience (Moxie): +2
-Throne	Mechanical Songbird	Spell Damage Percent: 20, HP Regen Min: 5, HP Regen Max: 10
+Throne	Mechanical Songbird	Spell Damage Percent: 20
 Throne	Melodramedary	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Midget Clownfish	Spell Damage Percent: +10
-Throne	Mini Kiwi	Initiative: +30
+Throne	Mini Kiwi	Initiative: +30, Drops Items
 Throne	Mini-Adventurer	Muscle Percent: 10, Mysticality Percent: 10, Moxie Percent: 10, Drops Meat
 Throne	Mini-Crimbot	Cold Damage: +15
-Throne	Mini-Hipster	Muscle: +10, Mysticality: +10, Moxie: +10, HP Regen Min: 10, HP Regen Max: 15, MP Regen Min: 8, MP Regen Max: 10
+Throne	Mini-Hipster	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Mini-Skulldozer	Initiative: +20
 Throne	Mini-Trainbot	Maximum HP: +10, Maximum MP: +10
 Throne	Miniature Sword & Martini Guy	none
 Throne	MiniMechaElf	Muscle Percent: +15
 Throne	Misshapen Animal Skeleton	Familiar Weight: +5, Drops Meat
-Throne	Mosquito	Weapon Damage Percent: +20, MP Regen Min: 5, MP Regen Max: 6
+Throne	Mosquito	Weapon Damage Percent: +20
 Throne	Ms. Puck Man	Muscle: +10, Mysticality: +10, Moxie: +10, Drops Items
 Throne	Mu	none
 Throne	Mutant Cactus Bud	Meat Drop: +20
 Throne	Mutant Fire Ant	Hot Damage: +20
 Throne	Mutant Gila Monster	HP Regen Min: 2, HP Regen Max: 8, MP Regen Min: 2, MP Regen Max: 8
 Throne	Nanorhino	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10, Drops Meat
-Throne	Nervous Tick	Experience (Moxie): +2, HP Regen Min: 8, HP Regen Max: 10
-Throne	Ninja Pirate Zombie Robot	Muscle: +10, Mysticality: +10, Moxie: +10, HP Regen Min: 10, HP Regen Max: 15, MP Regen Min: 8, MP Regen Max: 10
-Throne	Ninja Snowflake	Moxie Percent: +15, MP Regen Min: 5, MP Regen Max: 6
+Throne	Nervous Tick	Experience (Moxie): +2
+Throne	Ninja Pirate Zombie Robot	Muscle: +10, Mysticality: +10, Moxie: +10
+Throne	Ninja Snowflake	Moxie Percent: +15
 Throne	Nosy Nose	Moxie Percent: 15
 Throne	O.A.F.	Muscle: -10, Mysticality: -10, Moxie: -10
 Throne	Observer	Item Drop: 10
-Throne	Obtuse Angel	Meat Drop: +20, MP Regen Min: 5, MP Regen Max: 6
+Throne	Obtuse Angel	Meat Drop: +20
 Throne	Oily Woim	Item Drop: +10, Drops Meat
 Throne	Optimistic Candle	Item Drop: +15, Drops Items, Variable
-Throne	Origami Towel Crane	Initiative: +20, MP Regen Min: 5, MP Regen Max: 6
+Throne	Origami Towel Crane	Initiative: +20
 Throne	Pair of Ragged Claws	Familiar Weight: +5
 Throne	Pair of Stomping Boots	Weapon Damage Percent: +10
 Throne	Party Mouse	Booze Drop: +25, Drops Items
 Throne	Patriotic Eagle	Monster Level: +10
 Throne	Peace Turkey	Combat Rate: -5
 Throne	Penguin Goodfella	Familiar Weight: +5
-Throne	Peppermint Rhino	Weapon Damage Percent: +10, HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
+Throne	Peppermint Rhino	Weapon Damage Percent: +10
 Throne	Personal Raincloud	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Pet Anchor	Damage Reduction: 10
-Throne	Pet Cheezling	Spell Damage Percent: +15, HP Regen Min: 5, HP Regen Max: 15, MP Regen Min: 2, MP Regen Max: 8
+Throne	Pet Cheezling	Spell Damage Percent: +15
 Throne	Pet Coral	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 Throne	Pet Rock	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 Throne	Phantom Limb	Spooky Damage: +33
@@ -5206,8 +5248,8 @@ Throne	Proto-Protozoa	none
 Throne	Psychedelic Bear	Meat Drop: +20
 Throne	Puck Man	Muscle: +10, Mysticality: +10, Moxie: +10, Drops Items
 Throne	Purse Rat	Experience: +2
-Throne	Putty Buddy	Weapon Damage Percent: +20, MP Regen Min: 5, MP Regen Max: 6
-Throne	Pygmy Bugbear Shaman	Experience (Mysticality): +2, HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
+Throne	Putty Buddy	Weapon Damage Percent: +20
+Throne	Pygmy Bugbear Shaman	Experience (Mysticality): +2
 Throne	Quantum Entangler	none
 Throne	Ragamuffin Imp	Mysticality Percent: +15
 Throne	Reagnimated Gnome	Spooky Damage: +15
@@ -5220,23 +5262,24 @@ Throne	Rigging Snake	Maximum HP: +20
 Throne	RoboGoose	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Robortender	Meat Drop: +20
 Throne	Robot Reindeer	Muscle: +10, Mysticality: +10, Moxie: +10, Drops Items
-Throne	Rock Lobster	Spell Damage Percent: +15, MP Regen Min: 11, MP Regen Max: 15
+Throne	Rock Lobster	Spell Damage Percent: +15
 Throne	Rockin' Robin	Item Drop: +15, Drops Meat
 Throne	Rogue Program	Spell Damage Percent: +10
 Throne	Sabre-Toothed Lime	Moxie Percent: +15
 Throne	Sausage Golem	Sleaze Damage: +20
-Throne	Scary Death Orb	Mysticality Percent: +15, MP Regen Min: 5, MP Regen Max: 6
+Throne	Scary Death Orb	Mysticality Percent: +15
 Throne	Shame Spiral	none
 Throne	Shorter-Order Cook	Maximum HP: +20, Maximum MP: +20
 Throne	Significant Bit	none
+Throne	Skeleton of Crimbo Past	Damage vs. Skeletons: 100
 Throne	Sleazy Gravy Fairy	Sleaze Damage: +20, Drops Items
 Throne	Slimeling	Weapon Drop: +15
 Throne	Sludgepuppy	Stench Damage: +15
 Throne	Smiling Rat	Experience: +3
 Throne	Snow Angel	Spell Damage Percent: +10
-Throne	Snowy Owl	Mysticality Percent: +15, HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
+Throne	Snowy Owl	Mysticality Percent: +15
 Throne	Software Bug	none
-Throne	Space Jellyfish	Weapon Damage Percent: +20, HP Regen Min: 3, HP Regen Max: 5, MP Regen Min: 3, MP Regen Max: 5
+Throne	Space Jellyfish	Weapon Damage Percent: +20
 Throne	Spirit Hobo	Booze Drop: +15, Drops Meat
 Throne	Spooky Gravy Fairy	Spooky Damage: +20, Drops Items
 Throne	Spooky Pirate Skeleton	Familiar Weight: +5
@@ -5255,6 +5298,7 @@ Throne	Teddy Bear	Initiative: +20
 Throne	Teddy Borg	Initiative: +20
 Throne	Temporal Riftlet	Initiative: +20, Drops Meat
 Throne	Tickle-Me Emilio	Muscle: +10, Mysticality: +10, Moxie: +10
+Throne	Tiny Plastic Santa Claus Skeleton	Cold Resistance: +2, Lantern: 1, Lantern Element: "Hot"
 Throne	Toothsome Rock	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 Throne	Topiary Skunk	Stench Damage: +15
 Throne	Trick-or-Treating Tot	Muscle: +10, Mysticality: +10, Moxie: +10, Drops Items, Variable
@@ -5265,14 +5309,14 @@ Throne	Uniclops	Experience (Mysticality): +2
 Throne	Unspeakachu	none
 Throne	Untamed Turtle	Initiative: +20, Drops Items
 Throne	Urchin Urchin	Weapon Damage: +10
-Throne	Vampire Vintner	Maximum HP: +10, HP Regen Min: 10, HP Regen Max: 12
+Throne	Vampire Vintner	Maximum HP: +10
 Throne	Warbear Drone	Maximum HP: +10, Maximum MP: +10, Drops Items
 Throne	Wereturtle	Muscle Percent: +15, Drops Meat
 Throne	Wet Paper Tiger	
 Throne	Whirling Maple Leaf	Spell Damage Percent: +10
-Throne	Wild Hare	Muscle: +10, Mysticality: +10, Moxie: +10, HP Regen Min: 5, HP Regen Max: 6, MP Regen Min: 3, MP Regen Max: 4
+Throne	Wild Hare	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Wind-up Chattering Teeth	Muscle Percent: +15
-Throne	Wizard Action Figure	Spell Damage Percent: +10, MP Regen Min: 5, MP Regen Max: 5
+Throne	Wizard Action Figure	Spell Damage Percent: +10
 Throne	Xiblaxian Holo-Companion	none
 Throne	XO Skeleton	Muscle: +10, Mysticality: +10, Moxie: +10
 Throne	Yule Hound	Candy Drop: +20, Drops Items
@@ -5501,6 +5545,7 @@ Effect	A Brush with Grossness	Stench Resistance: +3, Stench Damage: +15, Stench 
 Effect	A Bug's Life	Maximum HP Percent: +100, HP Regen Min: 8, HP Regen Max: 10
 Effect	A Contender	Muscle Percent: +200, Mysticality Percent: +200, Moxie Percent: +200
 Effect	A Date With Tomorrow	Adventures: +10
+Effect	A Drop of the Divine	HP Regen Min: 5, HP Regen Max: 7
 Effect	A Few Extra Pounds	Maximum HP: [5*min(L,11)]
 Effect	A Girl Named Sue	Familiar Weight: +5, Experience (familiar): +5, Familiar Damage: +10
 # A Hole in the World: Time destroys everything
@@ -5530,6 +5575,7 @@ Effect	Abyssal Blood	Weapon Damage Percent: +100, Hot Damage: +50, HP Regen Min:
 Effect	Abyssal Sweat	Avoid Attack: 1
 Effect	Abyssal Tears	Reduce Enemy Defense: 20
 Effect	Ack!  Barred!	Muscle Percent: +30
+Effect	Acting Jerky	Combat Rate: +5, Monster Level: +10
 Effect	Action	Muscle Percent: +100
 Effect	Adapt to Change Eventually	Experience: +4, Initiative: +50
 Effect	Adorable Lookout	Initiative: +30
@@ -5582,6 +5628,7 @@ Effect	Ancient Annoying Serpent Poison	Muscle: -5, Mysticality: -5, Moxie: -5
 # Ancient Fortitude: You are impervious to negative effects
 Effect	Ancient Fortitude	Maximum HP Percent: +100, HP Regen Min: 90, HP Regen Max: 100
 Effect	Ancient Protected	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
+Effect	And the Winner Is...	Familiar Damage: +25, Familiar Weight: +5, Experience (familiar): +3
 Effect	And Your Family, Too	Familiar Weight: -10
 Effect	Angering Pizza Purists	Monster Level: +50, Moxie: +15, Muscle Percent: +200
 Effect	Angry	Combat Rate: +5
@@ -5696,6 +5743,7 @@ Effect	Beaten Up	Muscle Percent: -50, Mysticality Percent: -50, Moxie Percent: -
 Effect	Become Intensely interested	Combat Rate: +5
 Effect	Become Superficially interested	Combat Rate: -5
 Effect	Bedraggled Dragoon	Avatar: "drowned sailor"
+Effect	Beef Goggles	Item Drop: +50
 Effect	Beefy	Damage Reduction: 10, Cold Resistance: +1, Hot Resistance: +1, Sleaze Resistance: +1, Stench Resistance: +1, Spooky Resistance: +1
 Effect	Beefy Heart	Familiar Weight: +10
 # Beer Barrel Polka: Makes booze more effective!
@@ -5719,6 +5767,7 @@ Effect	Berry Elemental	Cold Resistance: +1, Hot Resistance: +1, Stench Resistanc
 Effect	Berry Experiential	Experience: +6
 Effect	Berry Statistical	Muscle Percent: +66, Mysticality Percent: +100, Moxie Percent: +66
 Effect	Berry Thorny	Thorns: 1
+Effect	Best Pals	Experience (familiar): +1, Familiar Weight: +5, Familiar Damage: +10
 Effect	Bestial Sympathy	Familiar Weight: +3
 Effect	Bet Your Autumn Dollar	Meat Drop: +50
 Effect	Beta Carotene Overdose	Item Drop: +50
@@ -5790,6 +5839,7 @@ Effect	[1457]Blood Sugar Sauce Magic	Maximum HP Percent: -10, Maximum MP Percent
 Effect	[1458]Blood Sugar Sauce Magic	Maximum HP Percent: -30, Maximum MP Percent: +30
 Effect	Blood-Gorged	Sleaze Damage: +40, Sleaze Spell Damage: +40
 Effect	Blood-Rich	HP Regen Min: 8, HP Regen Max: 12
+Effect	Bloodbathed	Monster Level: [min(5*L,75)], Combat Rate: +5, Weapon Damage Percent: +100
 Effect	Bloodstain-Resistant	HP Regen Min: 8, HP Regen Max: 10
 Effect	Bloodthirsty	Monster Level: +30
 Effect	Bloody Bloody Bloody!	Spooky Damage: +50
@@ -5814,6 +5864,7 @@ Effect	Bone Springs	Initiative: +20
 Effect	Boned Up	Avatar: "Smart Skelton"
 Effect	Bonelording	Muscle Percent: +25, Mysticality Percent: +25, Moxie Percent: +25, Spooky Damage: +25
 Effect	Boner Battalion	Damage Aura: 1
+Effect	Bones Against Bones	Damage vs. Skeletons: +75, Damage vs. Undead: +50, Initiative: +25, Damage Reduction: 5
 Effect	Bony Dancer	Avatar: "tapdancing skeleton"
 Effect	Boo Tea	Spooky Damage: +30
 Effect	Booing Radly	Damage vs. Ghosts: +50
@@ -6158,13 +6209,14 @@ Effect	Dang Near Cut In Half	Muscle Percent: -50
 Effect	Dangerous Zone Song	Meat Drop: +25
 Effect	Danish Cunning	Pickpocket Chance: +25
 Effect	Dark Orchestral Song	Moxie: +5
+Effect	Darkened Meat	Combat Rate: -5
 Effect	Darkened Photons	Combat Rate: -10
 Effect	Dawn of the Goblin	Avatar: "tribal goblin"
 Effect	Dazed, Confused	Avatar: "wastoid"
 # Dazzling Smile: Increases your ability to spread Crimbo cheer
 Effect	Dead Man's Handoff	Avatar: "gamblin' man"
 Effect	Dead Sexy	Avatar: "sexy zombie"
-# Deadened Palate: Bleah
+# Deadened palate: Bleah
 Effect	Deadly Flashing Blade	Weapon Damage: +10
 # Deadly Lampblade: 100% chance of poisoning opponent
 Effect	Deadly Lampblade	Spooky Damage: +75
@@ -6192,6 +6244,7 @@ Effect	Dilated Pupils	Item Drop: +20
 # Dino Pheromoned: You are attracting a certain class of dinosaur
 Effect	Dirge of Dreadfulness	Spooky Damage: +12, Spooky Spell Damage: +12
 Effect	Dirge of Dreadfulness (Remastered)	Spooky Damage: +36, Spooky Spell Damage: +36
+Effect	Dirty Mind	Sleaze Resistance: +5, Sleaze Damage: +50
 Effect	Dirty Pear	Sleaze Damage: [mod(Sleaze Damage)], Sleaze Spell Damage: [mod(Sleaze Spell Damage)]
 # Dis Abled: Grants access to the Suburb of Dis
 Effect	Disabled Olfactory Processing	Stench Resistance: +3
@@ -6231,6 +6284,7 @@ Effect	Double Frozen	Cold Damage: +20, Hot Resistance: +4
 Effect	Double Hot Soupy Garbage	Stench Damage: +20, Cold Resistance: +4
 Effect	Double Negavision	Item Drop: +50
 Effect	Double-Barreled	Ranged Damage Percent: +150
+# Doublooned: Doubles all skeleton-related bonuses
 Effect	Doubly Burningly Oiled	Hot Damage: +20, Sleaze Resistance: +4
 Effect	Doubly Craving Prawns	Food Drop: +100
 Effect	Doubly Shivering Spine	Spooky Damage: +20, Stench Resistance: +4
@@ -6527,7 +6581,7 @@ Effect	Fresh Breath	Combat Rate: +10, Moxie Percent: +20, Moxie: +10
 Effect	Fresh Scent	Combat Rate: -5
 Effect	Friendly Chops	Meat Drop: +100, Sleaze Resistance: +5
 Effect	Frigid Weapon	Cold Damage: +3
-Effect	Frigidalmatian	Damage Aura: 1
+Effect	Frigidalmatian	Damage Aura: 1, Lantern: 1, Lantern Element: "Cold"
 Effect	Frio Como Helado	Cold Damage: +10
 Effect	Frisky Spirit	Moxie: +15
 Effect	Frog In Your Throat	Muscle: +25
@@ -6654,6 +6708,7 @@ Effect	Groast Out	Avatar: "groast"
 Effect	Grogged For Battle	Pirate Warfare Effectiveness: +10
 Effect	Groggipopped	Stench Resistance: +1, Sleaze Resistance: +1
 Effect	Grrrrrrreat!	Experience (Muscle): +10
+Effect	Grueling Gravitas	Maximum HP: +200, Maximum HP Percent: +200, Familiar Weight: +5, HP Regen Min: 50, HP Regen Max: 200
 Effect	Grulched	Stench Damage: +25, Monster Level: +20
 Effect	Grumpy and Ornery	Weapon Damage: +10, Spell Damage: +20
 Effect	Guanified	Stench Damage: +10, Damage Reduction: -2
@@ -6661,6 +6716,7 @@ Effect	Guild by Association	Avatar: "rabid MMO addict"
 Effect	Gull-Wing Moustache	Initiative: +100, Hot Resistance: +5
 Effect	Gummed Shoes	Combat Rate: -5
 Effect	Gummi Badass	Thorns: 5
+Effect	Gummi Fingerbones	Moxie Percent: +10
 Effect	Gummi-Grin	Experience (Muscle): +1
 Effect	Gummibrain	Mysticality: +100
 Effect	Gummiheart	Muscle: +100
@@ -6692,6 +6748,7 @@ Effect	Ham-Fisted	Muscle Percent: +50, Weapon Damage: +11
 Effect	Ham(ster)-Handed	Avatar: "skeletal hamster"
 Effect	Hammered	Weapon Damage Percent: +50
 # Hammertime: Seriously, your pants are huge
+Effect	Hamming It Up	Monster Level: +25
 Effect	Hangdog	Sleaze Damage: +30, Hot Resistance: +3, Stench Resistance: +3, Initiative: +20
 Effect	Happy Salamander	Familiar Weight: +3
 Effect	Happy Trails	Mysticality: +100
@@ -6721,6 +6778,7 @@ Effect	Heart of Orange	Muscle: +3, Mysticality: +3, Moxie: +3, Hot Damage: +5, H
 Effect	Heart of Pink	Muscle: +3, Mysticality: +3, Moxie: +3, Meat Drop: +20
 Effect	Heart of White	Muscle: +3, Mysticality: +3, Moxie: +3, Experience: +1, Experience (familiar): +1
 Effect	Heart of Yellow	Muscle: +3, Mysticality: +3, Moxie: +3, Initiative: +20
+# Heartstone Attunement: Variable
 Effect	Heated Up	Muscle Percent: +200, Mysticality Percent: +200, Moxie Percent: +200
 Effect	Heavily Breathing	Experience (Muscle): [L]
 Effect	Heavy Petting	Familiar Weight: +5, Muscle Percent: -10, Mysticality Percent: -10, Moxie Percent: -10
@@ -6758,8 +6816,8 @@ Effect	High-Test Fishing Line	Fishing Skill: +5
 Effect	Highland Sheen	Moxie: +10
 Effect	Hint of Bacon	HP Regen Min: 10, HP Regen Max: 20
 Effect	Hip to Be Square Dancin'	Item Drop: +10
-Effect	[1872]Hip to the Jive	Avatar: "hep cat"
-Effect	[1701]Hip to the Jive	Experience (familiar): +2, Familiar Weight: +10, Familiar Damage: +20
+Effect	[1872]Hip to the Jive	Avatar: "hep cat", Wiki Name: "Hip to the Jive (avatar effect)"
+Effect	[1701]Hip to the Jive	Experience (familiar): +2, Familiar Weight: +10, Familiar Damage: +20, Wiki Name: "Hip to the Jive"
 Effect	Hippy Antimilitarism	Combat Rate: -10
 Effect	Hippy Flavor	Mysticality: +15
 Effect	Hippy Stench	Combat Rate: +5
@@ -6783,11 +6841,14 @@ Effect	Hoppyness	Initiative: +100
 Effect	Hornswaggled	Moxie Percent: +50, Muscle Percent: -50
 Effect	Horrid, Torrid	Weapon Damage Percent: +10
 Effect	Hot Blooded	Muscle Percent: +30, Mysticality Percent: +10, Moxie Percent: +20, Hot Damage: +10, Hot Resistance: +2
+Effect	Hot Bones	Muscle Percent: +50
+Effect	Hot Brains	Mysticality Percent: +50
 # Hot Breath: Can breathe fire in combat
 Effect	Hot Buttoned	Hot Damage: +10, Hot Spell Damage: +10
 Effect	Hot Hands	Hot Damage: +10, Hot Spell Damage: +20, Cold Resistance: +2, Spooky Resistance: +2
 Effect	Hot in Herre	Hot Damage: +20, Hot Spell Damage: +20, Spooky Resistance: +5, Cold Resistance: +5, Experience Percent (Muscle): +10, Experience Percent (Mysticality): +10, Experience Percent (Moxie): +10
 Effect	Hot Jellied	Experience (Muscle): +3, Hot Damage: +5, Muscle Percent: +30
+Effect	Hot Joints	Moxie Percent: +50
 Effect	Hot Soupy Garbage	Stench Damage: +10, Cold Resistance: +2
 Effect	Hot Sweat	Hot Resistance: +7
 Effect	Hot-Headed	Hot Resistance: +3, Hot Damage: +15, Hot Spell Damage: +15
@@ -6833,6 +6894,7 @@ Effect	Hypnotized	Mysticality Percent: -50
 Effect	I Am the Slaw!	Monster Level: +20
 Effect	I See Everything Thrice!	Item Drop: +33
 Effect	I'll Have the Soup	Maximum HP Percent: +300, Damage Reduction: 20, Damage Absorption: +100
+Effect	I'm Smarter Than a Drunken Sailor	Experience (Mysticality): +2
 Effect	Ice Packed	HP Regen Min: 10, HP Regen Max: 15
 Effect	Icebergled	Avatar: "Iceberglar"
 Effect	Iced and Tainted	Sprinkle Drop: +25, Cold Damage: +15, Spell Critical Percent: +5
@@ -7016,6 +7078,7 @@ Effect	Leonarded	Avatar: "Leonard"
 Effect	Less Pervious	Damage Reduction: 3
 Effect	Less Vincible	HP Regen Min: 2, HP Regen Max: 5
 Effect	Let It Snow/Boil/Stink/Frighten/Grease	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
+Effect	Let's Beat Up This Drunken Sailor	Experience (Muscle): +2
 Effect	Let's Go Shopping!	Mysticality Percent: -300, Item Drop: +75, Meat Drop: +150
 Effect	Lettuce Go!	Initiative: +100
 Effect	Lettuce Rejoice	Experience: +7, Muscle Percent: +77, Mysticality Percent: +77, Moxie Percent: +77, Item Drop: +7, Meat Drop: +7, Weapon Damage: +7
@@ -7056,6 +7119,7 @@ Effect	Loco Motives	Weapon Damage: +10, Initiative: +10
 Effect	Loded	Meat Drop: +100
 Effect	Long Live GORF	Damage Aura: 1
 Effect	Long Winter's Napped	Weapon Damage Percent: +100, Spell Damage Percent: +100
+Effect	Look At That Drunken Sailor Dance	Experience (Moxie): +2
 Effect	Lookin' at Some Burning Cereal	Avatar: "Cereal Arsonist"
 Effect	Looking at Fire	Avatar: "Burnglar"
 Effect	Looking Cool	Item Drop: +100, Meat Drop: +100
@@ -7111,6 +7175,7 @@ Effect	Materiel Intel	Item Drop: +100
 Effect	Mathematically Precise	Combat Item Damage Percent: 50
 Effect	Mayeaugh	Damage Aura: 1
 Effect	Meadulla Oblongota	Experience: +5, Maximum MP Percent: +50
+Effect	Meat Puppet	Familiar Weight: +5
 # Meat Shielded
 Effect	Meat the Flintstones	Maximum HP Percent: +50
 Effect	meat.enh	Meat Drop: +60
@@ -7324,6 +7389,7 @@ Effect	One Foot Heavier	Maximum HP Percent: +50, Familiar Weight: +5
 Effect	One For Tea	MP Regen Min: 10, MP Regen Max: 15
 Effect	One Lip in the Grave	Avatar: "Miss Graves"
 Effect	One Very Clear Eye	Item Drop: +100
+Effect	Only Dogs Love a Drunken Sailor	Familiar Weight: +5
 Effect	Ooh, Bitter!	Spooky Damage: +5
 Effect	Ooh, Salty!	Cold Damage: +5
 Effect	Ooh, Sour!	Stench Damage: +5
@@ -7336,6 +7402,7 @@ Effect	Orange Tongue	Experience: +3
 Effect	Orc Chops	Muscle: +50
 Effect	Orchid Blood	MP Regen Min: 5, MP Regen Max: 10
 Effect	Orcmouth	Sleaze Damage: +40, Sleaze Spell Damage: +40
+Effect	Ordained	Damage vs. Skeletons: +50, Item Drop: +50
 Effect	Oriental Mysticism	Mysticality Percent: +5
 Effect	Osseous George	Avatar: "skeletal monkey"
 Effect	Oth-Jeal-O	Othello Skill: +20
@@ -7558,6 +7625,7 @@ Effect	Real Meat Craving	Meat Drop: +30
 Effect	Really Deep Breath	Adventure Underwater
 Effect	Really Hard	Damage Reduction: 50
 Effect	Really Quite Poisoned	Muscle Percent: -70, Mysticality Percent: -70, Moxie Percent: -70, Muscle: -9, Mysticality: -9, Moxie: -9
+Effect	Really Thin Blood	Maximum HP: +100, Maximum HP Percent: +1000
 Effect	Reassured	Muscle: [10*interact()], Mysticality: [10*interact()], Moxie: [10*interact()]
 # Record Hunger: Food gives 100% more Adventures
 # Red Around the Gills: Regenerate 140-150 HP and MP per fight (Underwater only)
@@ -7947,6 +8015,7 @@ Effect	Starry-Eyed	Muscle Percent: [+5*U], Mysticality Percent: [+5*U], Moxie Pe
 Effect	Started Your Day Right	Experience: +3, Muscle Percent: +25, Mysticality Percent: +25, Moxie Percent: +25
 Effect	stats.enq	Muscle Percent: +100, Mysticality Percent: +100, Moxie Percent: +100
 Effect	Staying Frosty	Cold Damage: +100
+Effect	Steak Skirt	Damage Absorption: +200, Damage Reduction: 10
 Effect	Steamed	Hot Resistance: +3, Hot Damage: +30, Item Drop: +20
 Effect	Steamed Sinuses	Item Drop: +25
 Effect	Steely-Eyed Squint	Item Drop: [mod(Item Drop)]
@@ -7957,6 +8026,7 @@ Effect	Stenchform	Stench Immunity, Cold Vulnerability, Sleaze Vulnerability
 Effect	Stenchtastic	Muscle Percent: +20, Mysticality Percent: +30, Moxie Percent: +10, Stench Damage: +10, Stench Resistance: +2
 Effect	Steroid Boost	Muscle: +2
 Effect	Stevedave's Shanty of Superiority	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10
+# Stewing: Your meat attacks will deal 50% more damage
 Effect	Stick Emporium Membership	Weapon Drop: +100
 Effect	Stickler for Promptness	Familiar Action Bonus: +20
 Effect	Sticks and Stones	Damage vs. Skeletons: +50
@@ -8034,6 +8104,7 @@ Effect	Sur La Table	MP Regen Min: 5, MP Regen Max: 10, HP Regen Min: 5, HP Regen
 Effect	Surrealist's Moustache	Mysticality: +25, Food Drop: +50
 Effect	Surreally Buff	Muscle Percent: +20
 Effect	Suspicious Gaze	Initiative: +20
+Effect	Sweat Equity	Meat Drop: +40
 Effect	Swedish Courage	Monster Level: -50
 Effect	Sweet and Green	Weapon Damage: +15, Weapon Damage Percent: +15
 Effect	Sweet and Red	Spell Damage: +10, Spell Damage Percent: +10
@@ -8080,6 +8151,7 @@ Effect	Taking the Plunge	Avatar: "Gnollish Plungermaster"
 Effect	Tamarind Torment	Muscle: +5, Moxie: -5
 Effect	Tangled Up	Moxie Percent: -20
 Effect	Tango, O Gnat	Avatar: "Tan Gnat"
+Effect	Tapased Out	Mysticality Percent: +300
 Effect	Taped Up	Maximum HP Percent: +100, Damage Absorption: +100, HP Regen Min: 8, HP Regen Max: 10
 Effect	Tapped In	Experience: +5
 # Tar-Struck: Continually take damage
@@ -8094,12 +8166,14 @@ Effect	Teacher's Pet	Sleaze Resistance: +2, Damage Absorption: +50, Damage Reduc
 Effect	Tearful, Fearful	Item Drop: +30
 Effect	Techno Bliss	Item Drop: +10
 Effect	Teleportitis	Adventure Randomly
+Effect	Temporarily Damned	Hot Damage: +13, Hot Spell Damage: +13
 Effect	Temporarily Filtered	Stench Resistance: +5
 # Temporary Amnesia: Who am I?
 Effect	Temporary Blindness	Item Drop: -75, Moxie Percent: -25, Initiative: -30, Blind
 Effect	Temporary Lycanthropy	Muscle Percent: [B]
 Effect	Ten out of Ten	Moxie Percent: +200, Initiative: +50
 Effect	Tenacity of the Snapper	Weapon Damage: +8
+Effect	Tenderized	HP Regen Min: 30, HP Regen Max: 50
 Effect	Tennis Elbow-wow	Initiative: +50
 Effect	Tenuous Grip on Reality	Moxie Percent: -95
 Effect	Tetanus	Muscle Percent: -10, Mysticality Percent: -10, Moxie Percent: -10
@@ -8282,6 +8356,7 @@ Effect	Truffle Tango	Item Drop: +50
 Effect	Trufflin'	Meat Drop: +100
 Effect	Truly Gritty	Weapon Damage: +20, Muscle: +20
 Effect	Truthful	Monster Level: +40
+Effect	Tryptofan	Initiative: +50, Meat Drop: +100
 Effect	Tubes of Universal Meat	Meat Drop: +30, Mysticality: +10
 Effect	Tundra Mouth	Cold Damage: [min(100,T)]
 Effect	Turbocharged	Maximum MP Percent: +100
@@ -8303,6 +8378,7 @@ Effect	Twitching Senses	Item Drop: [50*zone(Twitch)]
 Effect	Two Car Bar Rag	Avatar: "craggy bartender"
 Effect	Two Left Feet	Moxie: -5
 Effect	Ultra-Soft Steps	Combat Rate: -5
+Effect	Ultraheart	Muscle: +50, Muscle Percent: +50, Mysticality: +50, Mysticality Percent: +50, Moxie: +50, Moxie Percent: +50
 # Ultrahydrated: Glug, Glug
 Effect	Unbarking Dogs	Familiar Weight: +10
 Effect	Uncaged Power	Maximum MP: +50, MP Regen Min: 5, MP Regen Max: 8
@@ -8315,6 +8391,8 @@ Effect	Unpopular	Monster Level: +30
 Effect	Unrunnable Face	Moxie Percent: +50
 Effect	Unusual Fashion Sense	Damage Absorption: +50
 Effect	Unusual Perspective	Item Drop: +50
+# Up To 11: All spells stagger your foes
+Effect	Up To 11	Spell Damage Percent: +111, Mysticality Percent: +111
 Effect	Updated	Muscle: +20, Mysticality: +20, Moxie: +20
 Effect	Ur-Kel's Aria of Annoyance	Monster Level: [min(60,2*L)]
 Effect	Using Protection	Mana Cost: -2
@@ -8421,6 +8499,7 @@ Effect	White-boy Angst	Initiative: +50
 Effect	Whitened Teeth	Moxie Percent: +10
 # Whitesloshed: +500% Item Drops from Monsters (Dreadsylvania only)
 Effect	Whitesloshed	Item Drop: [500*zone(Dreadsylvania)]
+Effect	Who's Going to Pay This Drunken Sailor?	Item Drop: +25
 Effect	Whole Latte Love	Familiar Weight: +10
 Effect	Wholesomely Resolved	Spooky Resistance: +2, Stench Resistance: +2, Sleaze Resistance: +2, Damage Reduction: +15
 Effect	Whose Drinks Are These?	Avatar: "Resort Waiter"
@@ -8496,6 +8575,7 @@ Effect	You Liver	Maximum HP: +200, HP Regen Min: 20, HP Regen Max: 40
 Effect	You Might Have Gotten Wet	Moxie: +20, Ranged Damage: +20, Damage Reduction: 10
 # You Pray To Yeg Your Soul To Keep: Now Lay You Down To Sleep
 Effect	You Read The Manual	Experience (Mysticality): +4
+Effect	You Yam What You Yam	Food Drop: +25, Booze Drop: +25, Candy Drop: +25
 Effect	You're a Brick . . . Ooze	Avatar: "BRICKO ooze"
 Effect	You're Back...	Spooky Damage: +300, Muscle: +25, Maximum HP Percent: -25, Moxie: -10
 Effect	You're High as a Crow, Marty	Initiative: +100
@@ -8600,10 +8680,12 @@ Skill	Business Acumen	Meat Drop: +50
 Skill	C Sharp Eyes	Item Drop: +50, Meat Drop: +50
 Skill	Calluses	Damage Reduction: 5
 Skill	Camp Subroutines	Sleaze Damage: +5
+Skill	Caramelized Fat	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 Skill	Cartilage	Damage Reduction: 5
 Skill	Ceaseless Snarl	Maximum HP: -15
 Skill	Central Hypothalamus	Absorb Adventures: +1
 Skill	Chatterable Teeth	Cold Resistance: +2
+# Chicken Fingers: Allows you to pickpocket
 Skill	Chill of the Tomb	Maximum HP: -10
 Skill	Chip on your Shoulder	PvP Fights: +5
 Skill	Chitinous Soul	Maximum HP: [pref(skillLevel227)]
@@ -8660,6 +8742,7 @@ Skill	Drinking to Drink	Liver Capacity: +1
 # Drippy Eye-Beetle: It is awful!
 # Drippy Eye-Sprout: It tickles!
 # Drippy Eye-Stone: It is irritating!
+Skill	Dry-Aged	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 # Early Riser: +1 Food Conjuration
 Skill	Easy Riding	Experience (Moxie): +5
 Skill	Ectogenesis	Spooky Resistance: +2
@@ -8729,6 +8812,7 @@ Skill	Golgi Apparatus	Absorb Stats: +25
 # Good Singing Voice: Doubles duration of Boris songs
 Skill	Gorgonzola's Guile	Item Drop: +25
 # Gourmand: Increases adventures from food
+# Grass-Fed: Get an extra Adventure when spending meat at the amino sac
 # Gravitational Compression: +100% Item Drops from Monsters (Scales with your Mysticality)
 Skill	Gravitational Compression	Item Drop: [min(ceil(basemys/5),100)]
 Skill	Greed	Meat Drop: +50, Item Drop: -15
@@ -8749,6 +8833,7 @@ Skill	High Water Content	Hot Resistance: +2
 Skill	His Master's Voice	Familiar Weight: +5
 # Hivemindedness: Regenerate 100 MP per Adventure (Scales with your Mysticality)
 Skill	Hivemindedness	MP Regen Min: [min(ceil(basemys/10),100)], MP Regen Max: [min(ceil(basemys/10),100)]
+# Holiday Burial Knowledge: +25% Stat Gains from Undead Monsters
 # Holiday Multitasking: Craft up to 3 items per day without using an Adventure
 Skill	Hollow Leg	Liver Capacity: +1
 Skill	Hot Headedness	Hot Damage: +11
@@ -8777,6 +8862,7 @@ Skill	Introspection	Mysticality: +20
 # Ire of the Orca: Fury capacity increases to 5 gallons
 Skill	Ire Proof	Hot Resistance: +3
 Skill	Irrepressible Spunk	Maximum HP Percent: +5, Maximum MP Percent: +5
+# It's All Gravy: Gain half of your +Monster Level in Meat after a fight
 # Itchy Curse Finger: Your curses take hold too quickly for your opponents to react
 Skill	Jazz Hands	MP Regen Min: 4, MP Regen Max: 5
 # Juggle Fireballs: Level 1: Briefly stun enemy and increase your stats by 100%
@@ -8816,11 +8902,12 @@ Skill	Lysosomes	Absorb Stats: +5
 Skill	Macabre Cunning	Experience: +5, Maximum HP: -20
 Skill	Mad Looting Skillz	Item Drop: +20
 Skill	Madness of Untold Aeons	Mysticality Percent: +150, Maximum HP: -25
+Skill	Maillard Reaction	Hot Resistance: +2, Cold Resistance: +2, Stench Resistance: +2, Spooky Resistance: +2, Sleaze Resistance: +2
 Skill	Marginally Insane	Maximum MP Percent: +10
 Skill	Mariachi Memory	Additional Song: 1
 Skill	Master Accordion Master Thief	Pickpocket Chance: +10
 Skill	Master Egg Hunter	Item Drop: +10
-Skill	Master of the Surprising Fist	Weapon Damage: +10, Damage Reduction: 10, Unarmed
+Skill	Master of the Surprising Fist	Weapon Damage: [10*unarmed], Damage Reduction: [10*unarmed]
 Skill	Master Saucier	Spell Damage Percent: +10
 Skill	Matter Over Mind	Maximum MP Percent: +25
 Skill	Medical Manchego	Maximum HP Percent: +20, HP Regen Min: 3, HP Regen Max: 5
@@ -8847,6 +8934,7 @@ Skill	Natural Born Skeleton Killer	Damage vs. Skeletons: +10
 Skill	Natural Dancer	Item Drop: +200
 # Neurogourmet: +1 Adventure per Brain Eaten
 Skill	Never Late for Dinner	Initiative: +50, Adventures: +10
+Skill	Nicely Marbled	Maximum HP Percent: +20
 Skill	Nightcap	Liver Capacity: +5
 Skill	Nimble Fingers	Meat Drop: +20
 Skill	Northern Exposure	Cold Resistance: +2
@@ -8877,12 +8965,14 @@ Skill	Peccorino Bravado	Muscle Percent: +20, Mysticality Percent: +20, Moxie Per
 Skill	Pectoral Muscles	Muscle: +20
 Skill	Perceive Soul	Maximum HP: -15
 # Perfect Embouchure: Your musical skills deal 33% more damage
+Skill	Perfectly Seared	Damage Absorption: +100, Damage Reduction: 5
 Skill	Piercing Gaze	Maximum HP: -20
 Skill	Pinchable Nose	Stench Resistance: +1
 Skill	Pinky Fingers	Pickpocket Chance: +10
 # Pizza Lover: You really, really like pizza
 Skill	Politeness	Sleaze Resistance: +2
 Skill	Ponzi Apparatus	Meat Drop: +200
+# Pork Belly: Get an extra adventure when you trade in meat at the amino sac
 Skill	Power Plus	Maximum PP: +1
 Skill	Powers of Observatiogn	Item Drop: +10
 # Precision of the Penguin: +1% chance of Critical Hit for each gallon of Fury
@@ -8910,6 +9000,7 @@ Skill	Replacement Liver	Liver Capacity: +4
 Skill	Replacement Stomach	Stomach Capacity: +5
 Skill	Rhythm In Your Blood	Maximum HP Percent: +20
 Skill	Rhythmic Precision	Mana Cost: -3
+Skill	Rib Eyes	Item Drop: +30
 Skill	Ribald Memories	Sleaze Resistance: +3, Sleaze Damage: +15
 Skill	Ribosomes	Absorb Stats: +15
 Skill	Riding Tall	Muscle Percent: +30, Mysticality Percent: +30, Moxie Percent: +50
@@ -8924,6 +9015,7 @@ Skill	Rigid Pelvis	Damage Absorption: +50
 Skill	Rigid Rib Cage	Damage Absorption: +70
 Skill	Ring Fingers	Pickpocket Chance: +20
 # Ripped Triceps: Your damaging skills deal 25% more damage
+# Roastmaster: Weaken your foes at the start of each fight
 # Rowdy Drinker: You love booze, and get more Adventures from drinking it
 Skill	Rudimentary Alimentary Canal	Absorb Adventures: +1
 # Rugged Survivalist: Restore HP and MP after fights
@@ -8985,6 +9077,7 @@ Skill	Spooky Veins	Adventures: +10
 # Spot Weakness: Weakens foes at the start of combat
 Skill	Spot Weakness	Maximum HP: -15
 Skill	STATS+++	Experience: +3
+Skill	Steak Flanks	Maximum HP: +50
 Skill	Steam Mycelia	Hot Damage: +15
 # Sticky Fingers: Pickpocketing also gives Meat
 Skill	Still Another Extra Spleen	Spleen Capacity: +5
@@ -9011,6 +9104,7 @@ Skill	Taut Hamstrings	Initiative: +50
 Skill	Temporal Bent	Adventures: +5
 Skill	Temporal Hyperextension	Adventures: +10
 # Tempuramancy: Lets you cook tempura dishes
+Skill	Tender Loins	Initiative: +50
 # Testudinal Teachings: Your familiars gain weight faster
 Skill	The Concept of Property	Meat Drop: +30
 Skill	The Long View	Adventures: +3
@@ -9045,6 +9139,7 @@ Skill	Two Right Feet	Item Drop: +10
 # Ultra Smash: Level 1: Deal 100% of your Muscle as Physical Damage
 # Ultra Smash: Level 2: Deal 200% of your Muscle as Physical Damage
 # Ultra Smash: Level 3: Banish foe for the rest of the day
+# Umami: Get an extra Adventure when spending meat at the amino sac
 # Unaccompanied Miner: 5 free minings per day
 Skill	Undying Greed	Meat Drop: +25
 Skill	Unoffendable	Sleaze Resistance: +3
@@ -9070,6 +9165,7 @@ Skill	Warm Smile	Hot Damage: +3
 Skill	Waxy Ears	Sleaze Damage: +5
 Skill	Weak Esophageal Sphincter	Stench Damage: +9
 # Well-Oiled Guns: All skills involving your sixgun are more effective
+Skill	Well-Rested	Adventures: +20
 Skill	Wisdom of Countless Centuries	Experience: +3
 Skill	Wisdom of Jarlsberg	Experience (Mysticality): +3
 Skill	Wisdom of the Elder Tortoises	Maximum MP Percent: +50
@@ -9088,6 +9184,7 @@ Skill	Zombie Maestro	Mana Cost: -1
 Outfit	8-Bit Finery	Initiative: +25
 Outfit	Adobe Armor	Damage Reduction: 10
 Outfit	Aeroutfit	Meat Drop: +40
+Outfit	Angelbone Vestments	Familiar Weight: +5
 Outfit	Animelf Apparel	HP Regen Min: 4, HP Regen Max: 6, MP Regen Min: 2, MP Regen Max: 3
 Outfit	Antique Arms and Armor	Damage Reduction: 5, Muscle: +15, Initiative: -10
 Outfit	Antique Nutcracker Outfit	Muscle: +25, Mysticality: +25, Moxie: +25, Meat Drop: +25, Item Drop: +25
@@ -9125,8 +9222,9 @@ Outfit	Cursed Skeleton Pirate Costume	Critical Hit Percent: +10, Spell Critical 
 Outfit	Cursed Zombie Pirate Costume	Spooky Damage: +30
 Outfit	Dark Bro's Vestments	Spooky Spell Damage: +40
 Outfit	Dental Drip	Candy Drop: +25
+Outfit	Devilbone Prison	Monster Level: +25
 Outfit	Dinsey's Exoskeleton	Muscle: +100, Mysticality: +100, Moxie: +100
-Outfit	Dire Drifter Duds	Familiar Weight: +5
+Outfit	Dire Drifter Duds	Familiar Weight: +5, Conditional Skill (Equipped): "Zombo's Visage"
 Outfit	Dreadful Bugbear Suit	Hot Damage: +50, Hot Spell Damage: +50
 Outfit	Dreadful Ghost Suit	Spooky Damage: +50, Spooky Spell Damage: +50
 # Dreadful Pajamas: Makes you dream more frequently
@@ -9169,7 +9267,7 @@ Outfit	High-Radiation Mining Gear	Cold Resistance: +3
 Outfit	Hodgman's Regal Frippery	Hobo Power: +25, Conditional Skill (Equipped): "Summon hobo underling"
 Outfit	Hot and Cold Running Ninja Suit	Cold Resistance: +2, Hot Resistance: +2
 Outfit	Hot Daub Ensemble	Cold Resistance: +3
-Outfit	Hyperborean Hobo Habiliments	Cold Damage: +50
+Outfit	Hyperborean Hobo Habiliments	Cold Damage: +50, Conditional Skill (Equipped): "Overload Discarded Refrigerator"
 Outfit	Knight's Armor	Pickpocket Chance: +10
 Outfit	Knob Goblin Elite Guard Uniform	Muscle: +7
 Outfit	Knob Goblin Harem Girl Disguise	Sleaze Damage: +3
@@ -9202,11 +9300,12 @@ Outfit	PirateRealm Assortment	Moxie Percent: +20
 Outfit	Pork Elf Prizes	Item Drop: +10
 Outfit	Primitive Radio Duds	Hot Resistance: +1, Cold Resistance: +1, Stench Resistance: +1, Spooky Resistance: +1, Sleaze Resistance: +1
 Outfit	Psychic Enpsemble	Spell Critical Percent: +10
-Outfit	Pyretic Panhandler Paraphernalia	Hot Spell Damage: +40, MP Regen Min: 20, MP Regen Max: 30
+Outfit	Pyretic Panhandler Paraphernalia	Hot Spell Damage: +40, MP Regen Min: 20, MP Regen Max: 30, Conditional Skill (Equipped): "Start Trash Fire"
 Outfit	Pyrotechnic Paper Paraphernalia	Hot Damage: +30, Hot Spell Damage: +30
 Outfit	Radio Free Regalia	Never Fumble
 Outfit	Raiments of the Final Boss	Muscle Percent: +10, Mysticality Percent: +10, Moxie Percent: +10
 Outfit	Roy Orbison Disguise	Moxie: +15
+Outfit	Scorched Skeleton Suit	Damage vs. Skeletons: +50
 Outfit	Seafaring Suit	Initiative: +100
 Outfit	Shadow Shuit	Cold Resistance: +3, Hot Resistance: +3
 Outfit	Shallow Sea Fishing Outfit	Fishing Skill: +5
@@ -9225,7 +9324,7 @@ Outfit	Sucker Samurai Suit	Damage Reduction: 10
 Outfit	Swashbuckling Getup	Moxie: +7, Look like a Pirate
 Outfit	Synthetic Suit	Familiar Weight: +5
 Outfit	Tapered Threads	Initiative: +30
-Outfit	Tawdry Tramp Togs	DB Combat Damage: +20
+Outfit	Tawdry Tramp Togs	DB Combat Damage: +20, Conditional Skill (Equipped): "Hypnotize Hobo"
 Outfit	Terrifying Clown Suit	Spooky Damage: +5
 Outfit	Terrycloth Tackle	Damage Absorption: +30
 Outfit	The Jokester's Costume	Item Drop: +25, Meat Drop: +50
@@ -9240,7 +9339,7 @@ Outfit	Unblemished Uniform	Muscle Percent: +10, Mysticality Percent: +10, Moxie 
 Outfit	Uncle Hobo's Rags	Candy Drop: +15
 Outfit	Velour Vestments	Weapon Damage: +25, Spell Damage: +25, Ranged Damage: +25
 Outfit	Vestments of the Treeslayer	Damage Reduction: 5
-Outfit	Vile Vagrant Vestments	Mana Cost (stackable): -5
+Outfit	Vile Vagrant Vestments	Mana Cost (stackable): -5, Conditional Skill (Equipped): "Trashquake"
 Outfit	Violent Vestments	Muscle Percent: +15, Mysticality Percent: +15, Moxie Percent: +15
 Outfit	War Hippy Fatigues	Stench Damage: +15
 Outfit	Warbear Dress Armor	Item Drop: +10
@@ -9604,6 +9703,7 @@ Item	frozen tofu pop	Last Available: "2021-12"
 Item	fruit-stuffed rumcake	Effect: "Fruit-Based Animosity", Effect Duration: 100, Last Available: "2023-12"
 Item	fudge bunny	Last Available: "2011-11"
 Item	fudgesicle	Effect: "Fudge Headache", Effect Duration: 30, Last Available: "2011-11"
+Item	full-sized pumpkin pie	Effect: "Halloweeny", Effect Duration: 5, Last Available: "2025-11"
 Item	gallon of milk	Effect: "Feeling Queasy", Effect Duration: 100, Last Available: "2016-05"
 Item	ghost dog	Effect: "Scaredy Dog", Effect Duration: 30
 Item	ghostly ectoplasm	Effect: "Haunted Stomach", Effect Duration: 3, Last Available: "2018-11"
@@ -9788,6 +9888,7 @@ Item	popcorn	Last Available: "2011-04"
 Item	powdered donut	Effect: "Powdered", Effect Duration: 5, Last Available: "2010-03"
 Item	primitive alien salad	Last Available: "2017-04"
 Item	primitive candy cane	Last Available: "2018-12"
+Item	prize turkey	Effect: "Tryptofan", Effect Duration: 50
 Item	protein paste	Effect: "Pasty", Effect Duration: 10, Last Available: "2009-06"
 Item	pumpkin pie	Last Available: "2010-11"
 Item	quantum taco	Last Available: "2010-10"
@@ -9833,7 +9934,7 @@ Item	shoo-fish pie	Effect: "Fishy", Effect Duration: 20, Last Available: "2010-1
 Item	shrapnel jelly donut	Effect: "Filled with Magic", Effect Duration: 30, Last Available: "2011-09"
 Item	shushed potatoes	Effect: "Noise Cancelled", Effect Duration: 100, Last Available: "2017-12"
 Item	skeleton quiche	Last Available: "2012-10"
-Item	skull-shaped Crimboween cookie	Effect: "Bells in the Batfry", Effect Duration: 10, Last Available: "2023-06"
+Item	skull-shaped Crimboween cookie	Effect: "Carol of the Bones", Effect Duration: 10, Last Available: "2023-06"
 Item	Skully's hot chocolate	Effect: "Skull Full of Hot Chocolate", Effect Duration: 10
 Item	sleazy hi mein	Effect: "Sleazy Breath", Effect Duration: 5
 Item	slice of pizza	Last Available: "2013-02"
@@ -9849,6 +9950,7 @@ Item	snow crab	Last Available: "2014-01"
 Item	space jam toast	Last Available: "2011-01"
 Item	spaghetti con calaveras	Effect: "Eso S&iacute; Que Es", Effect Duration: 10, Last Available: "2011-04"
 Item	Spaghetti with Moonballs	Last Available: "2011-06"
+Item	spinal tapas	Effect: "Tapased Out", Effect Duration: 30, Last Available: "2025-10"
 Item	spiritual candy cane	Last Available: "2016-12"
 Item	spiritual fruitcake	Last Available: "2016-12"
 Item	spiritual gingerbread	Last Available: "2016-12"
@@ -9864,7 +9966,7 @@ Item	stomach turnover	Last Available: "2010-10"
 Item	Strix stix	Effect: "Sugar-Frosted Pet Guts", Effect Duration: 40
 Item	stuffed red and green pepper (stale)	Last Available: "2020-12"
 Item	sugarplum ration	Effect: "Sugarplum Visions", Effect Duration: 50, Last Available: "2023-12"
-Item	sun-dried tofu	Effect: "Oversaturated Palate", Effect Duration: 1, Last Available: "2010-08"
+Item	sun-dried tofu	Effect: "Deadened palate", Effect Duration: 1, Last Available: "2010-08"
 Item	sundae ration	Last Available: "2023-12"
 Item	super good fruit	Last Available: "2023-02"
 Item	Susie's cupcake	Last Available: "2025-08"
@@ -9912,8 +10014,10 @@ Item	toe jam toast	Last Available: "2011-01"
 Item	tombstone-shaped Crimboween cookie	Effect: "Crimbo Epiphany", Effect Duration: 10, Last Available: "2023-06"
 Item	toxo	Effect: "Radiated and Grodiated", Effect Duration: 40, Last Available: "2015-04"
 Item	traditional Crimbo cookie	Effect: "Yeast-Hungry", Effect Duration: 75, Last Available: "2023-06"
+Item	traditional gingerloaf	Last Available: "2025-12"
 Item	traffic jam toast	Last Available: "2011-01"
 Item	transparent nog	Effect: "Holiday Disappointment", Effect Duration: 10, Last Available: "2017-12"
+Item	treasure chestnut	Last Available: "2025-12"
 Item	tree-shaped Crimbo cookie	Effect: "Yuletide Sappiness", Effect Duration: 10, Last Available: "2023-06"
 Item	triangular CRIMBCOOKIE	Effect: "Triangle, Man", Effect Duration: 10, Last Available: "2010-12"
 Item	turtle soup	Effect: "[598]A Little Bit Evil", Effect Duration: 10
@@ -9939,6 +10043,7 @@ Item	wasabi pocky	Effect: "Wasabi With You", Effect Duration: 30, Last Available
 Item	water log	Last Available: "2015-09"
 Item	wax pancake	Effect: "Waxing", Effect Duration: 30, Last Available: "2017-01"
 Item	wedge of gray cheese	Last Available: "2008-11"
+Item	wedge of prize-winning cheese	Effect: "And the Winner Is...", Effect Duration: 40, Last Available: "2025-12"
 Item	weird gazelle steak	Effect: "Gaze of the Gazelle", Effect Duration: 1
 Item	wet dog	Effect: "Hangdog", Effect Duration: 30
 Item	wet tack	Last Available: "2023-12"
@@ -9950,6 +10055,7 @@ Item	whole roasted chicken	Last Available: "2013-02"
 # whole turkey leg: Selling Price: <b>1 Meat.</b><p><center><b><font color=blue>Deals <font color=blueviolet>Sleaze Damage</font> based on your Moxie when used as a combat item
 Item	whole turkey leg	Last Available: "2013-11"
 Item	wild honey pie	Effect: "Sugar Rush", Effect Duration: 10
+Item	wing bone	Last Available: "2025-12"
 Item	witch's bread	Effect: "Witch Breaded", Effect Duration: 20, Last Available: "2014-12"
 Item	wreath-shaped Crimbo cookie	Effect: "Wreathed in Merriment", Effect Duration: 10, Last Available: "2023-06"
 Item	Xiblaxian ultraburrito	Last Available: "2014-09"
@@ -9965,6 +10071,7 @@ Item	yule gruel	Last Available: "2018-12"
 
 # Booze section of modifiers.txt
 
+Item	&quot;salvaged&quot; wine	Last Available: "2025-12"
 Item	1950 Vampire Vintner wine	Effect Duration: 10
 Item	Acqua Del Piatto Merlot	Last Available: "2004-10"
 Item	Acque Luride Grezze Cabernet	Last Available: "2004-10"
@@ -9985,7 +10092,7 @@ Item	Aye Aye, Tooth Tooth	Effect: "Arresistible", Effect Duration: 15, Last Avai
 # *** KoL bug: bad rum and good cola grants Faerie Fortune, no item grants Fanatical Fortune.
 # *** Bug reported and acknowledged. bad rum and good cola DOES give Fanatical Fortune, but
 # *** the description is wrong for unknown reasons. Maybe the description will eventually be fixed..
-Item	bad rum and good cola	Effect: "Faerie Fortune", Effect Duration: 30, Last Available: "2018-04"
+Item	bad rum and good cola	Effect: "Fanatical Fortune", Effect Duration: 30, Last Available: "2018-04"
 Item	bark rootbeer	Effect: "Bark of the Dog", Effect Duration: 40, Last Available: "2015-12"
 Item	barrel-aged eggnog	Last Available: "2020-12"
 Item	barrel-aged martini	Effect: "Just Aged Enough", Effect Duration: 50, Last Available: "2015-09"
@@ -10027,6 +10134,7 @@ Item	bottle of Old Pugilist	Effect: "Fightin' Drunk", Effect Duration: 20, Last 
 Item	bottle of Ooze-O	Effect: "Really Quite Poisoned", Effect Duration: 20
 Item	bottle of peppermint schnapps	Effect: "Crimbo Nostalgia", Effect Duration: 50, Last Available: "2010-12"
 Item	bottle of Pete's Sake	Effect: "Warm Belly", Effect Duration: 1
+Item	bottle of prize-winning rum	Effect: "And the Winner Is...", Effect Duration: 40, Last Available: "2025-12"
 Item	bottle of Professor Beer	Effect: "Thinkin' Drunk", Effect Duration: 20, Last Available: "2013-09"
 Item	bottle of Race Car Red	Effect: "Flyin' Drunk", Effect Duration: 20, Last Available: "2013-09"
 Item	bottle of Rapier Witbier	Effect: "Jokin' Drunk", Effect Duration: 20, Last Available: "2013-09"
@@ -10279,6 +10387,7 @@ Item	morning dew	Effect: "Granolarrrgh", Effect Duration: 40, Last Available: "2
 Item	Morto Moreto	Effect: "Majorly Poisoned", Effect Duration: 100, Last Available: "2011-09"
 Item	mourning wine	Last Available: "2018-04"
 Item	mulled berry wine	Effect: "Sweet Nostalgia", Effect Duration: 30, Last Available: "2014-12"
+Item	mulled butter rum	Last Available: "2025-12"
 Item	mulled cider	Last Available: "2009-10"
 Item	mulled hobo wine	Effect: "Burnt 'n' Turnt", Effect Duration: 20, Last Available: "2018-12"
 Item	mulled wine	Effect: "Mullin' for Bullion", Effect Duration: 50, Last Available: "2023-12"
@@ -10315,6 +10424,8 @@ Item	perfect negroni	Last Available: "2015-11"
 Item	perfect old-fashioned	Last Available: "2015-11"
 Item	perfect paloma	Last Available: "2015-11"
 Item	perpendicular hula with a fly in it	Last Available: "2006-04"
+# pheromone cocktail: Lets you mark your territory after drinking it
+Item	pheromone cocktail	Last Available: "2025-10"
 Item	Phil Collins	Effect: "Hello, I Must Be Going", Effect Duration: 40, Last Available: "2017-03"
 Item	Phlegethon	Effect: "Flambé-a-thon", Effect Duration: 40, Last Available: "2017-03"
 Item	Phonus Balonus	Last Available: "2014-07"
@@ -10362,6 +10473,7 @@ Item	Sazerorc	Effect: "Orc Chops", Effect Duration: 5, Last Available: "2012-03"
 Item	Sazuruk-hai	Effect: "Orc Chops", Effect Duration: 10, Last Available: "2012-03"
 Item	Schr&ouml;dinger's thermos	Last Available: "2010-04"
 Item	Scorpion Bowl	Effect: "Tiki Toughness", Effect Duration: 40, Last Available: "2019-04"
+Item	Scotch and eggnog	Last Available: "2025-12"
 Item	scotch on the rocks	Effect: "Hair on Your Chest", Effect Duration: 30
 Item	screwdiver	Effect: "Brined Liver", Effect Duration: 20
 Item	Sexy Cosmo	Last Available: "2023-06"
@@ -10393,6 +10505,7 @@ Item	Sloppy Jalopy	Last Available: "2014-07"
 Item	slug of rum	Effect: "Brined Liver", Effect Duration: 10
 Item	slug of shochu	Effect: "Brined Liver", Effect Duration: 10
 Item	slug of vodka	Effect: "Brined Liver", Effect Duration: 10
+Item	Smoking Pope	Effect: "Ordained", Effect Duration: 50
 Item	smooth mushroom wine	Effect: "Gyromitra Gymnastics", Effect Duration: 80, Last Available: "2014-05"
 Item	Smuggler's Punch	Effect: "Tiki Temerity", Effect Duration: 30, Last Available: "2019-04"
 Item	snakebite	Effect: "Sweet Tooth", Effect Duration: 30, Last Available: "2014-12"
@@ -10410,6 +10523,7 @@ Item	spooky eggnog	Last Available: "2006-12"
 Item	stale cheer wine	Last Available: "2017-12"
 Item	stealth bomber	Last Available: "2014-05"
 Item	Steamboat	Effect: "Steamed", Effect Duration: 20, Last Available: "2020-05"
+Item	Steve Abrams' Holiday Sampler Beer	Last Available: "2025-12"
 Item	Strikes Again Bigmouth	Effect: "Smithsness Cheer", Effect Duration: 50, Last Available: "2013-12"
 Item	Strong, Silent Type	Effect: "Speakin' Even Easier", Effect Duration: 30
 Item	Suffering Sinner	Effect: "Heart Aflame", Effect Duration: 5, Last Available: "2012-03"
@@ -10444,6 +10558,7 @@ Item	Uovo Marcio Shiraz	Last Available: "2004-10"
 Item	vesper	Last Available: "2004-12"
 Item	vintage smart drink	Effect: "Smart Drunk", Effect Duration: 1
 Item	vodka barracuda	Effect: "Mer-kinkiness", Effect Duration: 40, Last Available: "2017-03"
+Item	vodka cranberry sauce	Effect: "Cranberry Cordiality", Effect Duration: 5, Last Available: "2025-11"
 Item	Vodka Matryoshka	Last Available: "2011-12"
 Item	vodka stinger	Effect: "Mer-kindliness", Effect Duration: 40, Last Available: "2017-03"
 Item	vodka stratocaster sidecar	Last Available: "2025-03"
@@ -10455,6 +10570,7 @@ Item	warbear feasting mead	Effect: "Warbear Loot Lust", Effect Duration: 40, Las
 Item	wasabi-infused sake	Effect: "Wasabi With You", Effect Duration: 30, Last Available: "2011-03"
 Item	water purification pills	Last Available: "2012-07"
 Item	wax booze	Effect: "Waxing", Effect Duration: 30, Last Available: "2017-01"
+Item	weak skeleton venom	Last Available: "2025-12"
 Item	whiskey in a broken glass	Effect: "Bloody Grin", Effect Duration: 50
 Item	whiskey squeeze	Effect: "Hobo Powers Activate!", Effect Duration: 20, Last Available: "2017-03"
 Item	white Canadian	Effect: "Canadianity", Effect Duration: 3
@@ -10492,12 +10608,14 @@ Item	alien plant goo	Effect: "Celestial Mind", Effect Duration: 40, Last Availab
 Item	alien protein powder	Last Available: "2014-05"
 Item	ancient medicinal herbs	Effect: "Ancient Fortitude", Effect Duration: 50, Last Available: "2016-01"
 # ancient pills: Restore 30-40 MP
+Item	angelbone fragments	Last Available: "2026-12"
 Item	antimatter wad	Last Available: "2013-12"
 Item	antique bottle of cough syrup	Effect: "The Q Is Talking To You", Effect Duration: 10
 Item	armored prawn	Effect: "Rushtacean'", Effect Duration: 50, Last Available: "2016-03"
 # astral energy drink: Gives you good luck
 Item	astronaut ice-cream	Last Available: "2006-05"
 Item	autumn breeze	Effect: "Delighted by Autumn", Effect Duration: 50, Last Available: "2022-10"
+Item	baked bone meal	Last Available: "2025-12"
 Item	bakelite bits	Last Available: "2016-12"
 Item	beastly paste	Effect: "Beastly Flavor", Effect Duration: 10, Last Available: "2011-08"
 Item	beefy pill	Effect: "Beefy", Effect Duration: 30
@@ -10505,6 +10623,7 @@ Item	beggin' cologne	Effect: "Eau d' Clochard", Effect Duration: 60, Last Availa
 Item	black paisley oyster egg	Effect: "Egg-stortionary Tactics", Effect Duration: 20
 Item	black polka-dot oyster egg	Effect: "Egg-stortionary Tactics", Effect Duration: 20
 Item	black striped oyster egg	Effect: "Egg-stortionary Tactics", Effect Duration: 20
+Item	blood thinner	Effect: "Really Thin Blood", Effect Duration: 50, Last Available: "2025-10"
 # blue paisley oyster egg: Restores 30-35 MP
 # blue polka-dot oyster egg: Restores 30-35 MP
 # blue striped oyster egg: Restores 30-35 MP
@@ -10537,6 +10656,7 @@ Item	cuppa Activi tea	Last Available: "2015-09"
 Item	cuppa Cruel tea	Last Available: "2015-09"
 Item	cute mushroom	Effect: "Cute Vision", Effect Duration: 50, Last Available: "2015-09"
 Item	demonic paste	Effect: "Demonic Flavor", Effect Duration: 10, Last Available: "2011-08"
+Item	devilbone chunks	Last Available: "2026-12"
 # dieting pill: Eat less, Enjoy it More!
 Item	drenchrome 2.0	Effect: "Cyber Slicer", Effect Duration: 30, Last Available: "2025-12"
 Item	ectoplasmic paste	Effect: "Spooky Flavor", Effect Duration: 10, Last Available: "2011-08"
@@ -10598,6 +10718,7 @@ Item	magnificent oyster egg	Effect: "Eggstraordinary Strength", Effect Duration:
 Item	Mansquito Serum	Effect: "More Mansquito Than Man", Effect Duration: 400, Last Available: "2016-12"
 Item	marble molecules	Last Available: "2019-12"
 Item	Mariner's Friend cough drops	Last Available: "2007-06"
+Item	medicinal gruel	Effect: "Grueling Gravitas", Effect Duration: 100
 # Medicinal Herb's medicinal herbs: Restores all HP
 Item	Mer-kin paste	Effect: "Mer-kinny Flavor", Effect Duration: 10, Last Available: "2011-08"
 Item	mime army superserum	Effect: "I'll Have the Soup", Effect Duration: 50, Last Available: "2017-12"
@@ -10717,7 +10838,7 @@ Item	alphabet gum	Effect: "Bubble, Bubble", Effect Duration: 5
 Item	Ancient Protector Soda	Effect: "Ancient Protected", Effect Duration: 50
 Item	angry agate	Effect: "Misplaced Rage", Effect Duration: 20, Last Available: "2023-02"
 Item	Angry Farmer candy	Effect: "Sugar Rush", Effect Duration: 10
-Item	Angry Farmer's Wife Candy	Effect: "Sugar Rush", Effect Duration: 10
+Item	Angry Farmer's Wife Candy	Effect: "Sugar Rush", Effect Duration: 10, Effect: "Amorous", Effect Duration: 10
 Item	ant agonist	Effect: "All Fired Up", Effect Duration: 10
 Item	anti-burn cream	Effect: "Anti-Burning", Effect Duration: 20, Last Available: "2021-12"
 Item	anti-creep cream	Effect: "Anti-Creeped", Effect Duration: 20, Last Available: "2021-12"
@@ -10762,6 +10883,7 @@ Item	bellhop bell	Effect: "Ringing Ears", Effect Duration: 10, Last Available: "
 Item	Ben-Gal&trade; Balm	Effect: "Go Get 'Em, Tiger!", Effect Duration: 3
 Item	bent scrap metal	Effect: "Armor-Plated", Effect Duration: 10
 Item	Bettie page	Effect: "Paging Betty", Effect Duration: 20, Last Available: "2018-02"
+Item	biblically accurate gumdrops	Effect: "A Drop of the Divine", Effect Duration: 10
 Item	big dribbly candle	Effect: "Waxing Mystical", Effect Duration: 10
 Item	Big Punk	Effect: "Big Punkin'", Effect Duration: 50
 Item	Bit O' Ectoplasm	Effect: "Sugar Rush", Effect Duration: 5
@@ -10787,9 +10909,12 @@ Item	blooper ink	Effect: "Blooper Inked", Effect Duration: 10
 Item	blue grass	Effect: "The Grass...  Is Blue...", Effect Duration: 20
 Item	blue snowcone	Effect: "Blue Tongue", Effect Duration: 20, Last Available: "2006-01"
 Item	blue-frosted astral cupcake	Last Available: "2006-06", Effect: "Cupcake of Choice", Effect Duration: 20
+Item	boiling bone marrow	Effect: "Hot Bones", Effect Duration: 30, Last Available: "2025-12"
 Item	boiling broth	Effect: "Boiling Determination", Effect Duration: 1, Last Available: "2018-07"
+Item	boiling cerebrospinal fluid	Effect: "Hot Brains", Effect Duration: 30, Last Available: "2025-12"
 Item	boiling hot cocoa	Effect: "Cocoa-Crispy", Effect Duration: 20, Last Available: "2020-12"
 Item	boiling seal blood	Effect: "Abyssal Blood", Effect Duration: 20
+Item	boiling synovial fluid	Effect: "Hot Joints", Effect Duration: 30, Last Available: "2025-12"
 Item	Boletus Broletus mushroom	Effect: "Boletus Swoletus", Effect Duration: 10, Last Available: "2014-05"
 Item	bone bons	Effect: "Bone Chilling", Effect Duration: 20
 Item	Boosty Juice	Effect: "Juicy Boost", Effect Duration: 300
@@ -10848,7 +10973,7 @@ Item	cheap wind-up clock	Effect: "Ticking Clock", Effect Duration: 10
 Item	Cheer-Up soda	Effect: "Cheered Up", Effect Duration: 20, Last Available: "2017-12"
 Item	chicle de salchicha	Effect: "Here to Kick Ass", Effect Duration: 20
 Item	chiffon lemon	Effect: "Bulging Jaw Muscles", Effect Duration: 20
-Item	children of the candy corn	Effect: "Sugar Rush", Effect Duration: 5
+Item	children of the candy corn	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Chilblains of the Corn", Effect Duration: 3
 Item	chitin powder	Effect: "Chitin Powderful", Effect Duration: 10
 Item	chitin powder paste	Effect: "Pastey Power", Effect Duration: 30
 Item	choco-Crimbot	Last Available: "2014-12"
@@ -10860,6 +10985,7 @@ Item	chocolate-covered loofah	Effect: "Aloofah", Effect Duration: 20
 Item	Chubby and Plump bar	Effect: "Plump and Chubby", Effect Duration: 60, Last Available: "2020-12"
 Item	chunk of rock salt	Effect: "Fresh Scent", Effect Duration: 10
 Item	cigar box turtle	Effect: "Colorful Gratitude", Effect Duration: 15
+Item	cinnamon doubloon	Effect: "Doublooned", Effect Duration: 100, Last Available: "2025-12"
 Item	Climate Colada	Effect: "Weather, Man", Effect Duration: 20, Last Available: "2008-06"
 # Cloaca Cola Polar: Restores 100-200 MP
 Item	Cloaca Cola Polar	Effect: "Polar Express", Effect Duration: 50, Last Available: "2013-12"
@@ -10893,12 +11019,13 @@ Item	correction fluid	Effect: "The Solution", Effect Duration: 30, Last Availabl
 Item	corrupted data	Effect: "Corrupted", Effect Duration: 30, Last Available: "2011-06"
 Item	corrupted marrow	Effect: "Cowrruption", Effect Duration: 30
 Item	cosmic lemonade	Effect: "Lemon Enlightenment", Effect Duration: 10, Last Available: "2007-01"
+Item	counterskeleton elixir	Effect: "Bones Against Bones", Effect Duration: 50, Last Available: "2025-12"
 Item	cranberry cordial	Effect: "Cranberry Cordiality", Effect Duration: [R]
 Item	crappy waiter disguise	Effect: "Crappily Disguised as a Waiter", Effect Duration: 5
 Item	crepe paper peanut candy	Effect: "Crepe Paper Pedestrian Cacophony", Effect Duration: 20
-Item	Crimbo candied pecan	Effect: "Sweet, Nuts", Effect Duration: 5, Last Available: "2009-12"
-Item	Crimbo fudge	Effect: "Busy Bein' Delicious", Effect Duration: 5, Last Available: "2009-12"
-Item	Crimbo peppermint bark	Effect: "Peppermint Bite", Effect Duration: 5, Last Available: "2009-12"
+Item	Crimbo candied pecan	Effect: "Sweet, Nuts", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-12"
+Item	Crimbo fudge	Effect: "Busy Bein' Delicious", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-12"
+Item	Crimbo peppermint bark	Effect: "Peppermint Bite", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-12"
 Item	Crimbot battery	Effect: "Batteries Included", Effect Duration: 50, Last Available: "2014-12"
 Item	crude crudit&eacute;s	Effect: "Crud&eacute;", Effect Duration: 10
 Item	crunchy brush	Effect: "Crunchy Steps", Effect Duration: 5, Last Available: "2024-02"
@@ -11008,7 +11135,7 @@ Item	Drizzlers&trade; Black Licorice	Effect: "Rainy Soul Miasma", Effect Duratio
 Item	drop of water-37	Effect: "Extra-Wet", Effect Duration: 30, Last Available: "2012-07"
 Item	drum of pomade	Effect: "Perfect Hair", Effect Duration: 10, Last Available: "2011-10"
 Item	Drunk Uncles holo-record	Effect: "Drunk and Avuncular", Effect Duration: 10
-Item	dubious peppermint	Effect: "Minty Freshness", Effect Duration: 5, Last Available: "2020-09"
+Item	dubious peppermint	Effect: "Minty Freshness", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 3, Last Available: "2020-09"
 Item	eagle feather	Effect: "Eagle Eyes", Effect Duration: 20
 Item	ear candle	Effect: "Clear Ears, Can't Lose", Effect Duration: 80, Last Available: "2021-08"
 Item	Eau de Guaneau	Effect: "Chauve-Souris Merde Fou", Effect Duration: 10
@@ -11023,6 +11150,7 @@ Item	eldritch rub	Effect: "Infused with Sssshhsssblllrrggghsssssggggrrgglssss", 
 Item	electric mushroom	Effect: "Tingling Insides", Effect Duration: 20, Last Available: "2023-02"
 Item	Elf Guard eyedrops	Effect: "Elf Watch", Effect Duration: 30, Last Available: "2023-12"
 Item	Elizabeth's paintbrush	Effect: "Boschface", Effect Duration: 25
+# elven suicide capsule actually gives one of Sugar High, Sugar Smacks, Sugary Tongue
 Item	elven suicide capsule	Effect: "Sugar Rush", Effect Duration: 10, Last Available: "2009-12"
 Item	Elvish delight	Effect: "Cuts Like a Lightly-Buttered Knife", Effect Duration: 3
 Item	EMD holo-record	Effect: "Ministrations in the Dark", Effect Duration: 10
@@ -11030,14 +11158,14 @@ Item	emergency glowstick	Effect: "Glowing Hands", Effect Duration: 20, Last Avai
 Item	ennui-flavored potato chips	Effect: "Also Schmeckt Zarathustra", Effect Duration: 10
 Item	essential cameraderie	Effect: "2 Hearts, 1 Mind", Effect Duration: 50, Last Available: "2010-08"
 Item	essential soy	Effect: "Electrolyte Fantastic", Effect Duration: 50, Last Available: "2010-08"
-Item	Everlasting Deckswabber	Effect: "Sugar Rush", Effect Duration: 10
-Item	evil eyedrops of the ermine	Effect: "Ermine Eyes", Effect Duration: [R+5]
-Item	evil libation of liveliness	Effect: "Provocative Perkiness", Effect Duration: [R+5]
-Item	evil ointment of the occult	Effect: "Mystically Oiled", Effect Duration: [R+5]
-Item	evil philter of phorce	Effect: "Phorcefullness", Effect Duration: [R+5]
-Item	evil potion of potency	Effect: "Pronounced Potency", Effect Duration: [R+5]
-Item	evil serum of sarcasm	Effect: "Superhuman Sarcasm", Effect Duration: [R+5]
-Item	evil tomato juice of powerful power	Effect: "Tomato Power", Effect Duration: [R+5]
+Item	Everlasting Deckswabber	Effect: "Sugar Rush", Effect Duration: 10, Effect: "Chain Chain Chains", Effect Duration: 10
+Item	evil eyedrops of the ermine	Effect: "Ermine Eyes", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil libation of liveliness	Effect: "Provocative Perkiness", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil ointment of the occult	Effect: "Mystically Oiled", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil philter of phorce	Effect: "Phorcefullness", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil potion of potency	Effect: "Pronounced Potency", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil serum of sarcasm	Effect: "Superhuman Sarcasm", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil tomato juice of powerful power	Effect: "Tomato Power", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
 Item	evil vihuela	Effect: "El Tango de la Maldita Suegra", Effect Duration: 10
 Item	exotic travel brochure	Effect: "Expert Vacationer", Effect Duration: 20, Last Available: "2015-11"
 Item	experimental serum G-9	Effect: "Experimental Effect G-9", Effect Duration: 40, Last Available: "2014-10"
@@ -11150,7 +11278,7 @@ Item	glowing syringe	Effect: "Biologically Shocked", Effect Duration: 20
 Item	go-go potion	Effect: "Go-Gone", Effect Duration: 20, Last Available: "2014-05"
 Item	goblin water	Effect: "Wet and Greedy", Effect Duration: 100
 Item	Good 'n' Quiet	Effect: "Quiet 'n' Good", Effect Duration: 10
-Item	Good 'n' Slimy	Effect: "Sugar Rush", Effect Duration: 5
+Item	Good 'n' Slimy	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Slimed Stomach", Effect Duration: 1
 Item	gooey drippy candy bar	Effect: "Snichors", Effect Duration: 10
 Item	gourmet gourami oil	Effect: "Fishy, Oily", Effect Duration: 40
 Item	government	Effect: "I See Everything Thrice!", Effect Duration: 10, Last Available: "2014-05"
@@ -11172,6 +11300,7 @@ Item	gummi ammonite	Effect: "Sugar Rush", Effect Duration: 100, Last Available: 
 Item	gummi belemnite	Effect: "Sugar Rush", Effect Duration: 100, Last Available: "2011-11"
 Item	gummi canary	Effect: "Gummiskin", Effect Duration: 1, Last Available: "2011-11"
 Item	gummi fang	Effect: "Gummi Badass", Effect Duration: 5, Last Available: "2014-12"
+Item	gummi fingerbone	Effect: "Gummi Fingerbones", Effect Duration: 10
 Item	gummi salamander	Effect: "Gummiheart", Effect Duration: 1, Last Available: "2011-11"
 Item	gummi snake	Effect: "Gummibrain", Effect Duration: 1, Last Available: "2011-11"
 Item	gummi trilobite	Effect: "Sugar Rush", Effect Duration: 100, Last Available: "2011-11"
@@ -11263,7 +11392,7 @@ Item	Knob Goblin sharpening spray	Effect: "Sharp Weapon", Effect Duration: 5
 Item	Knob Goblin steroids	Effect: "Steroid Boost", Effect Duration: 5
 Item	Kokomo Resort Brand Suntan Oil	Effect: "Tropical Contact High", Effect Duration: 3, Last Available: "2015-04"
 Item	Kokomo Resort Pass	Effect: "Tropical Contact High", Effect Duration: 10, Last Available: "2023-08"
-Item	kumquat supersucker	Effect: "Koyaaniskumquatsi", Effect Duration: 30, Last Available: "2011-11"
+Item	kumquat supersucker	Effect: "Koyaaniskumquatsi", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	labrador cookie	Effect: "Insatiable Hunger", Effect Duration: 40, Last Available: "2015-08"
 Item	lavender candy heart	Effect: "Heart of Lavender", Effect Duration: 10, Last Available: "2007-02"
 Item	leftover chocolate bar	Effect: "Sugar Rush", Effect Duration: 50
@@ -11274,7 +11403,7 @@ Item	licorice root	Effect: "Rootin' Around", Effect Duration: 20, Last Available
 Item	licorice snake	Effect: "Whippin' It Good", Effect Duration: 20
 Item	LIDAR candle	Effect: "LIDARed", Effect Duration: 30, Last Available: "2024-12"
 Item	Life Goals Pamphlet	Effect: "Life Goals", Effect Duration: 25, Last Available: "2025-08"
-Item	lime supersucker	Effect: "In the Limelight", Effect Duration: 30, Last Available: "2011-11"
+Item	lime supersucker	Effect: "In the Limelight", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	lime-and-chile-flavored chewing gum	Effect: "Spicy Limeness", Effect Duration: 5
 Item	lion musk	Effect: "Lion in Ambush", Effect Duration: 20, Last Available: "2016-02"
 Item	liquid ice	Effect: "Cold as Ice", Effect Duration: 50
@@ -11373,7 +11502,7 @@ Item	neurostim pill	Effect: "Stimulated Brain", Effect Duration: 10, Last Availa
 Item	new habit	Effect: "Habituated", Effect Duration: 365, Last Available: "2017-10"
 Item	Nightstalker perfume	Effect: "Nightstalkin'", Effect Duration: 30, Last Available: "2011-10"
 Item	Northern pemmican	Effect: "Pemmican't", Effect Duration: 20
-Item	Now and Earlier	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2020-09"
+Item	Now and Earlier	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Confused", Effect Duration: 5, Last Available: "2020-09"
 Item	Nuclear Blastball	Effect: "Taste the Inferno", Effect Duration: 50, Last Available: "2011-05"
 Item	null-day exploit	Effect: "Null Afternoon", Effect Duration: 30, Last Available: "2025-12"
 Item	O'RLY manual	Effect: "You Read The Manual", Effect Duration: 20
@@ -11384,7 +11513,8 @@ Item	Oil of Parrrlay	Effect: "Well-Oiled", Effect Duration: 5
 Item	oil of slipperiness	Effect: "Slippery Oiliness", Effect Duration: [R]
 Item	oil of stability	Effect: "Stabilizing Oiliness", Effect Duration: [R]
 Item	ointment of the occult	Effect: "Mystically Oiled", Effect Duration: [R]
-Item	Okee-Dokee soda	Effect: "Sugar Rush", Effect Duration: 20, Last Available: "2011-05"
+# okee dokee effects are 10-20 turns
+Item	Okee-Dokee soda	Effect: "Sugar Rush", Effect Duration: 20, Effect: "Okee-Dokee Go!", Effect Duration: 10, Effect: "Okee-Dokee Computer", Effect Duration: 10, Effect: "Okee-Dokee, Smokee", Effect Duration: 10, Last Available: "2011-05"
 Item	old bronzer	Effect: "Sepia Tan", Effect Duration: 25
 Item	old candy wrapper	Effect: "Litterbug", Effect Duration: 5, Last Available: "2013-11"
 Item	old eyebrow pencil	Effect: "Browbeaten", Effect Duration: 25
@@ -11392,6 +11522,7 @@ Item	old love note	Effect: "Memories of Puppy Love", Effect Duration: 20, Last A
 Item	old rosewater cream	Effect: "Rosewater Mark", Effect Duration: 25
 Item	Omphalotus Omphaloskepsis mushroom	Effect: "Omphalotus Omnipresence", Effect Duration: 10, Last Available: "2014-05"
 Item	one piece of bubble gum	Effect: "Sugar Rush", Effect Duration: 10
+# one pill gives one of Larger, Small or nothing
 Item	one pill	Effect Duration: 0
 Item	orange and black Crimboween candy	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2020-09"
 Item	orange candy heart	Effect: "Heart of Orange", Effect Duration: 10, Last Available: "2007-02"
@@ -11422,7 +11553,7 @@ Item	patent sallowness tonic	Effect: "Patent Sallowness", Effect Duration: 50
 Item	pea brittle	Effect: "Brittled", Effect Duration: 20, Last Available: "2024-11"
 Item	peach lozenge	Effect: "The Halls of Moxiousness", Effect Duration: [R]
 Item	pear lozenge	Effect: "The Halls of Mysticality", Effect Duration: [R]
-Item	pear supersucker	Effect: "Dirty Pear", Effect Duration: 30, Last Available: "2011-11"
+Item	pear supersucker	Effect: "Dirty Pear", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	pec oil	Effect: "Oiled-Up", Effect Duration: 20
 Item	PEEZ dispenser	Effect: "Sugar Rush", Effect Duration: 5
 Item	peppermint pegleg	Effect: "Peppermint Endoskeleton", Effect Duration: 30, Last Available: "2024-12"
@@ -11568,7 +11699,7 @@ Item	ribbon candy	Effect: "Sugar Rush", Effect Duration: 10, Last Available: "20
 # robin's egg: When used in combat: weakens enemies by 50% and briefly stuns them
 Item	robin's egg	Effect: "Egged On", Effect Duration: 10, Last Available: "2016-12"
 Item	robot grease	Effect: "Greasy Peasy", Effect Duration: 30
-Item	Rock Pops	Effect: "Sugar Rush", Effect Duration: 3
+Item	Rock Pops	Effect: "Sugar Rush", Effect Duration: 3, Effect: "Popping Stomach", Effect Duration: 3
 Item	roll of meat	Effect: "Stick Emporium Membership", Effect Duration: 50
 Item	rubber nubbin	Effect: "You're Rubber", Effect Duration: 20, Last Available: "2014-08"
 Item	ruby on canes	Effect: "Ruby-ous", Effect Duration: 20, Last Available: "2014-12"
@@ -11588,9 +11719,9 @@ Item	scroll of minor invulnerability	Effect: "Minor Invulnerability", Effect Dur
 Item	scroll of Protection from Bad Stuff	Effect: "Protection from Bad Stuff", Effect Duration: 20, Last Available: "2013-02"
 Item	scroll of protection from lycanthropes	Effect: "Protection from Lycanthropes", Effect Duration: 50, Last Available: "2023-06"
 Item	scroll of Puddingskin	Effect: "Puddingskin", Effect Duration: 80, Last Available: "2013-02"
-Item	scroll of sea strength	Effect: "Sea Strength", Effect Duration: 50
-Item	scroll of sea smarts	Effect: "Sea Smarts", Effect Duration: 50
 Item	scroll of sea smarm	Effect: "Sea Smarm", Effect Duration: 50
+Item	scroll of sea smarts	Effect: "Sea Smarts", Effect Duration: 50
+Item	scroll of sea strength	Effect: "Sea Strength", Effect Duration: 50
 Item	sea grease	Effect: "Greased-Up Familiar", Effect Duration: 40
 Item	sea salt crystal	Effect: "Salty Dogs", Effect Duration: 5
 Item	seal eyeball	Effect: "Eye of the Seal", Effect Duration: 10
@@ -11598,7 +11729,7 @@ Item	seal lube	Effect: "Lubed", Effect Duration: 10
 Item	seal-brain elixir	Effect: "Sealed Brain", Effect Duration: 20
 Item	sealhide seal doll	Effect: "Red Misty-Eyed", Effect Duration: 10
 Item	seegar butt	Effect: "Stinking Cloud", Effect Duration: 10
-Item	Senior Mints	Effect: "Sugar Rush", Effect Duration: 3
+Item	Senior Mints	Effect: "Sugar Rush", Effect Duration: 3, Effect: "Confused", Effect Duration: 5
 Item	sensitive poetry journal	Effect: "Moon June Spooned", Effect Duration: 10, Last Available: "2007-06"
 Item	serum of sarcasm	Effect: "Superhuman Sarcasm", Effect Duration: [R]
 Item	shady shades	Effect: "Throwing Some Shade", Effect Duration: 1
@@ -11648,7 +11779,7 @@ Item	spooky lipstick	Effect: "Gothy", Effect Duration: 10
 Item	spooky nuggets	Effect: "Spooky Weapon", Effect Duration: 5
 Item	spooky powder	Effect: "Spookypants", Effect Duration: 5
 # spooky sap: Weakens enemies a lot when used as a combat item
-Item	spooky sap	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-10"
+Item	spooky sap	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Sappy Blood", Effect Duration: 5, Last Available: "2009-10"
 Item	spooky sound effects record	Effect: "Permanent Halloween", Effect Duration: 10
 Item	spoonful of Linguine-Os	Effect: "Blessing of the Hot Linguine", Effect Duration: 10, Last Available: "2013-11"
 Item	Spring Break Beach &quot;swimsuit&quot;	Effect: "Painted-On Bikini", Effect Duration: 50, Last Available: "2015-11"
@@ -11663,18 +11794,18 @@ Item	Stephen's secret formula	Effect: "Spookyravin'", Effect Duration: 20
 Item	sterno-flavored Hob-O	Effect: "Fire Down Below", Effect Duration: 1
 Item	sticky lava globs	Effect: "Burning Hands", Effect Duration: 20, Last Available: "2015-08"
 Item	stone wool	Effect: "Stone-Faced", Effect Duration: 5
-Item	strawberry supersucker	Effect: "Strawberry Alarm", Effect Duration: 30, Last Available: "2011-11"
+Item	strawberry supersucker	Effect: "Strawberry Alarm", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	strawberry-flavored Hob-O	Effect: "Scariberi", Effect Duration: 1
 Item	STYX deodorant body spray	Effect: "Less Pervious", Effect Duration: 10
 Item	sugar banana	Effect: "Sweet and Yellow", Effect Duration: 10, Last Available: "2008-12"
 Item	sugar bunny	Effect: "Sweet Incentive", Effect Duration: 20, Last Available: "2014-05"
 Item	sugar cherry	Effect: "Sweet and Red", Effect Duration: 10, Last Available: "2008-12"
-Item	Sugar Cog	Effect: "Sugar Rush", Effect Duration: 5
+Item	Sugar Cog	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Sticky Hands", Effect Duration: 10
 Item	sugar fairy	Effect: "Dance of the Sugar Fairy", Effect Duration: 20, Last Available: "2014-05"
 Item	sugar lime	Effect: "Sweet and Green", Effect Duration: 10, Last Available: "2008-12"
 Item	sugar plum	Last Available: "2008-12"
 Item	sugar sphere	Effect: "Influence of Sphere", Effect Duration: 10
-Item	sugar-coated pine cone	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2020-09"
+Item	sugar-coated pine cone	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Antsy in your Pantsy", Effect Duration: 10, Last Available: "2020-09"
 Item	Super Weight-Gain 9000	Effect: "Superveiny 9000", Effect Duration: 10
 Item	super-spiky hair gel	Effect: "Spiky Hair", Effect Duration: 5
 Item	Superdrifter holo-record	Effect: "Superdrifting", Effect Duration: 10
@@ -11795,6 +11926,7 @@ Item	worst candy	Effect: "Predjudicetidigitation", Effect Duration: 10
 Item	wriggling worm	Effect: "Baited Hook", Effect Duration: 100, Last Available: "2016-04"
 Item	writhing drippy candy bar	Effect: "Slithering Mounds", Effect Duration: 10
 Item	Wrotz	Effect: "Wrought Nerves", Effect Duration: 20
+Item	yammed candy	Effect: "You Yam What You Yam", Effect Duration: 25, Last Available: "2025-11"
 Item	Ye Olde Bawdy Limerick	Effect: "From Nantucket", Effect Duration: 20
 Item	Yeg's Motel hand soap	Effect: "Sigils of Yeg", Effect Duration: 50, Last Available: "2020-09"
 Item	Yeg's Motel mouthwash	Effect: "Breath of Yeg", Effect Duration: 50, Last Available: "2020-09"
@@ -12157,6 +12289,7 @@ Item	Asdon Martin keyfob (on ring)	Last Available: "2017-07"
 Item	Asleep in the Cemetery	Skill: "Creepy Lullaby"
 Item	aspirin	Last Available: "2005-12"
 Item	assemble-it-yourself Leprecondo	Free Pull, Last Available: "2025-03"
+Item	assembled tiny plastic Santa skeleton	Last Available: "2025-12"
 Item	astral badger	Free Pull, Last Available: "2006-06"
 Item	atomic vector plotter	Last Available: "2011-12"
 Item	Autobiography Of Dynamite Superman Jones (used)	Class: "Disco Bandit", Skill: "Kung Fu Hustler", Last Available: "2011-01"
@@ -12362,6 +12495,7 @@ Item	boxed august scepter	Free Pull
 Item	boxed autumn-aton	Free Pull, Last Available: "2022-10"
 Item	boxed bat wings	Free Pull, Last Available: "2024-10"
 Item	boxed gumball machine	Last Available: "2021-12"
+Item	boxed Heartstone	Free Pull, Last Available: "2026-02"
 Item	boxed Mayam Calendar	Free Pull, Last Available: "2024-05"
 Item	boxed Sept-Ember Censer	Free Pull, Last Available: "2024-09"
 Item	Boxing Day care package	Free Pull, Last Available: "2018-12"
@@ -12436,8 +12570,14 @@ Item	bundle of firewood	Last Available: "2019-08"
 Item	burned government manual fragment	Last Available: "2014-05"
 # burning newspaper: Deal a bunch of <font color=red>Hot Damage</font> and briefly stun your enemy
 Item	burning newspaper	Last Available: "2018-12"
+Item	burnt incisor	Last Available: "2025-12"
+Item	burnt phalange	Last Available: "2025-12"
+Item	burnt radius	Last Available: "2025-12"
+Item	burnt rib	Last Available: "2025-12"
+Item	burnt skull	Last Available: "2025-12"
 Item	burnt stick	Last Available: "2019-08"
 Item	burrowgrub hive	Last Available: "2008-12"
+Item	buryable chest	Last Available: "2025-12"
 # bus pass: Deals 45-50 Physical Damage
 Item	calm attention-deficit demon	Free Pull, Last Available: "2006-10"
 # Camp Scout pup tent: Restores up to 1,000 HP
@@ -12642,6 +12782,8 @@ Item	crafting plans	Last Available: "2025-03"
 # crappy camera: Makes a copy of a monster to fight later
 # crappy camera: (when it works)
 Item	crappy camera	Last Available: "2014-12"
+Item	crate of prize-winning cheese	No Pull, Last Available: "2025-12"
+Item	crate of prize-winning rum	No Pull, Last Available: "2025-12"
 # crayon shavings: Weakens enemies by 30%
 Item	crayon shavings	Last Available: "2012-06"
 # crazy hobo notebook: Deals <font color=gray>Spooky Damage</font> every round to every monster you fight today in the zone where you used it
@@ -12743,6 +12885,8 @@ Item	croquet hedgehog	Last Available: "2010-03"
 # crude voodoo doll: Makes an enemy smaller than you
 Item	crumbling rat skull	Class: "Pastamancer"
 Item	crushed steamer trunk	Last Available: "2017-01"
+Item	Crymbocurrency	Last Available: "2025-12"
+Item	Crymbocurrency tattoo	Last Available: "2025-12"
 # crystal skull: Banishes a monster for a while
 Item	crystal skull	Last Available: "2011-09"
 Item	crystalline cheer	Last Available: "2017-12"
@@ -12865,6 +13009,7 @@ Item	Dinsey tattoo kit	Last Available: "2015-04"
 # discarded button: Absorb it for a useful skill!
 Item	disconnected intergnat	Free Pull, Last Available: "2016-05"
 Item	Discontent&trade; Winter Garden Catalog	Free Pull, Last Available: "2014-01"
+Item	discreetly-wrapped Eternity Codpiece	Free Pull, Last Available: "2026-12"
 # disease: Weakens enemies very slightly
 Item	Disgeist	Last Available: "2018-03"
 Item	Dish of Clarified Butter	Last Available: "2018-05"
@@ -12928,7 +13073,7 @@ Item	E.M.U. rocket thrusters	Last Available: "2011-06"
 Item	eaves droppers	Last Available: "2018-02"
 Item	eggman noodles	Last Available: "2010-03"
 # Egnaro berry: Restores MP and energizes you for a while
-Item	Egnaro berry	Last Available: "2018-03"
+Item	Egnaro berry	Effect: "Berry Experiential", Effect Duration: 20, Last Available: "2018-03"
 Item	El Vibrato punchcard (ATTACK)	Wiki Name: "El Vibrato punchcard (115 holes)"
 Item	El Vibrato punchcard (BUFF)	Wiki Name: "El Vibrato punchcard (129 holes)"
 Item	El Vibrato punchcard (BUILD)	Wiki Name: "El Vibrato punchcard (165 holes)"
@@ -13246,7 +13391,7 @@ Item	glowing frisbee	Free Pull, Last Available: "2011-12"
 Item	glowing New Age crystal	Last Available: "2015-08"
 # glowing spore pod: Briefly enhances your Mysticality
 # Glum berry: Removes negative effects and energizes you for a while
-Item	Glum berry	Last Available: "2018-03"
+Item	Glum berry	Effect: "Berry Experiential", Effect Duration: 20, Last Available: "2018-03"
 Item	gluttonous stone	Last Available: "2012-12"
 Item	gnashing teeth	Last Available: "2008-12"
 # Gnomitronic Hyperspatial Demodulizer: Science!
@@ -13525,7 +13670,7 @@ Item	Jackass Plumber home game	Last Available: "2011-11", Effect: "Gamer Rage", 
 Item	jam band bootleg	Last Available: "2018-09"
 # jam band flyers: Advertise!
 # Jamocha berry: Grants passive physical damage and energizes you for a while
-Item	Jamocha berry	Last Available: "2018-03", Effect: "Berry Thorny", Effect Duration: 20
+Item	Jamocha berry	Last Available: "2018-03", Effect: "Berry Thorny", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	jangly spurs	Last Available: "2016-02"
 # janitor sponge: Deals 20-30 <font color=green>Stench Damage</font> and briefly stuns your opponent
 # January's Garbage Tote: Allows you to rummage up Holiday Detritus
@@ -13558,7 +13703,7 @@ Item	jug of Sneaky Pete's Mojo	Free Pull
 Item	juggling ball	Last Available: "2014-12"
 # Junk-Bond: Weakens enemies somewhat and briefly stuns them
 # Keese berry: Improves your defenses and energizes you for a while
-Item	Keese berry	Last Available: "2018-03", Effect: "Berry Defensive", Effect Duration: 20
+Item	Keese berry	Last Available: "2018-03", Effect: "Berry Defensive", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	kerosene-soaked skip	Free Pull, Last Available: "2018-12"
 Item	kevlateflocite helmet	Last Available: "2007-12"
 Item	keycard &alpha;	Last Available: "2015-04"
@@ -13587,6 +13732,7 @@ Item	Kokomo Resort Order Pad	Last Available: "2015-04"
 Item	KoLHS Pep Squad Box	Free Pull, Last Available: "2013-09"
 Item	Kramco Industries packing carton	Free Pull, Last Available: "2019-01"
 Item	kumquartz	Last Available: "2011-11"
+Item	lab-grown blood cubic zirconia	Free Pull, Last Available: "2025-10"
 Item	Lapis Lazuli	Last Available: "2023-06"
 Item	large pile of sand	Last Available: "2019-07"
 Item	LARP membership card	Last Available: "2008-10"
@@ -13831,6 +13977,7 @@ Item	Merc Core challenge coin	Last Available: "2014-10"
 Item	Merc Core deployment orders	Last Available: "2014-10"
 Item	Merc Core Field Manual: Intimidation Techniques	Skill: "Intimidating Mien", Last Available: "2014-10"
 Item	Merc Core Field Manual: Sanity Maintenance	Skill: "Hypersane", Last Available: "2014-10"
+Item	messenger parrot egg	Last Available: "2025-12"
 # metal meteoroid: Can be shaped into various pieces of equipment
 Item	metal meteoroid	Last Available: "2017-08"
 # metandienone: Increase a Pokefamiliar's power by 1
@@ -13858,6 +14005,7 @@ Item	Mini-Crimbot crate	Last Available: "2014-12"
 # miniature boiler: Deals 20-40 Physical Damage
 # miniature Embering Hulk: Fight an Embering Hulk
 Item	miniature Embering Hulk	Last Available: "2024-09"
+Item	miniature sleigh	Familiar Weight: +10
 # Miniborg beeper: Deals 20-25 Physical Damage and hurts you a little bit
 # Miniborg beeper: (doesn't go away when used)
 Item	Miniborg beeper	Last Available: "2007-12"
@@ -13956,7 +14104,7 @@ Item	mysterious present	Last Available: "2011-04"
 # Mysterious Red Box: Can only be opened on February 29
 Item	Mysterious Red Box	Last Available: "2018-02"
 # Nadsat berry: Improves critical hit chance and energizes you for a while (also gives Berry Experiential)
-Item	Nadsat berry	Last Available: "2018-03", Effect: "Berry Critical", Effect Duration: 20
+Item	Nadsat berry	Last Available: "2018-03", Effect: "Berry Critical", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	nanofiber cloth	Last Available: "2007-12"
 # Nardz energy beverage: Restores 50-70 MP
 Item	nasty desk bell	Last Available: "2020-09"
@@ -14555,6 +14703,7 @@ Item	Scurvy and Sobriety Prevention	Skill: "Prevent Scurvy and Sobriety", Last A
 # seal tooth: Deals 1 Physical Damage
 Item	seal tooth	Effect: "Bloody Hand", Effect Duration: 3
 Item	seal-blubber candle	Class: "Seal Clubber"
+Item	seal-clubbing club loot box	Free Pull, Last Available: "2026-01"
 Item	Sealed TakerSpace letter of Marque	Free Pull, Last Available: "2024-12"
 # sealhide snare: Stuns your opponent for a few rounds
 Item	secret from the future	Last Available: "2009-06"
@@ -14588,6 +14737,16 @@ Item	shadowy cheat sheet	Free Pull
 Item	shaker of dry rub	Last Available: "2014-06"
 Item	shaking crappy camera	Last Available: "2014-12"
 Item	shaking skull	No Pull
+Item	Shanty: I'm Smarter Than a Drunken Sailor	Skill: "I'm Smarter Than a Drunken Sailor", Last Available: "2025-12"
+Item	Shanty: I'm Smarter Than a Drunken Sailor (used)	Skill: "I'm Smarter Than a Drunken Sailor", Last Available: "2025-12"
+Item	Shanty: Let's Beat Up This Drunken Sailor	Skill: "Let's Beat Up This Drunken Sailor", Last Available: "2025-12"
+Item	Shanty: Let's Beat Up This Drunken Sailor (used)	Skill: "Let's Beat Up This Drunken Sailor", Last Available: "2025-12"
+Item	Shanty: Look At That Drunken Sailor Dance	Skill: "Look At That Drunken Sailor Dance", Last Available: "2025-12"
+Item	Shanty: Look At That Drunken Sailor Dance (used)	Skill: "Look At That Drunken Sailor Dance", Last Available: "2025-12"
+Item	Shanty: Only Dogs Love a Drunken Sailor	Skill: "Only Dogs Love a Drunken Sailor", Last Available: "2025-12"
+Item	Shanty: Only Dogs Love a Drunken Sailor (used)	Skill: "Only Dogs Love a Drunken Sailor", Last Available: "2025-12"
+Item	Shanty: Who's Going to Pay This Drunken Sailor?	Skill: "Who's Going to Pay This Drunken Sailor?", Last Available: "2025-12"
+Item	Shanty: Who's Going to Pay This Drunken Sailor? (used)	Skill: "Who's Going to Pay This Drunken Sailor?", Last Available: "2025-12"
 # shard of double-ice: Deals <font color=blue>Cold Damage</font> based on your highest stat
 # shard of double-ice: (and leaves the monster permanently cold)
 Item	shard of double-ice	Last Available: "2011-04"
@@ -14607,6 +14766,7 @@ Item	shrine to the Barrel god	Free Pull, Last Available: "2015-09"
 Item	shrink-wrapped 2002 Mr. Store Catalog	Free Pull, Last Available: "2023-06"
 Item	shrink-wrapped Cincho de Mayo	Free Pull, Last Available: "2023-05"
 # shrinking powder: Reduce an enemy's size (Hit Points) by 35-50%
+Item	shrunken head in a duffel bag	Free Pull, Last Available: "2025-11"
 Item	Shudder	Last Available: "2018-03"
 Item	shuddering cow skull	Last Available: "2016-02"
 # shuriken salad: Deals 25-35 Physical Damage, 25-35 <font color=blue>Cold Damage</font> and 25-35 <font color=green>Stench Damage</font>
@@ -14652,7 +14812,7 @@ Item	silver shotgun shell	Last Available: "2011-10"
 Item	Single Alice's Army Foil	Last Available: "2011-03"
 Item	sinistral homunculus	Free Pull, Last Available: "2020-04"
 # Sitrep berry: Restores HP and energizes you for a while
-Item	Sitrep berry	Last Available: "2018-03"
+Item	Sitrep berry	Effect: "Berry Experiential", Effect Duration: 20, Last Available: "2018-03"
 Item	sizzling desk bell	Last Available: "2020-09"
 # skate skates: Deals 150-300 Physical Damage and briefly stuns your opponent
 # skeletal skiff: <b>Allows Travel to The Mysterious Island of Mystery</b>
@@ -14662,6 +14822,7 @@ Item	skeleton	Last Available: "2012-10"
 Item	skewered cherry	Last Available: "2004-12"
 Item	skewered jumbo olive	Last Available: "2004-12"
 Item	skewered lime	Last Available: "2004-12"
+Item	Skull of Claus	Last Available: "2025-12"
 # skull with a fuse in it: Deals 400-500 Physical Damage
 Item	skull with a fuse in it	Last Available: "2011-09"
 Item	skulldozer egg	Last Available: "2012-10"
@@ -14691,19 +14852,21 @@ Item	small Crimbo Pressie	Last Available: "2004-12"
 # small golem: Deals Physical Damage each round for the rest of the fight
 Item	small golem	Last Available: "2014-12"
 Item	Small Medium	Free Pull, Last Available: "2012-03"
+# small peppermint-flavored sugar walking crook: Find more knucklebones
 Item	small pile of sand	Last Available: "2019-07"
 Item	Smashmoth	Last Available: "2018-03"
 # smoke grenade: Banishes a monster for a while
 # smoking grass: Deals 250-300 <font color=red>Hot Damage</font> and also, like, weakens enemies a bunch and briefly makes them forget what they were doing
 Item	smoking grass	Last Available: "2012-07"
 Item	smoking talon	Class: "Pastamancer"
+Item	smoldering bone dust	Last Available: "2025-12"
 # SMOOCH bottlecap: It's a collector's item!
 Item	SMOOCH bottlecap	Last Available: "2020-09"
 # smooth stone sphere: Mysterious, Deprecated
 # snake oil: Increase the venom and medicine level of your briefcase full of snakes
 Item	snake skin	Last Available: "2018-11"
 # Snarf berry: Increases your stats and energizes you for a while
-Item	Snarf berry	Last Available: "2018-03", Effect: "Berry Statistical", Effect Duration: 20
+Item	Snarf berry	Last Available: "2018-03", Effect: "Berry Statistical", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 # sneaky wrapping paper: Hide gifts for other players in various locations
 Item	sneaky wrapping paper	Last Available: "2014-12"
 Item	Snoutlet	Last Available: "2018-03"
@@ -14867,6 +15030,7 @@ Item	stick-on-a-string	Last Available: "2006-12"
 Item	still grill	Free Pull, Last Available: "2014-06"
 Item	stinky cheese ball	Last Available: "2010-01"
 Item	Stock Certificate	Last Available: "2025-08"
+Item	stocking full of bones	Free Pull, Last Available: "2025-12"
 Item	stomach churner	Sleaze Damage: +10, Sleaze Spell Damage: +10
 # stone frisbee: Deals 80-100 Physical Damage
 Item	Stooper	Last Available: "2018-03"
@@ -14949,7 +15113,7 @@ Item	talisman of Seshat	Free Pull
 Item	talking spade	Free Pull
 # tangle of rat tails: Deals 50-70 <font color=blueviolet>Sleaze Damage</font> and 100-120 <font color=green>Stench Damage</font>
 # Tapioc berry: Grants elemental resistance and energizes you for a while
-Item	Tapioc berry	Last Available: "2018-03", Effect: "Berry Elemental", Effect Duration: 20
+Item	Tapioc berry	Last Available: "2018-03", Effect: "Berry Elemental", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	tarnished luggage key	Last Available: "2017-01"
 Item	tasty louse	Last Available: "2008-06"
 # tattered scrap of paper: Lets you escape from combat without spending an Adventure
@@ -14985,6 +15149,8 @@ Item	The Emperor's dry cleaning	Last Available: "2015-07"
 # The Emperor's new cookie: So delicious!
 Item	The Encyclopedia of Fruit	Skill: "Fruit Recognition", Last Available: "2023-12"
 Item	The Encyclopedia of Fruit (used)	Skill: "Fruit Recognition", Last Available: "2023-12"
+Item	The Encyclopedia of Holiday Funerary Rites	Skill: "Holiday Burial Knowledge", Last Available: "2025-12"
+Item	The Encyclopedia of Holiday Funerary Rites (used)	Skill: "Holiday Burial Knowledge", Last Available: "2025-12"
 Item	the finger	Last Available: "2011-04"
 # The Fingernail of the Thing in the Basement: Jeremy Science will be interested in this
 Item	The Firegate Tapes	Skill: "Firegate", Last Available: "2015-08"
@@ -15230,6 +15396,8 @@ Item	viscous lava globs	Last Available: "2015-08"
 Item	Vivian's Vitamin	Last Available: "2012-12"
 # void stone: I'm sure it's safe to just sell it
 Item	void stone	Last Available: "2022-12"
+# volatile bone bomb: Deals 100 damage, except against skeletons, in which case it's like a billion damage
+Item	volatile bone bomb	Last Available: "2025-12"
 # Volcoino: Spend it at the Towering Inferno Discotheque's Gift Shop
 Item	Volcoino	Last Available: "2015-08"
 Item	voter registration form	Free Pull, Last Available: "2018-11"
@@ -15495,16 +15663,16 @@ BoomBox	Total Eclipse of Your Meat	Meat Drop: +30
 # Retrocape
 RetroCape	vampire hold	Muscle Percent: 30, Maximum HP: +50, Cold Resistance: 3, Hot Resistance: 3, Sleaze Resistance: 3, Spooky Resistance: 3, Stench Resistance: 3
 RetroCape	vampire thrill	Muscle Percent: 30, Maximum HP: +50, Experience (Muscle): 3
-RetroCape	vampire kiss	Muscle Percent: 30, Maximum HP: +50
-RetroCape	vampire kill	Muscle Percent: 30, Maximum HP: +50
+RetroCape	vampire kiss	Muscle Percent: 30, Maximum HP: +50, Conditional Skill (Equipped): "Smooch of the Daywalker"
+RetroCape	vampire kill	Muscle Percent: 30, Maximum HP: +50, Conditional Skill (Equipped): "Slay the Dead"
 RetroCape	heck hold	Mysticality Percent: 30, Maximum MP: +50
 RetroCape	heck thrill	Mysticality Percent: 30, Maximum MP: +50, Experience (Mysticality): 3
-RetroCape	heck kiss	Mysticality Percent: 30, Maximum MP: +50
+RetroCape	heck kiss	Mysticality Percent: 30, Maximum MP: +50, Conditional Skill (Equipped): "Unleash the Devil's Kiss"
 RetroCape	heck kill	Mysticality Percent: 30, Maximum MP: +50, Lantern: 1, Lantern Element: "Spooky"
-RetroCape	robot hold	Moxie Percent: 30, Maximum HP: +25, Maximum MP: +25
+RetroCape	robot hold	Moxie Percent: 30, Maximum HP: +25, Maximum MP: +25, Conditional Skill (Equipped): "Deploy Robo-Handcuffs"
 RetroCape	robot thrill	Moxie Percent: 30, Maximum HP: +25, Maximum MP: +25, Experience (Moxie): 3
-RetroCape	robot kiss	Moxie Percent: 30, Maximum HP: +25, Maximum MP: +25
-RetroCape	robot kill	Moxie Percent: 30, Maximum HP: +25, Maximum MP: +25
+RetroCape	robot kiss	Moxie Percent: 30, Maximum HP: +25, Maximum MP: +25, Conditional Skill (Equipped): "Blow a Robo-Kiss"
+RetroCape	robot kill	Moxie Percent: 30, Maximum HP: +25, Maximum MP: +25, Conditional Skill (Equipped): "Precision Shot"
 
 # Backup Camera
 BackupCamera	ml	Monster Level: [min(3*L,50)]
@@ -15521,10 +15689,10 @@ UnbreakableUmbrella	cocoon	Combat Rate: -10
 
 # Jurassic Parka
 JurassicParka	ghostasaurus	Spooky Resistance: +2, Damage Reduction: 10, Maximum MP: 50
-JurassicParka	dilophosaur	Stench Resistance: +2, Sleaze Spell Damage: +20, Sleaze Damage: +20
+JurassicParka	dilophosaur	Stench Resistance: +2, Sleaze Spell Damage: +20, Sleaze Damage: +20, Conditional Skill (Equipped): "Spit jurassic acid"
 JurassicParka	pterodactyl	Hot Resistance: +2, Combat Rate: -5, Initiative: 50
 JurassicParka	kachungasaur	Cold Resistance: +2, Maximum HP Percent: +100, Meat Drop: +50
-JurassicParka	spikolodon	Sleaze Resistance: +2, Monster Level: [min(L,11)*3]
+JurassicParka	spikolodon	Sleaze Resistance: +2, Monster Level: [min(L,11)*3], Conditional Skill (Equipped): "Launch spikolodon spikes"
 
 # LED candle
 LedCandle	disco	Fairy: 1.5
@@ -15633,3 +15801,78 @@ RobotCPU	robot_resist	Cold Resistance: +2, Hot Resistance: +2, Sleaze Resistance
 RobotCPU	robot_items	Item Drop: +20
 RobotCPU	robot_energy	Energy: +1
 RobotCPU	robot_hp2	Maximum HP: +30
+
+# Eternity Codpiece
+
+EternityCodpiece	18-picohertz resonator crystal	Cold Damage: +5, Cold Spell Damage: +5
+EternityCodpiece	alien gemstone	Experience (Muscle): +1
+EternityCodpiece	angry agate	PvP Fights: +1
+EternityCodpiece	autumn years wisdom	Experience (Mysticality): +1
+EternityCodpiece	Azurite	Sleaze Damage: +10
+EternityCodpiece	baconstone	Mysticality Percent: +11
+EternityCodpiece	bananagate	Stench Spell Damage: +10
+EternityCodpiece	barrel beryl	Booze Drop: +20
+EternityCodpiece	beach ball marble	Initiative: +9
+EternityCodpiece	beige clambroth marble	Initiative: +7
+EternityCodpiece	big bumboozer marble	Initiative: +11
+EternityCodpiece	black catseye marble	Initiative: +10
+EternityCodpiece	blood cubic zirconia	Spooky Resistance: +3, Spooky Damage: +5, Conditional Skill (Equipped): "BCZ: Blood Geyser", Conditional Skill (Equipped): "BCZ: Refracted Gaze", Conditional Skill (Equipped): "BCZ: Sweat Bullets", Conditional Skill (Equipped): "BCZ: Blood Bath", Conditional Skill (Equipped): "BCZ: Dial it up to 11", Conditional Skill (Equipped): "BCZ: Sweat Equity", Conditional Skill (Equipped): "BCZ: Create Blood Thinner", Conditional Skill (Equipped): "BCZ: Prepare Spinal Tapas", Conditional Skill (Equipped): "BCZ: Craft a Pheromone Cocktail"
+EternityCodpiece	BRICKO pearl	Candy Drop: +20
+EternityCodpiece	brown crock marble	Initiative: +2
+EternityCodpiece	bumblebee marble	Initiative: +5
+EternityCodpiece	chlorine crystal	Stench Damage: +5, Stench Spell Damage: +5
+EternityCodpiece	control crystal	Mysticality: +5
+EternityCodpiece	crystalline cheer	Sleaze Damage: +5, Sleaze Spell Damage: +5
+EternityCodpiece	crystalline seal eye	Damage vs. Seals: +25
+EternityCodpiece	crystallized memory	Muscle: +5
+EternityCodpiece	crystallized pumpkin spice	Food Drop: +20
+EternityCodpiece	cubic zirconia	Maximum MP Percent: +10
+EternityCodpiece	effluvious emerald	Stench Resistance: +2
+EternityCodpiece	Eye Agate	Damage vs. Zombies: +25
+EternityCodpiece	eye of the Tiger-lily	Spell Damage Percent: +10
+EternityCodpiece	floaty inverse geode	Moxie: +5
+EternityCodpiece	giant pearl	Pool Skill: +1
+EternityCodpiece	glacial sapphire	Cold Resistance: +2
+EternityCodpiece	glimmering golden crystal	Experience (familiar): +1
+EternityCodpiece	glowing new age crystal	MP Regen Min: 5, MP Regen Max: 10
+EternityCodpiece	green peawee marble	Initiative: +1
+EternityCodpiece	hamethyst	Muscle Percent: +11
+EternityCodpiece	heart of the volcano	Hot Damage: +5, Hot Spell Damage: +5
+EternityCodpiece	Heartstone	Familiar Weight: +5, Conditional Skill (Equipped): "Steal Monster's Heart", Conditional Skill (Equipped): "Heartstone: %kill", Conditional Skill (Equipped): "Heartstone: %banish", Conditional Skill (Equipped): "Heartstone: %stun", Conditional Skill (Equipped): "Heartstone: %luck", Conditional Skill (Equipped): "Heartstone: %pals", Conditional Skill (Equipped): "Heartstone: %buff"
+EternityCodpiece	incredibly dense meat gem	Meat Drop: +30
+EternityCodpiece	jet bennie marble	Initiative: +6
+EternityCodpiece	kumquartz	Cold Spell Damage: +10
+EternityCodpiece	Lapis Lazuli	Stench Damage: +10
+EternityCodpiece	lemonade marble	Initiative: +4
+EternityCodpiece	lump of diamond	Damage Reduction: +5
+EternityCodpiece	lunar isotope	Pickpocket Chance: +10
+EternityCodpiece	marine aquamarine	Fishing Skill: +5
+EternityCodpiece	massive gemstone	Item Drop: +10
+EternityCodpiece	moon-amber	Damage vs. Ghosts: +25
+EternityCodpiece	New Age healing crystal	HP Regen Min: 10, HP Regen Max: 20
+EternityCodpiece	New Age hurting crystal	Familiar Damage: +10
+EternityCodpiece	pearidot	Sleaze Spell Damage: +10
+EternityCodpiece	Peridot of Peril	Maximum HP: +20, Maximum MP: +20
+EternityCodpiece	polished moon-amber	Damage vs. Werewolves: +25
+EternityCodpiece	porquoise	Moxie Percent: +11
+EternityCodpiece	priceless diamond	Damage Absorption: +10
+EternityCodpiece	rainbow pearl	Hot Damage: +5, Cold Damage: +5, Stench Damage: +5, Spooky Damage: +5, Sleaze Damage: +5
+EternityCodpiece	red China marble	Initiative: +3
+EternityCodpiece	rhinestone	Experience (Moxie): +1
+EternityCodpiece	Rubee™	Hot Damage: +10
+EternityCodpiece	shadow glass	Spooky Damage: +10
+EternityCodpiece	shard of double-ice	Cold Damage: +10
+EternityCodpiece	solid gold jewel	Maximum HP Percent: +20
+EternityCodpiece	steamy ruby	Hot Resistance: +2
+EternityCodpiece	steely marble	Initiative: +8
+EternityCodpiece	stone of eXtreme power	Muscle: +3, Mysticality: +3, Moxie: +3
+EternityCodpiece	strawberyl	Hot Spell Damage: +10
+EternityCodpiece	tawdry amethyst	Sleaze Resistance: +2
+EternityCodpiece	torquoise	Weapon Damage Percent: +10
+EternityCodpiece	tourmalime	Spooky Spell Damage: +10
+EternityCodpiece	Tuesday's ruby	Monster Level: +5
+EternityCodpiece	unblemished pearl	Adventures: +1
+EternityCodpiece	unearthly onyx	Spooky Resistance: +2
+EternityCodpiece	vampire pearl	Damage vs. Vampires: +25
+EternityCodpiece	void stone	Spooky Damage: +5, Spooky Spell Damage: +5
+EternityCodpiece	Xiblaxian crystal	Damage vs. Bugbears: +25

@@ -74,7 +74,6 @@ import net.sourceforge.kolmafia.persistence.SkillDatabase;
 import net.sourceforge.kolmafia.preferences.Preferences;
 import net.sourceforge.kolmafia.request.FamTeamRequest.PokeBoost;
 import net.sourceforge.kolmafia.request.coinmaster.BountyHunterHunterRequest;
-import net.sourceforge.kolmafia.request.concoction.shop.KOLHSRequest;
 import net.sourceforge.kolmafia.session.AutumnatonManager;
 import net.sourceforge.kolmafia.session.BanishManager;
 import net.sourceforge.kolmafia.session.BanishManager.Banisher;
@@ -1221,7 +1220,8 @@ public class FightRequest extends GenericRequest {
 
     if (FightRequest.nextAction.contains("steal")
         && !FightRequest.nextAction.contains("stealth")
-        && !FightRequest.nextAction.contains("accordion")) {
+        && !FightRequest.nextAction.contains("accordion")
+        && !FightRequest.nextAction.contains("heart")) {
       if (FightRequest.canStillSteal() && MonsterStatusTracker.shouldSteal()) {
         FightRequest.nextAction = "steal";
         this.addFormField("action", "steal");
@@ -1824,6 +1824,9 @@ public class FightRequest extends GenericRequest {
     FightRequest.parseCombatItems(responseText);
     FightRequest.parseAvailableCombatSkills(responseText);
 
+    // Report combat round to spading manager
+    SpadingManager.processCombatRound(MonsterStatusTracker.getLastMonsterName(), responseText);
+
     // Now that we have processed the page, generated the decorated HTML
     FightRequest.lastDecoratedResponseText =
         RequestEditorKit.getFeatureRichHTML("fight.php", responseText);
@@ -2195,8 +2198,8 @@ public class FightRequest extends GenericRequest {
             Preferences.setInteger("_lastDailyDungeonRoom", round - 1);
           }
         }
-        case AdventurePool.WARBEAR_FORTRESS_LEVEL_THREE -> ResultProcessor.processItem(
-            ItemPool.WARBEAR_BADGE, -1);
+        case AdventurePool.WARBEAR_FORTRESS_LEVEL_THREE ->
+            ResultProcessor.processItem(ItemPool.WARBEAR_BADGE, -1);
         case AdventurePool.SHADOW_RIFT -> {
           Preferences.increment("_shadowRiftCombats");
           MonsterStatusTracker.recalculateOriginalStats();
@@ -2310,6 +2313,12 @@ public class FightRequest extends GenericRequest {
         TurnCounter.stopCounting("Spooky VHS Tape unknown monster window begin");
         TurnCounter.stopCounting("Spooky VHS Tape unknown monster window end");
         Preferences.setString("spookyVHSTapeMonster", "");
+      } else if (EncounterManager.isClubEmNextWeekMonster(responseText, true)) {
+        EncounterManager.ignoreSpecialMonsters();
+        TurnCounter.stopCounting("Club 'Em Into Next Week Monster");
+        TurnCounter.stopCounting("Club 'Em Into Next Week unknown monster window begin");
+        TurnCounter.stopCounting("Club 'Em Into Next Week unknown monster window end");
+        Preferences.setString("clubEmNextWeekMonster", "");
       } else if (EncounterManager.isMimeographEncounter(responseText)) {
         EncounterManager.ignoreSpecialMonsters();
       } else if (LocketManager.isLocketFight(responseText)) {
@@ -2394,11 +2403,11 @@ public class FightRequest extends GenericRequest {
             }
           }
           case FAMILY_OF_KOBOLDS ->
-          // Remove 100 D4's from inventory
-          ResultProcessor.processItem(ItemPool.D4, -100);
+              // Remove 100 D4's from inventory
+              ResultProcessor.processItem(ItemPool.D4, -100);
           case GLITCH_MONSTER ->
-          // This appears to be NOCOPY.
-          Preferences.increment("_glitchMonsterFights", 1);
+              // This appears to be NOCOPY.
+              Preferences.increment("_glitchMonsterFights", 1);
           case SAUSAGE_GOBLIN -> {
             if (!EncounterManager.ignoreSpecialMonsters) {
               Preferences.increment("_sausageFights");
@@ -2565,9 +2574,6 @@ public class FightRequest extends GenericRequest {
 
     // Perform other processing for the final round
     FightRequest.updateRoundData(macroMatcher);
-
-    // Report combat round to spading manager
-    SpadingManager.processCombatRound(MonsterStatusTracker.getLastMonsterName(), responseText);
 
     if (responseText.contains("Macro Abort")
         || responseText.contains("Macro abort")
@@ -3021,7 +3027,8 @@ public class FightRequest extends GenericRequest {
     switch (KoLAdventure.lastAdventureId()) {
       case AdventurePool.FRAT_UNIFORM_BATTLEFIELD,
           AdventurePool.HIPPY_UNIFORM_BATTLEFIELD,
-          AdventurePool.EXPLOADED_BATTLEFIELD -> IslandManager.handleBattlefield(responseText);
+          AdventurePool.EXPLOADED_BATTLEFIELD ->
+          IslandManager.handleBattlefield(responseText);
       case AdventurePool.HOBOPOLIS_TOWN_SQUARE -> HobopolisDecorator.handleTownSquare(responseText);
     }
 
@@ -3093,7 +3100,7 @@ public class FightRequest extends GenericRequest {
     if (responseText.contains("The mulled wine you drank") && KoLCharacter.getCurrentHP() > 0) {
       Preferences.decrement("getsYouDrunkTurnsLeft", 1, 1);
     } else if (garbledCombat) {
-      Preferences.decrement("ghostPepperTurnsLeft", 1, 0);
+      Preferences.decrement("getsYouDrunkTurnsLeft", 1, 0);
     } else {
       Preferences.setInteger("getsYouDrunkTurnsLeft", 0);
     }
@@ -3439,7 +3446,7 @@ public class FightRequest extends GenericRequest {
 
     int adventure = KoLAdventure.lastAdventureId();
 
-    if (KOLHSRequest.isKOLHSLocation(adventure)) {
+    if (isKOLHSLocation(adventure)) {
       Preferences.increment("_kolhsAdventures", 1);
     }
 
@@ -3542,6 +3549,14 @@ public class FightRequest extends GenericRequest {
         Preferences.setInteger("_speakeasyFreeFights", 3);
       } else if (free) {
         Preferences.increment("_speakeasyFreeFights", 1, 3, false);
+      }
+    }
+
+    if (!Preferences.getBoolean("_mobiusRingPrimed")) {
+      // ring is primed on completion of any combat, win or lose
+      if (KoLCharacter.hasEquipped(ItemPool.MOBIUS_RING)) {
+        Preferences.setBoolean("_mobiusRingPrimed", true);
+        Preferences.setInteger("_mobiusRingPrimedTurn", KoLCharacter.getTurnsPlayed());
       }
     }
 
@@ -4003,8 +4018,8 @@ public class FightRequest extends GenericRequest {
         case FamiliarPool.ROCKIN_ROBIN -> Preferences.increment("rockinRobinProgress");
         case FamiliarPool.CANDLE -> Preferences.increment("optimisticCandleProgress");
         case FamiliarPool.GARBAGE_FIRE -> Preferences.increment("garbageFireProgress");
-        case FamiliarPool.PUCK_MAN, FamiliarPool.MS_PUCK_MAN -> Preferences.increment(
-            "powerPillProgress");
+        case FamiliarPool.PUCK_MAN, FamiliarPool.MS_PUCK_MAN ->
+            Preferences.increment("powerPillProgress");
         case FamiliarPool.ROBORTENDER -> {
           for (String s : ROBORTENDER_DROP_MESSAGES) {
             if (!responseText.contains(s)) continue;
@@ -4293,8 +4308,8 @@ public class FightRequest extends GenericRequest {
       switch (monsterName) {
         case "black pudding" -> Preferences.increment("blackPuddingsDefeated", 1);
         case "general seal" -> ResultProcessor.removeItem(ItemPool.ABYSSAL_BATTLE_PLANS);
-        case "Frank &quot;Skipper&quot; Dan, the Accordion Lord" -> ResultProcessor.removeItem(
-            ItemPool.SUSPICIOUS_ADDRESS);
+        case "Frank &quot;Skipper&quot; Dan, the Accordion Lord" ->
+            ResultProcessor.removeItem(ItemPool.SUSPICIOUS_ADDRESS);
         case "Chef Boy, R&amp;D" -> ResultProcessor.removeItem(ItemPool.CHEF_BOY_BUSINESS_CARD);
         case "drunk pygmy" -> {
           if (responseText.contains("notices the Bowl of Scorpions")) {
@@ -4326,8 +4341,8 @@ public class FightRequest extends GenericRequest {
           Preferences.setBoolean("pirateRealmUnlockedBreastplate", true);
           QuestDatabase.setQuestIfBetter(Quest.PIRATEREALM, 11);
         }
-        case "plastic pirate" -> Preferences.increment(
-            "pirateRealmPlasticPiratesDefeated", 1, 50, false);
+        case "plastic pirate" ->
+            Preferences.increment("pirateRealmPlasticPiratesDefeated", 1, 50, false);
         case "pirate radio" -> {
           Preferences.setBoolean("pirateRealmUnlockedRadioRing", true);
           QuestDatabase.setQuestIfBetter(Quest.PIRATEREALM, 16);
@@ -4365,6 +4380,12 @@ public class FightRequest extends GenericRequest {
             path.setPoints(11);
           }
         }
+        // When fighting a Ewe, all prior ewe item drops become unavailable
+        case "ewe" -> {
+          Preferences.setString("eweItem", "");
+        }
+        case "smoldering skeletal monstrosity" ->
+            Preferences.increment("_smolderingSkeletonsDefeated");
       }
 
       if (KoLCharacter.hasEquipped(ItemPool.BONE_ABACUS, Slot.OFFHAND)
@@ -4437,6 +4458,17 @@ public class FightRequest extends GenericRequest {
     if (FightRequest.inMultiFight && responseText.contains("The barrier between world")) {
       KoLAdventure.lastLocationName = "Eldritch Attunement";
     }
+  }
+
+  private static final boolean isKOLHSLocation(final int adventureId) {
+    return switch (adventureId) {
+      case AdventurePool.THE_HALLOWED_HALLS,
+          AdventurePool.SHOP_CLASS,
+          AdventurePool.CHEMISTRY_CLASS,
+          AdventurePool.ART_CLASS ->
+          true;
+      default -> false;
+    };
   }
 
   // <p>You see a strange cartouche painted on a nearby wall.<div style='position: relative;
@@ -4865,6 +4897,13 @@ public class FightRequest extends GenericRequest {
             && Preferences.getInteger("gladiatorBladeMovesKnown") + 7090 < skillId) {
           Preferences.setInteger("gladiatorBallMovesKnown", skillId - 7090);
         }
+      }
+      // If Heartstone skills present, they've been unlocked
+      switch (skillId) {
+        case SkillPool.HEARTSTONE_KILL -> Preferences.setBoolean("heartstoneKillUnlocked", true);
+        case SkillPool.HEARTSTONE_BANISH ->
+            Preferences.setBoolean("heartstoneBanishUnlocked", true);
+        case SkillPool.HEARTSTONE_STUN -> Preferences.setBoolean("heartstoneStunUnlocked", true);
       }
     }
   }
@@ -6515,7 +6554,6 @@ public class FightRequest extends GenericRequest {
   }
 
   private static void processChildren(final Element node, final TagStatus status) {
-    StringBuffer action = status.action;
     for (Node child : node.childNodes()) {
       if (child instanceof Comment object) {
         FightRequest.processComment(object, status);
@@ -6595,7 +6633,14 @@ public class FightRequest extends GenericRequest {
 
         if (str.startsWith("You notice a button on your doctor bag that you hadn't seen before")) {
           Preferences.setBoolean("_bloodBagDoctorBag", true);
-          FightRequest.logText(str);
+          FightRequest.logText(str, status);
+          continue;
+        }
+
+        if (str.startsWith("Your zombie has taken too much damage, and falls to pieces")) {
+          FightRequest.logText(str, status);
+          // refresh the charpane to get zombie details
+          RequestThread.postRequest(new CharPaneRequest());
           continue;
         }
 
@@ -6743,6 +6788,21 @@ public class FightRequest extends GenericRequest {
 
         int itemId = ItemDatabase.getItemIdFromDescription(m.group());
         AdventureResult result = ItemPool.get(itemId);
+
+        if (str.contains("A hated ewe appears")) {
+          FightRequest.logText("A hated ewe stole an item: " + result.getName(), status);
+          String newItem = String.valueOf(itemId);
+          String existing = Preferences.getString("eweItem");
+
+          if (existing == null || existing.isBlank()) {
+            // First item
+            Preferences.setString("eweItem", newItem);
+          } else {
+            // Append
+            Preferences.setString("eweItem", existing + "," + newItem);
+          }
+          return false;
+        }
 
         boolean autoEquip = str.contains("automatically equipped");
         String acquisition = autoEquip ? "You acquire and equip an item:" : "You acquire an item:";
@@ -7107,6 +7167,10 @@ public class FightRequest extends GenericRequest {
     }
 
     if (FightRequest.handleUnblemishedPearlProgress(node, status)) {
+      return;
+    }
+
+    if (FightRequest.handleShrunkenHeadZombieCreation(node, status)) {
       return;
     }
 
@@ -7690,6 +7754,33 @@ public class FightRequest extends GenericRequest {
     return true;
   }
 
+  private static final Pattern OFFHAND_SWAP_PATTERN =
+      Pattern.compile("You pick up your (.+) in your off-hand again");
+
+  private static boolean handleShrunkenHeadZombieCreation(Element node, TagStatus status) {
+    var text = node.wholeText();
+    if (text.startsWith("You toss your shrunken head at your foe")) {
+      FightRequest.logText(text, status);
+      var slot = EquipmentManager.discardEquipment(ItemPool.SHRUNKEN_HEAD);
+
+      if (slot == Slot.OFFHAND) {
+        var nextPara = node.nextElementSibling();
+        if (nextPara != null) {
+          Matcher matcher = OFFHAND_SWAP_PATTERN.matcher(nextPara.text());
+          if (matcher.find()) {
+            String itemName = matcher.group(1);
+            EquipmentManager.setEquipment(Slot.OFFHAND, ItemPool.get(itemName));
+          }
+        }
+      }
+
+      // refresh the charpane to get zombie details
+      RequestThread.postRequest(new CharPaneRequest());
+      return true;
+    }
+    return false;
+  }
+
   private static void handleVillainLairRadio(Element node, TagStatus status) {
     if (!KoLCharacter.inBondcore()) {
       return;
@@ -7708,7 +7799,7 @@ public class FightRequest extends GenericRequest {
   private static Set<Integer> getAdvancedResearchedMonsters() {
     String value = Preferences.getString("wereProfessorAdvancedResearch");
     Set<Integer> monsterIds =
-        Arrays.stream(value.split("\\s*,\\s*"))
+        Arrays.stream(StringUtilities.splitByComma(value))
             .filter(s -> !s.isEmpty())
             .map(Integer::valueOf)
             .filter(i -> i != 0)
@@ -9497,6 +9588,9 @@ public class FightRequest extends GenericRequest {
   private static final AdventureResult METEOR_SHOWERED =
       EffectPool.get(EffectPool.METEOR_SHOWERED, 1);
 
+  private static final Pattern STEAL_LETTER_PATTERN =
+      Pattern.compile("You rip the heart \\(([A-Z])\\) right out of your foe");
+
   private static void payActionCost(final String responseText) {
     // If we don't know what we tried, punt now.
     if (FightRequest.nextAction == null || FightRequest.nextAction.isEmpty()) {
@@ -9693,6 +9787,7 @@ public class FightRequest extends GenericRequest {
     // Number to increment daily limit prop (almost always 1)
     int increment = 1;
 
+    // skills in dailylimits.txt need to set skillSuccess = true in here to increment preferences
     switch (skillId) {
       case SkillPool.GOTHY_HANDWAVE -> NemesisDecorator.useGothyHandwave(monsterName, responseText);
       case SkillPool.VOLCANOMETEOR -> ResultProcessor.processItem(ItemPool.VOLCANIC_ASH, -1);
@@ -9751,8 +9846,8 @@ public class FightRequest extends GenericRequest {
           skillSuccess = true;
         }
       }
-      case SkillPool.VICIOUS_TALON_SLASH, SkillPool.WING_BUFFET -> Preferences.increment(
-          "birdformRoc", 1);
+      case SkillPool.VICIOUS_TALON_SLASH, SkillPool.WING_BUFFET ->
+          Preferences.increment("birdformRoc", 1);
       case SkillPool.TUNNEL_UP -> Preferences.increment("moleTunnelLevel", 1);
       case SkillPool.TUNNEL_DOWN -> Preferences.increment("moleTunnelLevel", -1);
       case SkillPool.RISE_FROM_YOUR_ASHES -> Preferences.increment("birdformHot", 1);
@@ -9760,13 +9855,12 @@ public class FightRequest extends GenericRequest {
       case SkillPool.STATUE_TREATMENT -> Preferences.increment("birdformStench", 1);
       case SkillPool.FEAST_ON_CARRION -> Preferences.increment("birdformSpooky", 1);
       case SkillPool.GIVE_OPPONENT_THE_BIRD -> Preferences.increment("birdformSleaze", 1);
-      case SkillPool.HOBO_JOKE -> addFightModifiers(
-          "Ask the hobo to tell you a joke", DoubleModifier.MEATDROP, 100);
-      case SkillPool.HOBO_DANCE -> addFightModifiers(
-          "Ask the hobo to dance for you", DoubleModifier.ITEMDROP, 100);
-      case SkillPool.BOXING_GLOVE_ARROW,
-          SkillPool.POISON_ARROW,
-          SkillPool.FINGERTRAP_ARROW -> skillSuccess = true;
+      case SkillPool.HOBO_JOKE ->
+          addFightModifiers("Ask the hobo to tell you a joke", DoubleModifier.MEATDROP, 100);
+      case SkillPool.HOBO_DANCE ->
+          addFightModifiers("Ask the hobo to dance for you", DoubleModifier.ITEMDROP, 100);
+      case SkillPool.BOXING_GLOVE_ARROW, SkillPool.POISON_ARROW, SkillPool.FINGERTRAP_ARROW ->
+          skillSuccess = true;
       case SkillPool.SQUEEZE_STRESS_BALL -> {
         singleCastsThisFight.add(skillId);
         skillSuccess = true;
@@ -9869,7 +9963,7 @@ public class FightRequest extends GenericRequest {
         }
       }
 
-        // Banishing Shout has lots of success messages.  Check for the failure message instead
+      // Banishing Shout has lots of success messages.  Check for the failure message instead
       case SkillPool.BANISHING_SHOUT -> {
         if (!responseText.contains("but this foe refuses")) {
           BanishManager.banishMonster(monster, Banisher.BANISHING_SHOUT);
@@ -9966,9 +10060,16 @@ public class FightRequest extends GenericRequest {
         }
       }
       case SkillPool.SEADENT_LIGHTNING -> {
-        if (responseText.contains("A bolt of lightning arcs out and burns your foe to ash.")
+        if (responseText.contains("A bolt of lightning arcs out and burns your foe")
             || skillSuccess) {
+          skillSuccess = true;
           BanishManager.banishMonster(monster, Banisher.SEADENT_LIGHTNING);
+        }
+      }
+      case SkillPool.MARK_YOUR_TERRITORY -> {
+        if (responseText.contains("spew a heaping helping of your pheromones") || skillSuccess) {
+          BanishManager.banishMonster(monster, Banisher.MARK_YOUR_TERRITORY);
+          Preferences.decrement("markYourTerritoryCharges");
         }
       }
       case SkillPool.POCKET_CRUMBS -> {
@@ -10071,28 +10172,28 @@ public class FightRequest extends GenericRequest {
         }
       }
 
-        // Casting Carbohydrate Cudgel uses Dry Noodles
+      // Casting Carbohydrate Cudgel uses Dry Noodles
       case SkillPool.CARBOHYDRATE_CUDGEL -> {
         if (responseText.contains("You toss a bundle") || skillSuccess) {
           ResultProcessor.processItem(ItemPool.DRY_NOODLES, -1);
         }
       }
 
-        // Casting Unload Tommy Gun uses Tommy Ammo
+      // Casting Unload Tommy Gun uses Tommy Ammo
       case SkillPool.UNLOAD_TOMMY_GUN -> {
         if (responseText.contains("firing the tommy gun") || skillSuccess) {
           ResultProcessor.processItem(ItemPool.TOMMY_AMMO, -1);
         }
       }
 
-        // Casting Shovel Hot Coal uses Hot Coal
+      // Casting Shovel Hot Coal uses Hot Coal
       case SkillPool.SHOVEL_HOT_COAL -> {
         if (responseText.contains("hot coal into the shovel") || skillSuccess) {
           ResultProcessor.processItem(ItemPool.HOT_COAL, -1);
         }
       }
 
-        // Casting Crackpot Mystic item spells uses a Pixel Power Cell
+      // Casting Crackpot Mystic item spells uses a Pixel Power Cell
       case SkillPool.RAGE_FLAME -> {
         if (responseText.contains("resulting torrent of flame") || skillSuccess) {
           ResultProcessor.processItem(ItemPool.PIXEL_POWER_CELL, -1);
@@ -10122,15 +10223,15 @@ public class FightRequest extends GenericRequest {
           skillSuccess = true;
         }
       }
-      case SkillPool.OVERLOAD_TEDDY_BEAR -> EquipmentManager.discardEquipment(
-          ItemPool.CUDDLY_TEDDY_BEAR);
-      case SkillPool.THROW_SKULL -> EquipmentManager.discardSpelunkyEquipment(
-          ItemPool.SPELUNKY_SKULL);
-      case SkillPool.THROW_ROCK -> EquipmentManager.discardSpelunkyEquipment(
-          ItemPool.SPELUNKY_ROCK);
+      case SkillPool.OVERLOAD_TEDDY_BEAR ->
+          EquipmentManager.discardEquipment(ItemPool.CUDDLY_TEDDY_BEAR);
+      case SkillPool.THROW_SKULL ->
+          EquipmentManager.discardSpelunkyEquipment(ItemPool.SPELUNKY_SKULL);
+      case SkillPool.THROW_ROCK ->
+          EquipmentManager.discardSpelunkyEquipment(ItemPool.SPELUNKY_ROCK);
       case SkillPool.THROW_POT -> EquipmentManager.discardSpelunkyEquipment(ItemPool.SPELUNKY_POT);
-      case SkillPool.THROW_TORCH -> EquipmentManager.discardSpelunkyEquipment(
-          ItemPool.SPELUNKY_TORCH);
+      case SkillPool.THROW_TORCH ->
+          EquipmentManager.discardSpelunkyEquipment(ItemPool.SPELUNKY_TORCH);
       case SkillPool.LASH_OF_COBRA -> {
         Preferences.setBoolean("edUsedLash", true);
         if (responseText.contains("You acquire an item") || skillSuccess) {
@@ -10138,7 +10239,7 @@ public class FightRequest extends GenericRequest {
         }
       }
 
-        // Casting Curse of Fortune uses Ka Coin
+      // Casting Curse of Fortune uses Ka Coin
       case SkillPool.CURSE_OF_FORTUNE -> {
         if (responseText.contains("Jackal demon shrugs and produces a large wad of meat")
             || skillSuccess) {
@@ -10253,9 +10354,10 @@ public class FightRequest extends GenericRequest {
         }
       }
       case SkillPool.MICROMETEOR ->
-      // Delevels by 25% initially, but decreases by 1% per use until reaching its minimum delevel
-      // of 10%.
-      Preferences.increment("_micrometeoriteUses");
+          // Delevels by 25% initially, but decreases by 1% per use until reaching its minimum
+          // delevel
+          // of 10%.
+          Preferences.increment("_micrometeoriteUses");
       case SkillPool.MACROMETEOR -> {
         if (responseText.contains("You quickly step") || skillSuccess) {
           skillSuccess = true;
@@ -10418,15 +10520,16 @@ public class FightRequest extends GenericRequest {
       }
       case SkillPool.HAMMER_THROW_COMBAT,
           SkillPool.JUGGLE_FIREBALLS_COMBAT,
-          SkillPool.SPIN_JUMP_COMBAT -> KoLCharacter.spendPP(1);
+          SkillPool.SPIN_JUMP_COMBAT ->
+          KoLCharacter.spendPP(1);
       case SkillPool.ULTRA_SMASH_COMBAT -> {
         if (responseText.contains("knock your opponent into tomorrow") || skillRunawaySuccess) {
           BanishManager.banishMonster(monster, Banisher.ULTRA_HAMMER);
         }
         KoLCharacter.spendPP(2);
       }
-      case SkillPool.FIREBALL_BARRAGE_COMBAT, SkillPool.MULTI_BOUNCE_COMBAT -> KoLCharacter.spendPP(
-          2);
+      case SkillPool.FIREBALL_BARRAGE_COMBAT, SkillPool.MULTI_BOUNCE_COMBAT ->
+          KoLCharacter.spendPP(2);
       case SkillPool.FEEL_NOSTALGIC -> {
         if (responseText.contains("really feeling nostalgic") || skillSuccess) {
           skillSuccess = true;
@@ -10651,16 +10754,16 @@ public class FightRequest extends GenericRequest {
         }
       }
       case SkillPool.JUNK_BLAST, SkillPool.SNIPE, SkillPool.JUNK_MACE_SMASH ->
-      // These skills consume 1 scrap per use
-      KoLCharacter.setYouRobotScraps(KoLCharacter.getYouRobotScraps() - 1);
+          // These skills consume 1 scrap per use
+          KoLCharacter.setYouRobotScraps(KoLCharacter.getYouRobotScraps() - 1);
       case SkillPool.TESLA_BLAST,
           SkillPool.BLOW_SNOW,
           SkillPool.SHOOT_GREASE,
           SkillPool.PROD,
           SkillPool.SOLENOID_SLAM,
           SkillPool.THROW_FLAME ->
-      // These skills consume 1 energy per use
-      KoLCharacter.setYouRobotEnergy(KoLCharacter.getYouRobotEnergy() - 1);
+          // These skills consume 1 energy per use
+          KoLCharacter.setYouRobotEnergy(KoLCharacter.getYouRobotEnergy() - 1);
       case SkillPool.LAUNCH_SPIKOLODON_SPIKES -> {
         if (responseText.contains("The spikolodon spikes both")) {
           Preferences.setBoolean("noncombatForcerActive", true);
@@ -10864,8 +10967,49 @@ public class FightRequest extends GenericRequest {
           Preferences.setString("_chainedAfterimageMonster", monsterName);
         }
       }
+      case SkillPool.BERET_BLAST -> {
+        if (responseText.contains("You focus your decades") || skillSuccess) {
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.BERET_BOAST -> {
+        if (responseText.contains("You brag about your beret until") || skillSuccess) {
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.TRY_TO_REMEMBER -> {
+        if (responseText.contains("You close your eyes and try") || skillSuccess) {
+          TrackManager.trackMonster(monster, Tracker.TRY_TO_REMEMBER);
+          Preferences.decrement("tryToRememberCharges");
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.BCZ__BLOOD_GEYSER -> {
+        if (responseText.contains("shoot blood out of your fingers")
+            || responseText.contains("flow of blood geysers")
+            || responseText.contains("shoot a stream of blood")
+            || skillSuccess) {
+          Preferences.increment("_bczBloodGeyserCasts");
+        }
+      }
+      case SkillPool.BCZ__REFRACTED_GAZE -> {
+        if (responseText.contains("give yourself a spinal tap")
+            || responseText.contains("stab yourself in the spine")
+            || responseText.contains("tap your spinal fluid")
+            || skillSuccess) {
+          Preferences.increment("_bczRefractedGazeCasts");
+        }
+      }
+      case SkillPool.BCZ__SWEAT_BULLETS -> {
+        if (responseText.contains("sweat literal bullets")
+            || responseText.contains("fire off some sweat bullets")
+            || responseText.contains("fire sweat bullets")
+            || skillSuccess) {
+          Preferences.increment("_bczSweatBulletsCasts");
+        }
+      }
 
-        // CyberRealm skills
+      // CyberRealm skills
       case SkillPool.THROW_CYBER_ROCK -> {
         // RAM Cost: 0
         // You envision some 1s in a clump and throw it at your foe for <b>10</b> damage.
@@ -10948,6 +11092,66 @@ public class FightRequest extends GenericRequest {
           currentRAM -= 7;
         }
       }
+      case SkillPool.CLUB_EM_ACROSS_THE_BATTLEFIELD -> {
+        if (responseText.contains("across the battlefield") || skillSuccess) {
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.CLUB_EM_INTO_NEXT_WEEK -> {
+        if (responseText.contains("save some leftovers") || skillSuccess) {
+          skillSuccess = true;
+          TurnCounter.stopCounting("Club 'Em Into Next Week Monster");
+          if (Preferences.getBoolean("stopForFixedWanderer")) {
+            TurnCounter.startCounting(
+                8, "Club 'Em Into Next Week Monster type=wander", "watch.gif");
+          } else {
+            TurnCounter.startCounting(
+                8, "Club 'Em Into Next Week Monster loc=* type=wander", "watch.gif");
+          }
+          Preferences.setString("clubEmNextWeekMonster", monsterName);
+          Preferences.setInteger("clubEmNextWeekMonsterTurn", KoLCharacter.getTurnsPlayed());
+        }
+      }
+      case SkillPool.CLUB_EM_BACK_IN_TIME -> {
+        if (responseText.contains("you've already defeated")
+            || responseText.contains("about fifteen seconds")
+            || skillSuccess) {
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.STEAL_HEART -> {
+        Matcher heartMatcher = STEAL_LETTER_PATTERN.matcher(responseText);
+        if (heartMatcher.find()) {
+          var letter = heartMatcher.group(1);
+          var curLetters = Preferences.getString("heartstoneLetters");
+          if (curLetters.length() > 3) {
+            curLetters = "";
+          }
+          Preferences.setString("heartstoneLetters", curLetters + letter);
+        }
+      }
+      case SkillPool.HEARTSTONE_KILL -> {
+        if (responseText.contains("You focus your attention on your Heartstone") || skillSuccess) {
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.HEARTSTONE_BANISH -> {
+        if (responseText.contains("A ray blasts out of the stone") || skillSuccess) {
+          BanishManager.banishMonster(monster, Banisher.HEARTSTONE_BANISH);
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.HEARTSTONE_STUN -> {
+        if (responseText.contains("You touch your Heartstone and think the word") || skillSuccess) {
+          skillSuccess = true;
+        }
+      }
+      case SkillPool.MEAT_CUTE -> {
+        if (responseText.contains("flex and ripple") || skillSuccess) {
+          TrackManager.trackMonster(monster, Tracker.MEAT_CUTE);
+          skillSuccess = true;
+        }
+      }
     }
 
     if (skillSuccess || skillRunawaySuccess || familiarSkillSuccess) {
@@ -10999,7 +11203,7 @@ public class FightRequest extends GenericRequest {
         }
       }
 
-        // Handle item banishers
+      // Handle item banishers
       case ItemPool.CRYSTAL_SKULL -> {
         if (responseText.contains("skull explodes into a million worthless shards of glass")
             || itemRunawaySuccess) {
@@ -11094,6 +11298,11 @@ public class FightRequest extends GenericRequest {
         if (responseText.contains("pull a nuclear bomb out of the stockpile")
             || itemRunawaySuccess) {
           Preferences.increment("_nuclearStockpileUsed", 1, 10, false);
+        }
+      }
+      case ItemPool.WAND_OF_PIGIFICATION -> {
+        if (responseText.contains("a hot pink beam") || itemSuccess) {
+          Preferences.increment("_wandOfPigificationUsed");
         }
       }
       case ItemPool.AFFIRMATION_SUPERFICIALLY_INTERESTED -> {

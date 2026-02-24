@@ -12,6 +12,12 @@ public class EffectPool {
   public static final int BLOODY_HAND = 15;
   public static final int LEASH_OF_LINGUINI = 16;
   public static final int GHOSTLY_SHELL = 18;
+  public static final int SEAL_CLUBBING_FRENZY = 21;
+  public static final int PATIENCE_OF_THE_TORTOISE = 22;
+  public static final int PASTA_ONENESS = 23;
+  public static final int SAUCEMASTERY = 24;
+  public static final int DISCO_STATE_OF_MIND = 25;
+  public static final int MARIACHI_MOOD = 26;
   public static final int EXPERT_OILINESS = 37;
   public static final int HERNIA = 39;
   public static final int SUNBURNED = 42;
@@ -278,6 +284,7 @@ public class EffectPool {
   public static final int BORED_WITH_EXPLOSIONS = 1557;
   public static final int SOME_PIGS = 1640;
   public static final int INFERNAL_THIRST = 1702;
+  public static final int EXPERIMENTAL_EFFECT_G9 = 1744;
   public static final int CONFIDENCE = 1791;
   public static final int PURR_OF_THE_FELINE = 1800;
   public static final int TAUNT_OF_HORUS = 1812;
@@ -429,6 +436,7 @@ public class EffectPool {
   public static final int FAVORED_BY_THE_DON = 3026;
   public static final int YOUR_OWN_PARENTS = 3027;
   public static final int MET_CUTE = 3028;
+  public static final int HEARTSTONE_ATTUNEMENT = 3071;
 
   public static final AdventureResult CURSE1_EFFECT = EffectPool.get(EffectPool.ONCE_CURSED);
   public static final AdventureResult CURSE2_EFFECT = EffectPool.get(EffectPool.TWICE_CURSED);

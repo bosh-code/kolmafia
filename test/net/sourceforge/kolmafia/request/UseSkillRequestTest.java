@@ -268,7 +268,7 @@ class UseSkillRequestTest {
           "runskillz.php?action=Skillz&whichskill=7414&ajax=1&quantity=1",
           html("request/test_cast_sweat_booze.html"));
       // 31 - 25 = 6
-      assertEquals(Preferences.getInteger("sweat"), 6);
+      assertEquals(6, Preferences.getInteger("sweat"));
     }
 
     @Test
@@ -280,7 +280,7 @@ class UseSkillRequestTest {
           "runskillz.php?action=Skillz&whichskill=7419&ajax=1&quantity=1",
           html("request/test_cast_drench_sweat.html"));
       // 69 - 15 = 54
-      assertEquals(Preferences.getInteger("sweat"), 54);
+      assertEquals(54, Preferences.getInteger("sweat"));
     }
   }
 
@@ -666,6 +666,30 @@ class UseSkillRequestTest {
         var requests = getRequests();
         assertPostRequest(
             requests.get(0), "/inv_equip.php", "which=2&ajax=1&action=unequip&type=weapon");
+      }
+    }
+
+    @Test
+    public void parsesHeartstoneSkillsFromSkillzPage() {
+      var cleanups =
+          new Cleanups(
+              withEquipped(Slot.ACCESSORY1, ItemPool.HEARTSTONE),
+              withProperty("heartstoneKillUnlocked", false),
+              withProperty("heartstoneBanishUnlocked", false),
+              withProperty("heartstoneStunUnlocked", false),
+              withProperty("heartstoneBuffUnlocked", false),
+              withProperty("heartstoneLuckUnlocked", false),
+              withProperty("heartstonePalsUnlocked", false));
+
+      try (cleanups) {
+        UseSkillRequest.parseResponse("skillz.php", html("request/test_parse_skillz.html"));
+
+        assertThat("heartstoneKillUnlocked", isSetTo(false));
+        assertThat("heartstoneBanishUnlocked", isSetTo(true));
+        assertThat("heartstoneStunUnlocked", isSetTo(true));
+        assertThat("heartstoneBuffUnlocked", isSetTo(true));
+        assertThat("heartstoneLuckUnlocked", isSetTo(true));
+        assertThat("heartstonePalsUnlocked", isSetTo(true));
       }
     }
   }
